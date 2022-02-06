@@ -1,2 +1,4 @@
 # OOP-project.
-bobo
+Khanitin Saenkan (Bank)
+Lapasrada Kumjulla (Ploy)
+Winnaphat Kaewmora (Game)
