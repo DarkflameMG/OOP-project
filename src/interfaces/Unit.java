@@ -7,9 +7,16 @@ public interface Unit {
     void move();
 
     /**
-     * unit attack another difference species unit
+     * this unit attack target unit
+     * @param target a Unit that this Unit attack for decrease hp
      */
-    void attack();
+    void attack(Unit target);
+
+    /**
+     * decrease this unit hp
+     * @param damage a number that belong to enemy's damage
+     */
+    void decreaseHp(int damage);
 
     /**
      * check this unit if it is virus
@@ -24,8 +31,20 @@ public interface Unit {
     int isAntiBody();
 
     /**
-     * return unit's status
-     * @return array of status
+     * return this Unit damage value
+     * @return a number that greater than equal 0
      */
-    int[] status();
+    int getDamage();
+
+    /**
+     * return this Unit current hp value
+     * @return a number that greater than equal 0
+     */
+    int getHp();
+
+    /**
+     * return this Unit defence value
+     * @return a number that greater than equal 0
+     */
+    int getDefence();
 }
