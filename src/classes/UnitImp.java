@@ -5,6 +5,8 @@ public class UnitImp implements Unit {
     protected int hp = 0;
     protected int damage = 0;
     protected int defence = 0;
+    protected int coordinateX;
+    protected int coordinateY;
     protected String species;
 
     protected UnitImp(String species)
@@ -12,9 +14,10 @@ public class UnitImp implements Unit {
         this.species = species;
     }
 
-    public void move()
+    public void move(int x,int y)
     {
-
+        this.coordinateX = x;
+        this.coordinateY = y;
     }
 
     public int isVirus()
