@@ -3,8 +3,10 @@ package interfaces;
 public interface Unit {
     /**
      * move unit to another location
+     * @param x a number of x-axis
+     * @param y a number of y-axis
      */
-    void move();
+    void move(int x,int y);
 
     /**
      * this unit attack target unit
