@@ -1,4 +1,10 @@
 package interfaces;
+
 public interface Node {
-    void prettyPrint(StringBuilder s);
+    /**
+     * Evaluate nodeof each the node type 
+     * @return the results of the evaluation
+    */
+
+    double evaluate();
 }
