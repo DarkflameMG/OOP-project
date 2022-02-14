@@ -1,13 +1,25 @@
 package classes;
 
-import interfaces.Execute;
+import java.util.ArrayList;
+import java.util.List;
 
-public class NodeProgram implements Execute{
+import interfaces.Node;
+
+public class NodeProgram implements Node{
+
+    List<Node> statements;
+
+    public NodeProgram(){
+        statements = new ArrayList<>();
+    }
 
     @Override
-    public void execute() {
+    public double evaluate() {
         // TODO Auto-generated method stub
-        
+        for(Node statement: statements){
+            statement.evaluate();
+        }
+        return 0;
     }
     
 }
