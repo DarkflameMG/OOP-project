@@ -2,24 +2,34 @@ package classes.parse;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import interfaces.Execute;
 import interfaces.Node;
+import interfaces.Unit;
 
 public class GeneticGrammar {
     private final ExprTokenizer tknz;
-
-    public GeneticGrammar(String src){
-        this.tknz = ExprTokenizer.getInstance();
-    }
+    private Map<String, Integer> bindings;
+    private Unit unit;
     
+    public GeneticGrammar(String src) throws SyntaxError, TokenizerError{
+        this.tknz = new ExprTokenizer(src);
+    }
+
     private final String[] directionList = {"left", "right", "up", "down", "upleft", "upright", "downleft", "downright"};
     private final Set<String> directions = new HashSet<>(List.of(directionList));
+    
 
     //Program → Statement+
-    public Execute parseProgram(){
-        return null;
+    public Execute parseProgram() throws TokenizerError, SyntaxError{
+        NodeProgram p = new NodeProgram();
+        p.addStatement(parseStatement());
+        while(!tknz.consume().equals("")){           //next tknz is statement
+            p.addStatement(parseStatement());
+        }
+        return p;
     }
 
     //Statement → Command | BlockStatement | IfStatement | WhileStatement
@@ -44,11 +54,11 @@ public class GeneticGrammar {
     }
 
     //AssignmentStatement → <identifier> = Expression
-    public Execute parseAssignmentStatement(){
-        return null;
-    }
-    public Execute parseSensorCommand(){
-        return null;
+    public Execute parseAssignmentStatement() throws TokenizerError{
+        String identifier = tknz.peek();       
+        tknz.consume("=");
+        Node expr = parseExpression();
+        return new NodeAssignmentStatement(bindings, identifier, expr);
     }
 
     //ActionCommand → MoveCommand | AttackCommand
@@ -64,23 +74,23 @@ public class GeneticGrammar {
     //MoveCommand → move Direction
     public Execute parseMoveCommand() throws TokenizerError, SyntaxError{
         tknz.consume("move");
-        if(directions.contains(tknz.consume())){
-            return null;
+        String move_direction = tknz.consume();
+        if(directions.contains(move_direction)){
+            return new NodeMoveCommand(move_direction, unit);
         }else{
-            throw new SyntaxError("Unknown direction word");
+            throw new SyntaxError("Unknown direction: "+ move_direction);
         }
-        // return null;
     }
 
     //AttackCommand → shoot Direction
     public Execute parseAttackCommand() throws TokenizerError, SyntaxError{
         tknz.consume("shoot");
-        if(directions.contains(tknz.consume())){
-            return null;
+        String shoot_direction = tknz.consume();
+        if(directions.contains(shoot_direction)){
+            return new NodeAttackCommand(shoot_direction, unit);
         }else{
-            throw new SyntaxError("Unknown direction word");
+            throw new SyntaxError("Unknown direction: "+ shoot_direction);
         }
-        // return null;
     }
 
     //Direction → left | right | up | down | upleft | upright | downleft | downright
@@ -89,39 +99,69 @@ public class GeneticGrammar {
     }
 
     //BlockStatement → { Statement* }
-    public Execute parseBlockStatement() throws TokenizerError{
+    public Execute parseBlockStatement() throws TokenizerError, SyntaxError{
+        NodeBlockStatement nb = new NodeBlockStatement();
         tknz.consume("{");
-        
-        return null;
+        while(!tknz.peek("}")){
+            nb.addBlockStatement(parseStatement()); 
+            //tknz.consume("}");
+        }
+        tknz.consume("}");
+        return nb;
     }
 
     //IfStatement → if ( Expression ) then Statement else Statement
-    public Execute parseIfStatement(){
-        return null;
+    public Execute parseIfStatement() throws TokenizerError, SyntaxError{
+        tknz.consume("if");
+        tknz.consume("(");
+        Node expr = parseExpression();
+        tknz.consume(")");
+        tknz.consume("then");
+        Execute statementTrue = parseStatement();  
+        tknz.consume("else"); 
+        if(tknz.peek("if")){              //case: else if
+            parseIfStatement();
+        }
+        Execute statementFalse = parseStatement();
+        return new NodeIfStatement(statementTrue, statementFalse, expr);
     }
 
     //WhileStatement → while ( Expression ) Statement
-    public Execute parseWhileStatement(){
-
-        return null;
+    public Execute parseWhileStatement() throws TokenizerError, SyntaxError{
+        tknz.consume("while");
+        tknz.consume("(");
+        Node expr = parseExpression();
+        tknz.consume(")");
+        Execute statement = parseStatement();
+        return new NodeWhileStatement(statement, expr);
     }
 
     //Expression → Expression + Term | Expression - Term | Term
-    public Node parseExpression(){
-        return null;
+    public Node parseExpression() throws TokenizerError{
+        Node term = parseTerm();
+        while(tknz.peek("+")|| tknz.peek("-")){
+            String operator = tknz.consume();
+            term = new BinaryArithmetic(term, parseTerm(), operator);
+        }
+        return term;
     }
 
     //Term → Term * Factor | Term / Factor | Term % Factor | Factor
-    public Node parseTerm(){
-        return null;
+    public Node parseTerm() throws TokenizerError{
+        Node factor = parseFactor();
+        while(tknz.peek("*") || tknz.peek("/") || tknz.peek("%")){
+            String operator = tknz.consume();
+            factor = new BinaryArithmetic(factor, parseFactor(), operator);
+        }
+        return factor;
     }
 
     //Factor → Power ^ Factor | Power
-    public Node parseFactor(){
+    public Node parseFactor() throws TokenizerError{
         Node pw = parsePower();
         while(tknz.peek("^")){
-            String opr = tknz.consume();
-            // power = ;
+            String operator = tknz.consume();
+            pw = new BinaryArithmetic(pw, parsePower(), operator);;
         }
         return pw;
     }
@@ -135,5 +175,4 @@ public class GeneticGrammar {
     public Execute parseSsensorExpression(){
         return null;
     }
-
 }
