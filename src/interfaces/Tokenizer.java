@@ -1,6 +1,6 @@
 package interfaces;
 
-import classes.TokenizerError;
+import classes.parse.TokenizerError;
 
 public interface Tokenizer {
 

@@ -1,6 +1,6 @@
 package interfaces;
 
-import classes.SyntaxError;
+import classes.parse.SyntaxError;
 
 public interface Execute {
 

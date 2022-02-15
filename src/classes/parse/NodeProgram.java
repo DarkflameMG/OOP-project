@@ -1,4 +1,4 @@
-package classes;
+package classes.parse;
 
 import java.util.ArrayList;
 import java.util.List;
