@@ -16,7 +16,7 @@ public class NodeIfStatement implements Execute{
     }
     
     @Override
-    public void execute() {
+    public void execute() throws SyntaxError {
         if(expr.evaluate()<=0){
             statementFalse.execute();
         }else if(expr.evaluate()>0){

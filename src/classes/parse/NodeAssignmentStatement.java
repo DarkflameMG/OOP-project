@@ -12,11 +12,16 @@ public class NodeAssignmentStatement implements Execute{
     Node expr;
 
     public NodeAssignmentStatement(Map<String, Integer> bindings, String identifier, Node expr){
-        
+        this.bindings = bindings;
+        this.identifier = identifier;
+        this.expr = expr;
     }
+    
     @Override
     public void execute() {
-        bindings.put(identifier, (int) expr.evaluate());
+        try {
+            bindings.put(identifier, expr.evaluate());
+        } catch (SyntaxError e) {}
     }
 
 }
