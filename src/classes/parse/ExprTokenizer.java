@@ -3,17 +3,12 @@ package classes.parse;
 import interfaces.Tokenizer;
 
 public class ExprTokenizer implements  Tokenizer{
-    private static ExprTokenizer instance;
     private String src;
     private String next;
     private int pos;
 
-    public static ExprTokenizer getInstance(){
-        ExprTokenizer.instance = new ExprTokenizer();
-        return ExprTokenizer.instance;
-    }
 
-    public void initial(String src) throws TokenizerError {
+    public ExprTokenizer(String src) throws SyntaxError, TokenizerError {
         this.src = src;
         pos = 0;
         computeNext();
