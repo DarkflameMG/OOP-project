@@ -14,7 +14,7 @@ public class NodeProgram implements Node{
     }
 
     @Override
-    public double evaluate() {
+    public int evaluate() throws SyntaxError {
         // TODO Auto-generated method stub
         for(Node statement: statements){
             statement.evaluate();

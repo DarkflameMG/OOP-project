@@ -14,17 +14,18 @@ public class BinaryArithmetic implements Node{
     }
     
     @Override
-    public double evaluate() throws SyntaxError{
-        double a = left.evaluate();
-        double b = right.evaluate();
+    public int evaluate() throws SyntaxError{
+        int a = left.evaluate();
+        int b = right.evaluate();
 
         if(opr.equals("+")) return a+b;
         if(opr.equals("-")) return a-b;
         if(opr.equals("*")) return a*b;
         if(opr.equals("/")) return a/b;
         if(opr.equals("%")) return a%b;
-        if(opr.equals("^")) return Math.pow(a,b);
+        if(opr.equals("^")) return (int) Math.pow(a,b);
         // return 0;
         throw new SyntaxError("unknown oprator: "+ opr);
     }
+
 }
