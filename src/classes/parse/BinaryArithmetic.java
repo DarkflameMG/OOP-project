@@ -34,8 +34,14 @@ public class BinaryArithmetic implements Node{
         }if(opr.equals("^")) return (int) Math.pow(a,b);
         // return 0;
         throw new SyntaxError("unknown oprator: "+ opr);
+    }
 
-        
+    public void prettyPrint(StringBuilder s) {              //for test
+        s.append("(");
+        ((BinaryArithmetic) left).prettyPrint(s);
+        s.append(opr);
+        ((BinaryArithmetic) right).prettyPrint(s);
+        s.append(")");
     }
 
 }
