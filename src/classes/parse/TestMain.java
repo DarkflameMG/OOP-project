@@ -1,7 +1,16 @@
 package classes.parse;
 
-public class TestMain {
-    // GeneticGrammar gen = GeneticGrammar.getInstance();
+public class TestMain{
+
+    public static String printexp (BinaryArithmetic s){
+        StringBuilder a = new StringBuilder();
+        s.prettyPrint(a);
+        System.out.println("Expression: "+ a);
+        return a.toString();
+    }
+    
+    public static void main(String[] args) throws TokenizerError, SyntaxError {
+        // GeneticGrammar gen = GeneticGrammar.getInstance();
     String test = "virusLoc = virus" +
     "if (virusLoc / 10 - 1)" +
     "then" +
@@ -36,7 +45,15 @@ public class TestMain {
     "else move up" +
     "}";
 
-    // GeneticGrammar t = new GeneticGrammar();
-    
+    // GeneticGrammar t = new GeneticGrammar(test);
 
+    GeneticGrammar l = new GeneticGrammar("2");
+    GeneticGrammar r = new GeneticGrammar("5");
+    BinaryArithmetic lr = new BinaryArithmetic(l.parseExpression(), r.parseExpression(), "+");
+    TestMain.printexp(lr);  
+
+    }
+
+    
+     
 }
