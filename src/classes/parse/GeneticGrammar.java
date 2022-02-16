@@ -24,12 +24,13 @@ public class GeneticGrammar {
 
     //Program → Statement+
     public Execute parseProgram() throws TokenizerError, SyntaxError{
-        NodeProgram p = new NodeProgram();
-        p.addStatement(parseStatement());
-        while(!tknz.consume().equals("")){           //next tknz is statement
-            p.addStatement(parseStatement());
-        }
-        return p;
+        return null;
+        // NodeProgram p = new NodeProgram();
+        // p.addStatement(parseStatement());
+        // while(!tknz.consume().equals("")){           //next tknz is statement
+        //     p.addStatement(parseStatement());
+        // }
+        // return p;
     }
 
     //Statement → Command | BlockStatement | IfStatement | WhileStatement
@@ -54,7 +55,7 @@ public class GeneticGrammar {
     }
 
     //AssignmentStatement → <identifier> = Expression
-    public Execute parseAssignmentStatement() throws TokenizerError{
+    public Execute parseAssignmentStatement() throws TokenizerError, SyntaxError{
         String identifier = tknz.peek();       
         tknz.consume("=");
         Node expr = parseExpression();
@@ -137,7 +138,7 @@ public class GeneticGrammar {
     }
 
     //Expression → Expression + Term | Expression - Term | Term
-    public Node parseExpression() throws TokenizerError{
+    public Node parseExpression() throws TokenizerError, SyntaxError{
         Node term = parseTerm();
         while(tknz.peek("+")|| tknz.peek("-")){
             String operator = tknz.consume();
@@ -147,7 +148,7 @@ public class GeneticGrammar {
     }
 
     //Term → Term * Factor | Term / Factor | Term % Factor | Factor
-    public Node parseTerm() throws TokenizerError{
+    public Node parseTerm() throws TokenizerError, SyntaxError{
         Node factor = parseFactor();
         while(tknz.peek("*") || tknz.peek("/") || tknz.peek("%")){
             String operator = tknz.consume();
@@ -157,7 +158,7 @@ public class GeneticGrammar {
     }
 
     //Factor → Power ^ Factor | Power
-    public Node parseFactor() throws TokenizerError{
+    public Node parseFactor() throws TokenizerError, SyntaxError{
         Node pw = parsePower();
         while(tknz.peek("^")){
             String operator = tknz.consume();
@@ -167,12 +168,12 @@ public class GeneticGrammar {
     }
 
     //Power → <number> | <identifier> | ( Expression ) | SensorExpression
-    public Node parsePower(){
+    public Node parsePower() throws TokenizerError, SyntaxError{
         return null;
     }
 
     //SensorExpression → virus | antibody | nearby Direction
-    public Execute parseSsensorExpression(){
+    public Execute parseSsensorExpression() throws TokenizerError, SyntaxError{
         return null;
     }
 }
