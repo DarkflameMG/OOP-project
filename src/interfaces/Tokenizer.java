@@ -11,7 +11,7 @@ public interface Tokenizer {
     String peek();
 
     /**
-     * Get the current token
+     * Return token and remove that 
      * @return current token
      * @throws TokenizerError if unknown token has been found
      */
