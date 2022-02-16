@@ -21,11 +21,21 @@ public class BinaryArithmetic implements Node{
         if(opr.equals("+")) return a+b;
         if(opr.equals("-")) return a-b;
         if(opr.equals("*")) return a*b;
-        if(opr.equals("/")) return a/b;
-        if(opr.equals("%")) return a%b;
-        if(opr.equals("^")) return (int) Math.pow(a,b);
+        if(opr.equals("/")) {
+            if(b == 0){
+                throw new SyntaxError("cannot divided by zero");
+            }
+            return a/b;
+        }if(opr.equals("%")) {
+            if(b == 0){
+                throw new SyntaxError("cannot modurate by zero");
+            }
+            return a%b;
+        }if(opr.equals("^")) return (int) Math.pow(a,b);
         // return 0;
         throw new SyntaxError("unknown oprator: "+ opr);
+
+        
     }
 
 }
