@@ -169,7 +169,31 @@ public class GeneticGrammar {
 
     //Power → <number> | <identifier> | ( Expression ) | SensorExpression
     public Node parsePower() throws TokenizerError, SyntaxError{
-        return null;
+        if(isNumber(tknz.peek()) > 0)
+        {
+            return new Number(Integer.parseInt(tknz.consume()));
+        }
+        else
+        {
+            tknz.consume("(");
+            Node e = parseExpression();
+            tknz.consume(")");
+            return e;
+        }
+    }
+
+    private int isNumber(String s)
+    {
+        if(s == null || s.equals(""))
+            return 0;
+        try {
+            int a = Integer.parseInt(s);
+        }
+        catch (NumberFormatException e)
+        {
+            return 0;
+        }
+        return 1;
     }
 
     //SensorExpression → virus | antibody | nearby Direction
