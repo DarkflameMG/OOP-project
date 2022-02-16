@@ -6,7 +6,7 @@ public class VirusImp extends UnitImp implements VirusUnit{
 
     public VirusImp()
     {
-        super("virus");
+        super("virus",0,0);
     }
 
     public void spawn()

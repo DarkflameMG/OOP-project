@@ -8,16 +8,22 @@ public class UnitImp implements Unit {
     protected int coordinateX;
     protected int coordinateY;
     protected String species;
+    protected ConfigImp config = ConfigImp.getInstance();
 
-    protected UnitImp(String species)
+    protected UnitImp(String species,int x,int y)
     {
         this.species = species;
+        this.coordinateX = x;
+        this.coordinateY = y;
     }
 
     public void move(int x,int y)
     {
-        this.coordinateX = x;
-        this.coordinateY = y;
+        if(coordinateX + x >= 0 && coordinateY + y >= 0 && coordinateX + x <= config.m && coordinateY + y <= config.n)
+        {
+            coordinateX += x;
+            coordinateY += y;
+        }
     }
 
     public int isVirus()
