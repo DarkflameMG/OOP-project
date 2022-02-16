@@ -1,5 +1,7 @@
 package classes.parse;
 
+import interfaces.Node;
+
 public class TestMain{
 
     public static String printexp (BinaryArithmetic s){
@@ -46,12 +48,14 @@ public class TestMain{
     "}";
 
     // GeneticGrammar t = new GeneticGrammar(test);
-
-    GeneticGrammar l = new GeneticGrammar("2");
-    GeneticGrammar r = new GeneticGrammar("5");
-    BinaryArithmetic lr = new BinaryArithmetic(l.parseExpression(), r.parseExpression(), "+");
-    TestMain.printexp(lr);  
-
+    String s = "2+5*2";
+//    GeneticGrammar l = new GeneticGrammar("2");
+//    GeneticGrammar r = new GeneticGrammar("5");
+//    BinaryArithmetic lr = new BinaryArithmetic(l.parseExpression(), r.parseExpression(), "+");
+//    TestMain.printexp(lr);
+    GeneticGrammar g = new GeneticGrammar(s);
+    Node e = g.parseExpression();
+        System.out.println(e.evaluate());
     }
 
     
