@@ -173,12 +173,16 @@ public class GeneticGrammar {
         {
             return new Number(Integer.parseInt(tknz.consume()));
         }
-        else
+        else if(tknz.peek("("))
         {
             tknz.consume("(");
             Node e = parseExpression();
             tknz.consume(")");
             return e;
+        }
+        else
+        {
+            return null;
         }
     }
 
