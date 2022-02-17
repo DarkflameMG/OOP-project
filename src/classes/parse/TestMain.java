@@ -1,5 +1,6 @@
 package classes.parse;
 
+import classes.parseAlter.TokenizerImp;
 import interfaces.Node;
 
 public class TestMain{
@@ -48,16 +49,23 @@ public class TestMain{
     "}";
 
     // GeneticGrammar t = new GeneticGrammar(test);
-    String s = "2+5*2";
+    String s = "while (virus + 10)";
 //    GeneticGrammar l = new GeneticGrammar("2");
 //    GeneticGrammar r = new GeneticGrammar("5");
 //    BinaryArithmetic lr = new BinaryArithmetic(l.parseExpression(), r.parseExpression(), "+");
 //    TestMain.printexp(lr);
-    GeneticGrammar g = new GeneticGrammar(s);
-    Node e = g.parseExpression();
-        System.out.println(e.evaluate());
+//    GeneticGrammar g = new GeneticGrammar(s);
+//    Node e = g.parseExpression();
+//        System.out.println(e.evaluate());
+        TokenizerImp tk = new TokenizerImp(s);
+        while (!tk.peek().equals(""))
+        {
+            System.out.println(tk.consume());
+        }
+        System.out.println();
+       ExprTokenizer tkz = new ExprTokenizer(s);
+       while (!tkz.peek().equals(""))
+           System.out.println(tkz.consume());
     }
 
-    
-     
 }
