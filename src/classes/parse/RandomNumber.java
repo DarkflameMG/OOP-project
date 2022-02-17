@@ -2,6 +2,8 @@ package classes.parse;
 
 import interfaces.Node;
 
+import java.util.Map;
+
 public class RandomNumber implements Node{
     int num;
 
@@ -10,7 +12,7 @@ public class RandomNumber implements Node{
     }
 
     @Override
-    public int evaluate() throws SyntaxError {
+    public int evaluate(Map<String,Node> bindings) throws SyntaxError {
         return num;
     }
 }

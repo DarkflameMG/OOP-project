@@ -2,6 +2,8 @@ package classes.parse;
 
 import interfaces.Node;
 
+import java.util.Map;
+
 public class BinaryArithmetic implements Node{
     Node left;
     Node right;
@@ -14,9 +16,9 @@ public class BinaryArithmetic implements Node{
     }
     
     @Override
-    public int evaluate() throws SyntaxError{
-        int a = left.evaluate();
-        int b = right.evaluate();
+    public int evaluate(Map<String,Node> bindings) throws SyntaxError{
+        int a = left.evaluate(bindings);
+        int b = right.evaluate(bindings);
 
         if(opr.equals("+")) return a+b;
         if(opr.equals("-")) return a-b;

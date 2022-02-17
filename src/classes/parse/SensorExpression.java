@@ -2,6 +2,8 @@ package classes.parse;
 
 import interfaces.Node;
 
+import java.util.Map;
+
 public class SensorExpression implements Node{
     String obj;
     String direction;
@@ -12,7 +14,7 @@ public class SensorExpression implements Node{
     }
 
     @Override
-    public int evaluate() throws SyntaxError {
+    public int evaluate(Map<String,Node> bindings) throws SyntaxError {
         if(obj.equals("antibody")){
             return 1;
         }
