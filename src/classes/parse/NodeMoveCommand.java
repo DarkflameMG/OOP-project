@@ -1,13 +1,14 @@
 package classes.parse;
 
 import interfaces.Execute;
+import interfaces.Node;
 import interfaces.Unit;
 
 public class NodeMoveCommand implements Execute{
-    String direction;
-    Unit unit;
+    private Node direction;
+    private Unit unit;
 
-    public NodeMoveCommand(String direction, Unit unit){
+    public NodeMoveCommand(Node direction, Unit unit){
         this.direction =direction;
         this.unit = unit;
     }
