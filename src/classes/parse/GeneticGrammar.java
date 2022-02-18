@@ -11,7 +11,7 @@ import interfaces.Unit;
 
 public class GeneticGrammar {
     private final ExprTokenizer tknz;
-    private Map<String, Integer> bindings;
+    private Map<String, Node> bindings;
     private Unit unit;
     
     public GeneticGrammar(String src) throws SyntaxError, TokenizerError{
@@ -124,7 +124,7 @@ public class GeneticGrammar {
             parseIfStatement();
         }
         Execute statementFalse = parseStatement();
-        return new NodeIfStatement(statementTrue, statementFalse, expr);
+        return new NodeIfStatement(statementTrue, statementFalse, expr, bindings);
     }
 
     //WhileStatement → while ( Expression ) Statement
@@ -134,7 +134,7 @@ public class GeneticGrammar {
         Node expr = parseExpression();
         tknz.consume(")");
         Execute statement = parseStatement();
-        return new NodeWhileStatement(statement, expr);
+        return new NodeWhileStatement(statement, expr, bindings);
     }
 
     //Expression → Expression + Term | Expression - Term | Term
