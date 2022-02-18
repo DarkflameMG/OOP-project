@@ -3,6 +3,9 @@ package classes.parse;
 import classes.parseAlter.TokenizerImp;
 import interfaces.Node;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class TestMain{
 
     public static String printexp (BinaryArithmetic s){
@@ -57,15 +60,6 @@ public class TestMain{
 //    GeneticGrammar g = new GeneticGrammar(s);
 //    Node e = g.parseExpression();
 //        System.out.println(e.evaluate());
-        TokenizerImp tk = new TokenizerImp(s);
-        while (!tk.peek().equals(""))
-        {
-            System.out.println(tk.consume());
-        }
-        System.out.println();
-       ExprTokenizer tkz = new ExprTokenizer(s);
-       while (!tkz.peek().equals(""))
-           System.out.println(tkz.consume());
     }
 
 }
