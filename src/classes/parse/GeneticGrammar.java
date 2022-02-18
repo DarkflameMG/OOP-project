@@ -12,10 +12,11 @@ import interfaces.Unit;
 public class GeneticGrammar {
     private final ExprTokenizer tknz;
     private Map<String, Node> bindings;
-    private Unit unit;
+    private final Unit unit;
     
-    public GeneticGrammar(String src) throws SyntaxError, TokenizerError{
+    public GeneticGrammar(String src, Unit unit) throws SyntaxError, TokenizerError{
         this.tknz = new ExprTokenizer(src);
+        this.unit = unit;
     }
 
     private final String[] directionList = {"left", "right", "up", "down", "upleft", "upright", "downleft", "downright"};
@@ -75,9 +76,9 @@ public class GeneticGrammar {
     //MoveCommand → move Direction
     public Execute parseMoveCommand() throws TokenizerError, SyntaxError{
         tknz.consume("move");
-        String move_direction = tknz.consume();
+        String move_direction = tknz.peek();
         if(directions.contains(move_direction)){
-            return new NodeMoveCommand(move_direction, unit);
+            return new NodeMoveCommand(parseDirection(), unit);
         }else{
             throw new SyntaxError("Unknown direction: "+ move_direction);
         }
@@ -86,17 +87,17 @@ public class GeneticGrammar {
     //AttackCommand → shoot Direction
     public Execute parseAttackCommand() throws TokenizerError, SyntaxError{
         tknz.consume("shoot");
-        String shoot_direction = tknz.consume();
+        String shoot_direction = tknz.peek();
         if(directions.contains(shoot_direction)){
-            return new NodeAttackCommand(shoot_direction, unit);
+            return new NodeAttackCommand(parseDirection(), unit);
         }else{
             throw new SyntaxError("Unknown direction: "+ shoot_direction);
         }
     }
 
     //Direction → left | right | up | down | upleft | upright | downleft | downright
-    public Execute parseDirection(){
-        return null;
+    public Node parseDirection()throws TokenizerError{
+        return new NodeDirection(tknz.consume());
     }
 
     //BlockStatement → { Statement* }
@@ -180,9 +181,13 @@ public class GeneticGrammar {
             tknz.consume(")");
             return e;
         }
+        else if(tknz.peek("virus") || tknz.peek("antibody") || tknz.peek("nearby"))
+        {
+            return parseSensorExpression();
+        }
         else
         {
-            return null;
+            return new Identifier(tknz.consume());
         }
     }
 
@@ -201,7 +206,14 @@ public class GeneticGrammar {
     }
 
     //SensorExpression → virus | antibody | nearby Direction
-    public Execute parseSsensorExpression() throws TokenizerError, SyntaxError{
-        return null;
+    public Node parseSensorExpression() throws TokenizerError, SyntaxError{
+        if(tknz.peek("virus") || tknz.peek("antibody"))
+        {
+            return new SensorExpression(unit,tknz.consume(),null);
+        }
+        else
+        {
+            return new SensorExpression(unit,tknz.consume(),parseDirection());
+        }
     }
 }
