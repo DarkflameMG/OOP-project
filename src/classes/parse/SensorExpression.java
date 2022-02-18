@@ -1,27 +1,30 @@
 package classes.parse;
 
 import interfaces.Node;
+import interfaces.Unit;
 
 import java.util.Map;
 
 public class SensorExpression implements Node{
-    String obj;
-    String direction;
+    Unit unit;
+    String host;
+    Node direction;
 
-    public SensorExpression(String obj, String direction){
-        this.obj = obj;
+    public SensorExpression(Unit unit,String host, Node direction){
+        this.unit =unit;
+        this.host = host;
         this.direction = direction;
     }
 
     @Override
     public int evaluate(Map<String,Node> bindings) throws SyntaxError {
-        if(obj.equals("antibody")){
+        if(host.equals("antibody")){
             return 1;
         }
-        else if(obj.equals("virus")){
+        else if(host.equals("virus")){
             return -1;
         }
-        else{               
+        else{
             return 0;
         }
     }
