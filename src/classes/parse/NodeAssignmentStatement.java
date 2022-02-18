@@ -7,11 +7,11 @@ import interfaces.Node;
 
 public class NodeAssignmentStatement implements Execute{
 
-    Map<String, Integer> bindings;
+    Map<String, Node> bindings;
     String identifier;
     Node expr;
 
-    public NodeAssignmentStatement(Map<String, Integer> bindings, String identifier, Node expr){
+    public NodeAssignmentStatement(Map<String, Node> bindings, String identifier, Node expr){
         this.bindings = bindings;
         this.identifier = identifier;
         this.expr = expr;
@@ -19,9 +19,9 @@ public class NodeAssignmentStatement implements Execute{
     
     @Override
     public void execute() {
-        try {
-            bindings.put(identifier, expr.evaluate());
-        } catch (SyntaxError e) {}
+        /*try {
+            bindings.put(identifier, expr.evaluate(bindings));
+        } catch (SyntaxError e) {}*/
     }
 
 }
