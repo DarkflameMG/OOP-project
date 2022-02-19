@@ -1,6 +1,8 @@
 package classes.parse;
 
+import classes.AntiBodyImp;
 import classes.parse.nodes.BinaryArithmetic;
+import interfaces.Unit;
 
 public class TestMain{
 
@@ -48,7 +50,7 @@ public class TestMain{
     "}";
 
     // GeneticGrammar t = new GeneticGrammar(test);
-    String s = "while (virus + 10)";
+    String s = "x = 10"+" y = x"+"x = y + 10";
 //    GeneticGrammar l = new GeneticGrammar("2");
 //    GeneticGrammar r = new GeneticGrammar("5");
 //    BinaryArithmetic lr = new BinaryArithmetic(l.parseExpression(), r.parseExpression(), "+");
@@ -56,6 +58,10 @@ public class TestMain{
 //    GeneticGrammar g = new GeneticGrammar(s);
 //    Node e = g.parseExpression();
 //        System.out.println(e.evaluate());
+        Unit host = new AntiBodyImp();
+        GeneticGrammar t1 = new GeneticGrammar(s,host);
+        t1.parseProgram();
+        t1.run();
     }
 
 }
