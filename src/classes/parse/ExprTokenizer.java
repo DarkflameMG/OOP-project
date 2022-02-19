@@ -2,13 +2,19 @@ package classes.parse;
 
 import interfaces.Tokenizer;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class ExprTokenizer implements  Tokenizer{
     private String src;
     private String next;
     private int pos;
+    private Set<Character> ch = new HashSet<>();
 
 
     public ExprTokenizer(String src) throws SyntaxError, TokenizerError {
+        ch.add('+');ch.add('-');ch.add('*');ch.add('/');ch.add('%');ch.add('(');ch.add(')');
+        ch.add('{');ch.add('}');ch.add('=');
         this.src = src;
         pos = 0;
         computeNext();
@@ -25,10 +31,14 @@ public class ExprTokenizer implements  Tokenizer{
                         Character.isDigit(src.charAt(pos)); pos++)
                     s.append(src.charAt(pos));
             } else if (Character.isLetter(c)) {  // start of string
-                s.append(c);
-                pos++;
+                while( pos < src.length() && !Character.isWhitespace(src.charAt(pos)) && !ch.contains(src.charAt(pos)))
+                {
+                    c = src.charAt(pos);
+                    s.append(c);
+                    pos++;
+                }
             }
-            else if (c == '+' || c == '(' || c == ')' || c == '*' || c == '/' || c == '%') {
+            else if(ch.contains(c)){
                 s.append(c);
                 pos++;
             } else throw new TokenizerError("Unknown: " + c);
