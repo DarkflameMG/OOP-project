@@ -16,7 +16,7 @@ public class NodeAttackCommand implements Execute {
 
     @Override
     public void execute() throws SyntaxError {
-        //attack in direction??  or attack target??
-        // unit.attack(target);
+        int direc = direction.evaluate(null);
+        unit.attack(direc);
     }
 }

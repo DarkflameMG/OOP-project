@@ -17,7 +17,8 @@ public class NodeMoveCommand implements Execute{
     @Override
     public void execute() throws SyntaxError {
         //move direction
-        // unit.move(x, y);
+        int direc = direction.evaluate(null);
+        unit.move(direc);
     }
     
 }
