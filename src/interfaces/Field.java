@@ -23,4 +23,12 @@ public interface Field {
      * @return 1 if slot(x,y) is empty else return 0
      */
     int isEmpty(int x,int y);
+
+    /**
+     * return Unit in slot(x,y)
+     * @param x a number of x-axis
+     * @param y a number of y-axis
+     * @return Unit in slot(x,y) if slot(x,y) isn't empty else null
+     */
+    Unit getTarget(int x, int y);
 }

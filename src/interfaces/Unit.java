@@ -3,16 +3,15 @@ package interfaces;
 public interface Unit {
     /**
      * move unit to another location
-     * @param x a number of x-axis
-     * @param y a number of y-axis
+     * @param direction a number between 1 - 8
      */
-    void move(int x,int y);
+    void move(int direction);
 
     /**
-     * this unit attack target unit
-     * @param target a Unit that this Unit attack for decrease hp
+     * this unit attack target unit in input direction
+     * @param direction a number between 1 - 8
      */
-    void attack(Unit target);
+    void attack(int direction);
 
     /**
      * decrease this unit hp
