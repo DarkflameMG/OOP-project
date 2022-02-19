@@ -1,9 +1,6 @@
 package classes.parse;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import classes.parse.nodes.*;
 import classes.parse.nodes.Number;
@@ -13,27 +10,35 @@ import interfaces.Unit;
 
 public class GeneticGrammar {
     private final ExprTokenizer tknz;
-    private Map<String, Node> bindings;
+    private final Map<String, Node> bindings;
     private final Unit unit;
     
     public GeneticGrammar(String src, Unit unit) throws SyntaxError, TokenizerError{
         this.tknz = new ExprTokenizer(src);
         this.unit = unit;
+        this.bindings = new HashMap<>();
     }
 
     private final String[] directionList = {"left", "right", "up", "down", "upleft", "upright", "downleft", "downright"};
     private final Set<String> directions = new HashSet<>(List.of(directionList));
-    
+
+    public void run() throws SyntaxError
+    {
+        for(String v: bindings.keySet())
+        {
+            System.out.println(v+" = "+bindings.get(v).evaluate(bindings));
+        }
+    }
+
 
     //Program → Statement+
     public Execute parseProgram() throws TokenizerError, SyntaxError{
-        return null;
-        // NodeProgram p = new NodeProgram();
-        // p.addStatement(parseStatement());
-        // while(!tknz.consume().equals("")){           //next tknz is statement
-        //     p.addStatement(parseStatement());
-        // }
-        // return p;
+         NodeProgram p = new NodeProgram();
+         p.addStatement(parseStatement());
+         while(!tknz.peek().equals("")){           //next tknz is statement
+             p.addStatement(parseStatement());
+         }
+         return p;
     }
 
     //Statement → Command | BlockStatement | IfStatement | WhileStatement
@@ -59,9 +64,10 @@ public class GeneticGrammar {
 
     //AssignmentStatement → <identifier> = Expression
     public Execute parseAssignmentStatement() throws TokenizerError, SyntaxError{
-        String identifier = tknz.peek();       
+        String identifier = tknz.consume();
         tknz.consume("=");
         Node expr = parseExpression();
+        bindings.put(identifier,expr);
         return new NodeAssignmentStatement(bindings, identifier, expr);
     }
 
@@ -121,11 +127,11 @@ public class GeneticGrammar {
         Node expr = parseExpression();
         tknz.consume(")");
         tknz.consume("then");
-        Execute statementTrue = parseStatement();  
-        tknz.consume("else"); 
-        if(tknz.peek("if")){              //case: else if
-            parseIfStatement();
-        }
+        Execute statementTrue = parseStatement();
+        tknz.consume("else");
+//        if(tknz.peek("if")){              //case: else if
+//            parseIfStatement();
+//        }
         Execute statementFalse = parseStatement();
         return new NodeIfStatement(statementTrue, statementFalse, expr, bindings);
     }
