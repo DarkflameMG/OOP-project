@@ -1,5 +1,6 @@
-package classes.parse;
+package classes.parse.nodes;
 
+import classes.parse.SyntaxError;
 import interfaces.Node;
 
 import java.util.Map;

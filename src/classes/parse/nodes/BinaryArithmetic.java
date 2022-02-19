@@ -1,5 +1,6 @@
-package classes.parse;
+package classes.parse.nodes;
 
+import classes.parse.SyntaxError;
 import interfaces.Node;
 
 import java.util.Map;
@@ -16,7 +17,7 @@ public class BinaryArithmetic implements Node{
     }
     
     @Override
-    public int evaluate(Map<String,Node> bindings) throws SyntaxError{
+    public int evaluate(Map<String,Node> bindings) throws SyntaxError {
         int a = left.evaluate(bindings);
         int b = right.evaluate(bindings);
 

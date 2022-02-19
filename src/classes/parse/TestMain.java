@@ -1,10 +1,6 @@
 package classes.parse;
 
-import classes.parseAlter.TokenizerImp;
-import interfaces.Node;
-
-import java.util.HashMap;
-import java.util.Map;
+import classes.parse.nodes.BinaryArithmetic;
 
 public class TestMain{
 

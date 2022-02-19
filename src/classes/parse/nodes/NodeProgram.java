@@ -1,19 +1,20 @@
-package classes.parse;
+package classes.parse.nodes;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import classes.parse.SyntaxError;
 import interfaces.Execute;
 
-public class NodeBlockStatement implements Execute{
-    
+public class NodeProgram implements Execute{
+
     List<Execute> statements;
 
-    public NodeBlockStatement(){
+    public NodeProgram(){
         statements = new ArrayList<>();
     }
 
-    public void addBlockStatement(Execute statement){
+    public void addStatement(Execute statement){
         statements.add(statement);
     }
 
@@ -23,5 +24,5 @@ public class NodeBlockStatement implements Execute{
             statement.execute();
         }
     }
+    
 }
-

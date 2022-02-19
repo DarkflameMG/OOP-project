@@ -1,4 +1,4 @@
-package classes.parse;
+package classes.parse.nodes;
 
 import java.util.Map;
 
