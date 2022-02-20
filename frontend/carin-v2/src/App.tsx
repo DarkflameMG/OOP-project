@@ -2,13 +2,16 @@ import React from 'react';
 import {BrowserRouter, BrowserRouter as Router,Link, Route, Routes} from 'react-router-dom'
 import Maingame from './component/Maingame';
 import './App.css'
+import './style/style-intro.css';
 
 function App() {
   return (
+    <body>
     <Router>
       <div>
         <div>
-          <h1> Home Page</h1>
+          
+          <h1> Carin</h1>
           <Link to='/Maingame'>
             <button className='start-button'>Start</button>
           </Link>
@@ -19,6 +22,7 @@ function App() {
         </Routes>
       </div>
     </Router>
+    </body>
     
   );
 }
