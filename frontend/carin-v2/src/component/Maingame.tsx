@@ -132,15 +132,13 @@ const Maingame = () => {
             className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
           >
             <div className="relative w-auto my-6 mx-auto max-w-3xl flex flex-col">
-                <div className='flex justify-end'>
-                    <button onClick={handleClose}>
-                        <img src={closeBT}></img>
-                    </button>
-                </div>
                 <div className='flex'>
                     {/*content*/}
                     <div className="border-4 border-black rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                         {/*header*/}
+                        <button onClick={handleClose} className='absolute h-14 w-14 -right-10 -top-7'>
+                            <img src={closeBT}></img>
+                        </button>
                         <h3 className="text-3xl p-2 text-center font-semibold font-Righteous">
                             PAUSE
                         </h3>
@@ -151,12 +149,8 @@ const Maingame = () => {
                                 <Link to='/'>
                                     Quit
                                 </Link>
-                            </button>
-                            
+                            </button> 
                         </div>    
-                    </div>
-                    <div className=''>
-                        <p className='text-transparent px-4'>S</p>
                     </div>
                 </div>
             </div>
