@@ -12,7 +12,7 @@ public class RandomNumber implements Node{
     }
 
     @Override
-    public int evaluate(Map<String,Node> bindings) throws SyntaxError {
+    public int evaluate(Map<String,Integer> bindings) throws SyntaxError {
         return num;
     }
 }
