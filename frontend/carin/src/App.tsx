@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
+import MainGame from './view/MainGame';
 import IntroGame from './view/MainGame';
 import './view/viewStyle.css';
 function App() {
@@ -16,8 +17,9 @@ function App() {
         <div className='bg'>
           <h1>Carin</h1>
           {/* <a href="MainGame.tsx" className="start-button"> Start</a> */}
-          <button  className="start-button"> Start</button>   //go to MainGame.tsx
-
+            <button  className="start-button">
+             Start
+             </button>
         </div>
       </body>
       
