@@ -17,7 +17,7 @@ const Mainmenu = () =>{
     }
     return(
         <div>
-            <div className='m-auto  max-w-4xl absolute inset-0'> 
+            <div className='m-auto max-w-4xl'> 
                 <div className='flex justify-center py-10 '>
                     <img src={logo}></img>
                 </div>
@@ -29,6 +29,7 @@ const Mainmenu = () =>{
                     <img src={virus}></img>
                 </div>
             </div>
+            
             <div  className='absolute bottom-0 right-0 m-auto'>
                 <button onClick={handleOpen}>
                     <img src={credit}></img>
