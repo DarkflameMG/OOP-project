@@ -1,27 +1,16 @@
-/* *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
 body{
     margin: 0;
     padding: 0;
-    /* width: 100%; */
     background:  #ffbc2c;
 }
-.bg{
-    /* background-color: #282c34; */
-    height: 100%;
-    width: 100%;
-    /* background-image: linear-gradient(rgb(85, 84, 181), rgb(225, 107, 107)); */
-}
-h1{
-    size: 300px;
+
+.name-game{
+    font-size: 100px;
     margin: 0;
     padding: 0;
     text-align: center;
     position: absolute;
-    top: 40%;
+    top: 30%;
     left:50%;
     transform: translateX(-50%) translateY(-50%);
 }
@@ -31,21 +20,12 @@ h1{
     padding-right: 10px;
     text-align: center;
     position: absolute;
-    top: 55%;
+    top: 60%;
     left:50%;
     transform: translateX(-50%) translateY(-50%);
     border-radius: 25px;
     border: 5px solid navy;
-  
-}
-
-
-.credit-button{
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    position: absolute;
-    top: 70%;
-    left:50%;
-    transform: translateX(-50%) translateY(-50%);
+    background-color: navy;
+    color: aliceblue;
+    font-size: 50px;
 }

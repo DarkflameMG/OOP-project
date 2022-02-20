@@ -7,7 +7,7 @@ import './style/style-intro.css';
 
 function App() {
   return (
-  <body>
+  // <body>
     <Router>
         <div>
           <Routes>
@@ -16,7 +16,7 @@ function App() {
           </Routes>
         </div>
       </Router>
-  </body>
+  // </body>
       
   );
 }
