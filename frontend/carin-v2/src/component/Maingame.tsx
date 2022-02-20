@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom"
+
 
 const Maingame = () =>{
     return(
-        <div>
-            <h1>Main game</h1>
+        <div className="flex text-align-right">
+            <p>Main game</p>
         </div>
     )
 }
