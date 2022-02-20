@@ -11,9 +11,9 @@ public class NodeIfStatement implements Execute{
     Execute statementTrue;
     Execute statementFalse;
     Node expr;
-    Map<String, Node> bindings;
+    Map<String, Integer> bindings;
 
-    public NodeIfStatement (Execute statementTrue, Execute statementFalse, Node expr, Map<String, Node> bindings){
+    public NodeIfStatement (Execute statementTrue, Execute statementFalse, Node expr, Map<String, Integer> bindings){
         this.statementTrue = statementTrue;
         this.statementFalse = statementFalse;
         this.expr = expr;

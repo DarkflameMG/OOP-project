@@ -1,4 +1,5 @@
 package classes;
+import classes.parse.GeneticGrammar;
 import interfaces.Unit;
 
 public class UnitImp implements Unit {
@@ -7,6 +8,7 @@ public class UnitImp implements Unit {
     protected int defence = 0;
     protected int coordinateX;
     protected int coordinateY;
+    protected GeneticGrammar gene;
     protected String species;
     protected ConfigImp config = ConfigImp.getInstance();
 

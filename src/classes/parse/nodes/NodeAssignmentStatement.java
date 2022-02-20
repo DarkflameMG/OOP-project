@@ -7,11 +7,11 @@ import interfaces.Node;
 
 public class NodeAssignmentStatement implements Execute{
 
-    Map<String, Node> bindings;
+    Map<String, Integer> bindings;
     String identifier;
     Node expr;
 
-    public NodeAssignmentStatement(Map<String, Node> bindings, String identifier, Node expr){
+    public NodeAssignmentStatement(Map<String, Integer> bindings, String identifier, Node expr){
         this.bindings = bindings;
         this.identifier = identifier;
         this.expr = expr;

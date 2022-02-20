@@ -14,10 +14,10 @@ public class Variable implements Node {
     }
 
     @Override
-    public int evaluate(Map<String,Node> bindings)throws SyntaxError
+    public int evaluate(Map<String,Integer> bindings)throws SyntaxError
     {
         if (bindings.containsKey(name))
-            return bindings.get(name).evaluate(bindings);
+            return bindings.get(name);
         throw new SyntaxError("undefined variable: " + name);
     }
 }

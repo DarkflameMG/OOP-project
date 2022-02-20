@@ -14,7 +14,7 @@ public class NodeDirection implements Node {
     }
 
     @Override
-    public int evaluate(Map<String, Node> bindings) throws SyntaxError {
+    public int evaluate(Map<String, Integer> bindings) throws SyntaxError {
         if(direction.equals("up"))
             return 1;
         else if(direction.equals("upright"))

@@ -10,7 +10,7 @@ import interfaces.Unit;
 
 public class GeneticGrammar {
     private final ExprTokenizer tknz;
-    private final Map<String, Node> bindings;
+    private final Map<String, Integer> bindings;
     private final Unit unit;
     
     public GeneticGrammar(String src, Unit unit) throws SyntaxError, TokenizerError{
@@ -26,7 +26,7 @@ public class GeneticGrammar {
     {
         for(String v: bindings.keySet())
         {
-            System.out.println(v+" = "+bindings.get(v).evaluate(bindings));
+            System.out.println(v+" = "+bindings.get(v));
         }
     }
 
@@ -67,7 +67,8 @@ public class GeneticGrammar {
         String identifier = tknz.consume();
         tknz.consume("=");
         Node expr = parseExpression();
-        bindings.put(identifier,expr);
+        int value = expr.evaluate(bindings);
+        bindings.put(identifier,value);
         return new NodeAssignmentStatement(bindings, identifier, expr);
     }
 

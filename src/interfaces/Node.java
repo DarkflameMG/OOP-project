@@ -11,6 +11,6 @@ public interface Node {
      * @param bindings a Map bind variable and value
      * @throws SyntaxError
     */
-    int evaluate(Map<String,Node> bindings) throws SyntaxError;
+    int evaluate(Map<String,Integer> bindings) throws SyntaxError;
 
 }

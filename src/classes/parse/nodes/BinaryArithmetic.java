@@ -17,7 +17,7 @@ public class BinaryArithmetic implements Node{
     }
     
     @Override
-    public int evaluate(Map<String,Node> bindings) throws SyntaxError {
+    public int evaluate(Map<String,Integer> bindings) throws SyntaxError {
         int a = left.evaluate(bindings);
         int b = right.evaluate(bindings);
 
