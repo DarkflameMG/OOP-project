@@ -9,9 +9,9 @@ import java.util.Map;
 public class NodeWhileStatement implements Execute{
     Execute statement;
     Node expr;
-    Map<String, Node> bindings;
+    Map<String, Integer> bindings;
 
-    public NodeWhileStatement(Execute statement, Node expr, Map<String, Node> bindings){
+    public NodeWhileStatement(Execute statement, Node expr, Map<String, Integer> bindings){
         this.statement = statement;
         this.expr = expr;
         this.bindings = bindings;

@@ -18,7 +18,7 @@ public class SensorExpression implements Node{
     }
 
     @Override
-    public int evaluate(Map<String,Node> bindings) throws SyntaxError {
+    public int evaluate(Map<String,Integer> bindings) throws SyntaxError {
         if(host.equals("antibody")){
             return 1;
         }
