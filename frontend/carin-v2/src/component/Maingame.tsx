@@ -145,8 +145,8 @@ const Maingame = () => {
                             PAUSE
                         </h3>
                         {/*body*/}
-                        <div className="flex flex-col px-6 pause">
-                            <button className="font-Righteous" onClick={handleClose}>Restart</button>
+                        <div className="flex flex-col px-9 py-2 pause">
+                            <button className="font-Righteous px-3 my-2 " onClick={handleClose}>Restart</button>
                             <button className="font-Righteous">
                                 <Link to='/'>
                                     Quit

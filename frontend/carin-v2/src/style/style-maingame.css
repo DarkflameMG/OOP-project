@@ -105,5 +105,8 @@
     background-color: rgb(255, 131, 73);
     color: black;
     border-radius: 10px ;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
     transform: scale(1.2);
 }
