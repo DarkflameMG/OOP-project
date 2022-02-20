@@ -36,7 +36,7 @@ const Maingame = () => {
                 </div>
 
                 <div >
-                    <p className="font-Righteous">Money $100000</p>
+                    <p className="font-Righteous mx-7 ">Money $100000</p>
                 </div>
 
                 <div className="topnav-right">
@@ -51,18 +51,78 @@ const Maingame = () => {
 
             <div className='shop'>
                 <p className="shop-text font-Righteous">Shop</p>
-                <li><button className='antibody-set font-Righteous'>antibody A</button>
-                <img src={antibodyA} height={200} width={200} />
-                </li>
+                <p><button className='antibody-set font-Righteous'>antibody A
+                <img src={antibodyA} height={200} width={200} /></button>
+                </p>
 
-                <li><button className='antibody-set font-Righteous'>antibody B</button>
-                <img src={antibodyB} height={200} width={200} />
-                </li>
+                <p><button className='antibody-set font-Righteous'>antibody B
+                <img src={antibodyB} height={200} width={200} /></button>
+                </p>
 
-                <li><button className='antibody-set font-Righteous'>antibody C</button>
-                <img src={antibodyC} height={200} width={200} />
-                </li>
+                <p><button className='antibody-set font-Righteous'>antibody C
+                <img src={antibodyC} height={200} width={200} /></button>
+                </p>
 
+            </div>
+
+            {/* field */}
+            <div className='field'>
+                <div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-virus'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-virus'></div>
+                    <div className='slot-virus'></div>
+                </div>
+                <div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-virus'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-antibody'></div>
+                </div>
+                <div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-virus'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-virus'></div>
+                    <div className='slot-virus'></div>
+                </div>
+                <div>
+                    <div className='slot-virus'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-virus'></div>
+                    <div className='slot-antibody'></div>
+                </div>
+                <div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-virus'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-virus'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-antibody'></div>
+                </div>
+                <div>
+                    <div className='slot-virus'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-antibody'></div>
+                    <div className='slot-virus'></div>
+                </div>
+                
+                
             </div>
             
             {/**Modal */}
@@ -85,8 +145,8 @@ const Maingame = () => {
                             PAUSE
                         </h3>
                         {/*body*/}
-                        <div className="flex flex-col px-6 ">
-                            <button className="font-Righteous" onClick={handleClose}>Resume</button>
+                        <div className="flex flex-col px-6 pause">
+                            <button className="font-Righteous" onClick={handleClose}>Restart</button>
                             <button className="font-Righteous">
                                 <Link to='/'>
                                     Quit

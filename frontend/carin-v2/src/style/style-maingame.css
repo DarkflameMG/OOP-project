@@ -54,10 +54,10 @@
     margin-bottom: 20px;
 }
 .shop{
-    background-color: rgb(68, 206, 130);
+    background-color: rgba(223, 172, 78, 0.953);
     border-radius: 40px;
     float: left;
-    margin-left: 50px;
+    margin-left: 60px;
     margin-top: 50px;
     margin-bottom: 50px;
     padding-left: 30px;
@@ -69,4 +69,41 @@
 .antibody-set{
     margin-bottom: 5px;
     margin-top: 15px;
+}
+.field{
+    /* background-color: grey; */
+    text-align: center;
+    margin-right: 50px;
+    margin-left: 400px;
+    margin-top: 70px;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+.slot-antibody{
+    width: 100px;
+    height: 100px;
+    border: 2px;
+    border-style: solid;
+    display: inline-block;
+    margin: -2px;
+    margin-top: -5px;
+    background-color: rgb(98, 157, 108);
+
+}
+.slot-virus{
+    width: 100px;
+    height: 100px;
+    border: 2px;
+    border-style: solid;
+    display: inline-block;
+    margin: -2px;
+    margin-top: -5px;
+    background-color: rgb(182, 98, 92);
+
+}
+.pause button:hover {
+    background-color: rgb(255, 131, 73);
+    color: black;
+    border-radius: 10px ;
+    transform: scale(1.2);
 }
