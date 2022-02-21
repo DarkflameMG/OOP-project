@@ -5,23 +5,40 @@ import interfaces.Unit;
 public class UnitImp implements Unit {
     protected int hp = 0;
     protected int damage = 0;
-    protected int defence = 0;
     protected int coordinateX;
     protected int coordinateY;
     protected GeneticGrammar gene;
+    protected String type;
     protected String species;
-    protected ConfigImp config = ConfigImp.getInstance();
 
-    protected UnitImp(String species,int x,int y)
+    protected UnitImp(String type,String species,int x,int y)
     {
+        this.type = type;
         this.species = species;
         this.coordinateX = x;
         this.coordinateY = y;
     }
 
+    private void initStat(String type)
+    {
+        if(type.equals("virus"))
+        {
+            hp = ConfigImp.getVirus_health();
+            damage = ConfigImp.getVirus_damage();
+        }
+        else if(type.equals("antibody"))
+        {
+            hp = ConfigImp.getAntibody_health();
+            damage = ConfigImp.getAntibody_damage();
+        }
+    }
+
     public void move(int direction)
     {
         FieldImp field = FieldImp.getInstance(10,10);
+        int m = ConfigImp.getM();
+        int n = ConfigImp.getN();
+
         int x = 0,y = 0;
         if(direction == 1 || direction == 2 || direction == 8)
             y = 1;
@@ -32,7 +49,7 @@ public class UnitImp implements Unit {
         if(direction == 6 || direction == 7 || direction == 8)
             x = -1;
 
-        if(coordinateX + x >= 0 && coordinateY + y >= 0 && coordinateX + x <= config.m && coordinateY + y <= config.n)
+        if(coordinateX + x >= 0 && coordinateY + y >= 0 && coordinateX + x <= m && coordinateY + y <= n)
         {
             field.removeUnit(coordinateX,coordinateY);
             coordinateX += x;
@@ -43,14 +60,14 @@ public class UnitImp implements Unit {
 
     public int isVirus()
     {
-        if(species.equals("virus"))
+        if(type.equals("virus"))
             return 1;
         return 0;
     }
 
     public int isAntiBody()
     {
-        if(species.equals("antibody"))
+        if(type.equals("antibody"))
             return 1;
         return 0;
     }
@@ -97,8 +114,9 @@ public class UnitImp implements Unit {
         return hp;
     }
 
-    public int getDefence()
+    public void transform()
     {
-        return defence;
+
     }
+
 }
