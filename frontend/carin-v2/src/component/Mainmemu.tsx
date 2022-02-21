@@ -17,8 +17,8 @@ const Mainmenu = () =>{
     }
     return(
         <div>
-            <div className='m-auto max-w-4xl'> 
-                <div className='flex justify-center py-10 '>
+            <div className='m-auto max-w-4xl '> 
+                <div className='flex justify-center py-40 '>
                     <img src={logo}></img>
                 </div>
                 <div className='flex justify-around space-x-10'>
