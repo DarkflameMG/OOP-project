@@ -1,4 +1,4 @@
-package main.java.com.carin.carinProject.classes;
+package com.carin.carinProject.classes;
 
 public class Credit {
     private int credit = ConfigImp.getAntibody_credit();

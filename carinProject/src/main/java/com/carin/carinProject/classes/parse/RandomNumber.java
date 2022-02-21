@@ -1,6 +1,6 @@
-package main.java.com.carin.carinProject.classes.parse;
+package com.carin.carinProject.classes.parse;
 
-import main.java.com.carin.carinProject.interfaces.Node;
+import com.carin.carinProject.interfaces.Node;
 
 import java.util.Map;
 

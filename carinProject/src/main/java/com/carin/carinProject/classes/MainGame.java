@@ -1,6 +1,6 @@
-package main.java.com.carin.carinProject.classes;
+package com.carin.carinProject.classes;
 
-import main.java.com.carin.carinProject.interfaces.Unit;
+import com.carin.carinProject.interfaces.Unit;
 
 public class MainGame {
     private int MoveCost = ConfigImp.getAntibody_moveCost();

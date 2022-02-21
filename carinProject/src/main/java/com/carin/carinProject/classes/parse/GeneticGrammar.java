@@ -1,12 +1,12 @@
-package main.java.com.carin.carinProject.classes.parse;
+package com.carin.carinProject.classes.parse;
 
 import java.util.*;
 
-import main.java.com.carin.carinProject.classes.parse.nodes.*;
-import main.java.com.carin.carinProject.classes.parse.nodes.Number;
-import main.java.com.carin.carinProject.interfaces.Execute;
-import main.java.com.carin.carinProject.interfaces.Node;
-import main.java.com.carin.carinProject.interfaces.Unit;
+import com.carin.carinProject.classes.parse.nodes.*;
+import com.carin.carinProject.classes.parse.nodes.Number;
+import com.carin.carinProject.interfaces.Execute;
+import com.carin.carinProject.interfaces.Node;
+import com.carin.carinProject.interfaces.Unit;
 
 public class GeneticGrammar {
     private final ExprTokenizer tknz;

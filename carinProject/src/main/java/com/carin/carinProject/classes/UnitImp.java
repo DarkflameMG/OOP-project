@@ -1,6 +1,6 @@
-package main.java.com.carin.carinProject.classes;
-import main.java.com.carin.carinProject.classes.parse.GeneticGrammar;
-import main.java.com.carin.carinProject.interfaces.Unit;
+package com.carin.carinProject.classes;
+import com.carin.carinProject.classes.parse.GeneticGrammar;
+import com.carin.carinProject.interfaces.Unit;
 
 
 public class UnitImp implements Unit {

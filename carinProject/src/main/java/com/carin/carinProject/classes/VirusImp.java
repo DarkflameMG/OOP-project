@@ -1,7 +1,7 @@
-package main.java.com.carin.carinProject.classes;
+package com.carin.carinProject.classes;
 
-import main.java.com.carin.carinProject.interfaces.VirusUnit;
-import main.java.com.carin.carinProject.interfaces.Unit;
+import com.carin.carinProject.interfaces.VirusUnit;
+import com.carin.carinProject.interfaces.Unit;
 
 public class VirusImp extends UnitImp implements VirusUnit {
     private final int hp_drain = ConfigImp.getVirus_gain();
