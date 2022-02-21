@@ -44,8 +44,7 @@ public interface Unit {
     int getHp();
 
     /**
-     * return this Unit defence value
-     * @return a number that greater than equal 0
+     * transform form antibody to virus
      */
-    int getDefence();
+    void transform();
 }
