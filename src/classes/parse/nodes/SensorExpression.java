@@ -12,7 +12,7 @@ public class SensorExpression implements Node{
     Node direction;
 
     public SensorExpression(Unit unit,String host, Node direction){
-        this.unit =unit;
+        this.unit = unit;
         this.host = host;
         this.direction = direction;
     }
