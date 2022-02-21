@@ -1,6 +1,6 @@
-package com.carin.classes.parse;
+package com.carin.carinProject.classes.parse;
 
-import com.carin.interfaces.Tokenizer;
+import com.carin.carinProject.interfaces.Tokenizer;
 
 import java.util.HashSet;
 import java.util.Set;

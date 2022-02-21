@@ -1,4 +1,4 @@
-package com.carin.interfaces;
+package com.carin.carinProject.interfaces;
 public interface Field {
     /**
      * place unit in slot(x,y)

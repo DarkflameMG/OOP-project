@@ -1,9 +1,9 @@
-package com.carin.classes.parse.nodes;
+package com.carin.carinProject.classes.parse.nodes;
 
 import java.util.Map;
 
-import com.carin.interfaces.Execute;
-import com.carin.interfaces.Node;
+import com.carin.carinProject.interfaces.Execute;
+import com.carin.carinProject.interfaces.Node;
 
 public class NodeAssignmentStatement implements Execute{
 

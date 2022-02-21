@@ -1,6 +1,6 @@
-package com.carin.classes;
+package com.carin.carinProject.classes;
 
-import com.carin.interfaces.AntiBodyUnit;
+import com.carin.carinProject.interfaces.AntiBodyUnit;
 
 public class AntiBodyImp extends UnitImp implements AntiBodyUnit {
     public AntiBodyImp()

@@ -1,6 +1,6 @@
-package com.carin.classes;
+package com.carin.carinProject.classes;
 
-import com.carin.interfaces.VirusUnit;
+import com.carin.carinProject.interfaces.VirusUnit;
 
 public class VirusImp extends UnitImp implements VirusUnit {
 

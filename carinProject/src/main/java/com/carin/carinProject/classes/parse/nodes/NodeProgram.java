@@ -1,10 +1,10 @@
-package com.carin.classes.parse.nodes;
+package com.carin.carinProject.classes.parse.nodes;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.carin.classes.parse.SyntaxError;
-import com.carin.interfaces.Execute;
+import com.carin.carinProject.classes.parse.SyntaxError;
+import com.carin.carinProject.interfaces.Execute;
 
 public class NodeProgram implements Execute{
 

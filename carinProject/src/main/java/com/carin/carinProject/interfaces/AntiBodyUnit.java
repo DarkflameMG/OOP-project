@@ -1,4 +1,4 @@
-package com.carin.interfaces;
+package com.carin.carinProject.interfaces;
 
 public interface AntiBodyUnit extends Unit{
     /**
