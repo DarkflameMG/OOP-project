@@ -1,4 +1,4 @@
-package com.carin.carinProject.classes;
+package main.java.com.carin.carinProject.classes;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;

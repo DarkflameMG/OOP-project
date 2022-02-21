@@ -1,6 +1,6 @@
-package com.carin.carinProject.interfaces;
+package main.java.com.carin.carinProject.interfaces;
 
-import com.carin.carinProject.classes.parse.TokenizerError;
+import main.java.com.carin.carinProject.classes.parse.TokenizerError;
 
 public interface Tokenizer {
 

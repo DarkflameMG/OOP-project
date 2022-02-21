@@ -1,4 +1,4 @@
-package com.carin.carinProject.interfaces;
+package main.java.com.carin.carinProject.interfaces;
 
 public interface VirusUnit extends Unit{
     /**

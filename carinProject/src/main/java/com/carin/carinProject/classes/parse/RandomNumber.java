@@ -1,10 +1,10 @@
-package com.carin.carinProject.classes.parse;
+package main.java.com.carin.carinProject.classes.parse;
 
-import com.carin.carinProject.interfaces.Node;
+import main.java.com.carin.carinProject.interfaces.Node;
 
 import java.util.Map;
 
-public class RandomNumber implements Node{
+public class RandomNumber implements Node {
     int num;
 
     public RandomNumber(int num){

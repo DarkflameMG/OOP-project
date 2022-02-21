@@ -1,7 +1,7 @@
-package com.carin.carinProject.classes.parse.nodes;
+package main.java.com.carin.carinProject.classes.parse.nodes;
 
-import com.carin.carinProject.classes.parse.SyntaxError;
-import com.carin.carinProject.interfaces.Node;
+import main.java.com.carin.carinProject.classes.parse.SyntaxError;
+import main.java.com.carin.carinProject.interfaces.Node;
 
 import java.util.Map;
 

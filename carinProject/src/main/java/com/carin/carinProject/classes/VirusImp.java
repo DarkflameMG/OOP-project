@@ -1,17 +1,23 @@
-package com.carin.carinProject.classes;
+package main.java.com.carin.carinProject.classes;
 
-import com.carin.carinProject.interfaces.VirusUnit;
+import main.java.com.carin.carinProject.interfaces.VirusUnit;
+import main.java.com.carin.carinProject.interfaces.Unit;
 
 public class VirusImp extends UnitImp implements VirusUnit {
-
-    public VirusImp()
+    private final int hp_drain = ConfigImp.getVirus_gain();
+    public VirusImp(String species)
     {
-        super("virus",0,0);
+        super("virus",species,0,0);
     }
 
     public void spawn()
     {
 
+    }
+
+    public void drain()
+    {
+        hp+=hp_drain;
     }
     @Override
     public void attack(int direction)

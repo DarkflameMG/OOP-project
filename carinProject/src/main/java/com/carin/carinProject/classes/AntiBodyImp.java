@@ -1,10 +1,9 @@
-package com.carin.carinProject.classes;
-
+package main.java.com.carin.carinProject.classes;
 <<<<<<< HEAD:src/classes/AntiBodyImp.java
-import interfaces.AntiBodyUnit;
-import interfaces.Unit;
+
 =======
-import com.carin.carinProject.interfaces.AntiBodyUnit;
+import main.java.com.carin.carinProject.interfaces.AntiBodyUnit;
+import main.java.com.carin.carinProject.interfaces.Unit;
 >>>>>>> 7e8b85a6ddedf694d8b858598b7d4b51c95e7d4d:carinProject/src/main/java/com/carin/carinProject/classes/AntiBodyImp.java
 
 public class AntiBodyImp extends UnitImp implements AntiBodyUnit {

@@ -1,8 +1,8 @@
-package com.carin.carinProject.classes.parse;
+package main.java.com.carin.carinProject.classes.parse;
 
-import com.carin.carinProject.classes.AntiBodyImp;
-import com.carin.carinProject.classes.parse.nodes.BinaryArithmetic;
-import com.carin.carinProject.interfaces.Unit;
+import main.java.com.carin.carinProject.classes.AntiBodyImp;
+import main.java.com.carin.carinProject.classes.parse.nodes.BinaryArithmetic;
+import main.java.com.carin.carinProject.interfaces.Unit;
 
 public class TestMain{
 

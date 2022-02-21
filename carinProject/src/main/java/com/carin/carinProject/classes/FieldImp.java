@@ -1,6 +1,6 @@
-package com.carin.carinProject.classes;
-import com.carin.carinProject.interfaces.Field;
-import com.carin.carinProject.interfaces.Unit;
+package main.java.com.carin.carinProject.classes;
+import main.java.com.carin.carinProject.interfaces.Field;
+import main.java.com.carin.carinProject.interfaces.Unit;
 
 
 public class FieldImp implements Field {
