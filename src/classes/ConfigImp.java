@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class ConfigImp {
     protected static final String inFile = "src/classes/configfile/config1.in";
-    protected static ConfigImp instance;
+//    protected static ConfigImp instance;
     protected static int m;
     protected static int n;
     protected static double virusSpawn;
@@ -22,17 +22,73 @@ public class ConfigImp {
     protected static int antibody_moveCost;
     protected static int antibody_credit_gain;
 
-    private ConfigImp()
-    {
+//    public static ConfigImp getInstance()
+//    {
+//        if(instance == null)
+//            instance = new ConfigImp();
+//        return instance;
+//    }
 
+    public static int getM()
+    {
+        return m;
     }
 
-    public static ConfigImp getInstance()
+    public static int getN()
     {
-        if(instance == null)
-            instance = new ConfigImp();
-        return instance;
+        return n;
     }
+
+    public static int getVirus_health()
+    {
+        return virus_health;
+    }
+
+    public static int getVirus_damage()
+    {
+        return virus_damage;
+    }
+
+    public static int getAntibody_health()
+    {
+        return antibody_health;
+    }
+
+    public static int getAntibody_damage()
+    {
+        return antibody_damage;
+    }
+
+    public static int getAntibody_gain()
+    {
+        return antibody_gain;
+    }
+
+    public static int getVirus_gain()
+    {
+        return virus_gain;
+    }
+
+    public static int getAntibody_credit()
+    {
+        return antibody_credit;
+    }
+
+    public static int getAntibody_placementCost()
+    {
+        return antibody_placementCost;
+    }
+
+    public static int getAntibody_moveCost()
+    {
+        return antibody_moveCost;
+    }
+
+    public static int getAntibody_credit_gain()
+    {
+        return antibody_credit_gain;
+    }
+
 
     public static void main(String[] args) throws FileNotFoundException, IOException{
         try(FileReader fr =  new FileReader(inFile);
