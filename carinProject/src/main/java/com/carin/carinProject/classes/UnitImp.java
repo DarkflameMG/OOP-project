@@ -115,7 +115,7 @@ public class UnitImp implements Unit {
         return hp;
     }
 
-    public void transform()
+    public void transform(String species)
     {
 
     }

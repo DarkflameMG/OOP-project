@@ -38,7 +38,7 @@ public class VirusImp extends UnitImp implements VirusUnit {
             target.decreaseHp(damage);
             drain();
             if (target.getHp() == 0)
-                target.transform();
+                target.transform(species);
         }
     }
 }

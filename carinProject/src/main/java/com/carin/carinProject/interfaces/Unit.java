@@ -45,6 +45,7 @@ public interface Unit {
 
     /**
      * transform form antibody to virus
+     * @param species a name of virus that antibody transform
      */
-    void transform();
+    void transform(String species);
 }

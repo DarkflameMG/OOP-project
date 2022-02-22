@@ -13,7 +13,7 @@ public class AntiBodyImp extends UnitImp implements AntiBodyUnit {
     }
 
     @Override
-    public void transform()
+    public void transform(String species)
     {
 
     }
