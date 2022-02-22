@@ -6,21 +6,21 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class ConfigImp {
-    protected static final String inFile = "src/classes/configfile/config1.in";
+    private static final String inFile = "src/classes/configfile/config1.in";
 //    protected static ConfigImp instance;
-    protected static int m;
-    protected static int n;
-    protected static double virusSpawn;
-    protected static int antibody_credit;
-    protected static int antibody_placementCost;
-    protected static int virus_health;
-    protected static int antibody_health;
-    protected static int virus_damage;
-    protected static int virus_gain;
-    protected static int antibody_damage;
-    protected static int antibody_gain;
-    protected static int antibody_moveCost;
-    protected static int antibody_credit_gain;
+    private static int m;
+    private static int n;
+    private static double virusSpawn;
+    private static int antibody_credit;
+    private static int antibody_placementCost;
+    private static int virus_health;
+    private static int antibody_health;
+    private static int virus_damage;
+    private static int virus_gain;
+    private static int antibody_damage;
+    private static int antibody_gain;
+    private static int antibody_moveCost;
+    private static int antibody_credit_gain;
 
 //    public static ConfigImp getInstance()
 //    {
@@ -87,6 +87,11 @@ public class ConfigImp {
     public static int getAntibody_credit_gain()
     {
         return antibody_credit_gain;
+    }
+
+    public static double getVirusSpawn()
+    {
+        return virusSpawn;
     }
 
 
