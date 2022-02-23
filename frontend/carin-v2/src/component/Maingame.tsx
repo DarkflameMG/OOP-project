@@ -57,7 +57,10 @@ const Maingame = () => {
                 <Shop/>
                                 
                 {/* field */}
-                <Field/>
+                <div className='my-40'>
+                    <Field/>
+                </div>
+                
                 
                 
                 <div className='opacity-0'>
