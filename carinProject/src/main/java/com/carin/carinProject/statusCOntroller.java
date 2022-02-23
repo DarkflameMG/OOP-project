@@ -1,5 +1,5 @@
 package com.carin.carinProject;
 
-public class statusCOntroller {
+public class statusController {
     
 }
