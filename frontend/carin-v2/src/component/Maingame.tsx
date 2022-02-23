@@ -60,9 +60,9 @@ const Maingame = () => {
                 <Field/>
                 
                 
-                    {/* <div className='opacity-0'>
-                        <Shop/>
-                    </div> */}
+                <div className='opacity-0'>
+                    <Shop/>
+                </div>
             </div>
             
             {/**Modal */}
