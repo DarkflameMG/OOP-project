@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import logo from '../image/Logo.png'
 import startBT from '../image/startButton.png'
 import virus from '../image/virusLogo.png'
+import virusB from '../image/virusLogoB.png'
 import credit from '../image/CreditButton.png'
 import closeBT from '../image/CloseBTmini.png'
 import '../style/style-font.css'
@@ -22,7 +23,7 @@ const Mainmenu = () =>{
                     <img src={logo}></img>
                 </div>
                 <div className='flex justify-around space-x-10'>
-                    <img src={virus}></img>
+                    <img src={virusB}></img>
                     <Link to='/Maingame'>
                         <img src={startBT} ></img>
                     </Link>
