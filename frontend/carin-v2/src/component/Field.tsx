@@ -1,11 +1,12 @@
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch"
 
-const Field = () =>{
-    return(
-        <TransformWrapper>
-                    <TransformComponent>
-                        <div className='field'>
-                        <div>
+const Field = () => {
+    return (
+        <div>
+            <TransformWrapper>
+                <TransformComponent>
+                    <div className='container'>
+                        <div className='item'>
                             <div className='slot-antibody'></div>
                             <div className='slot-antibody'></div>
                             <div className='slot-antibody'></div>
@@ -14,7 +15,8 @@ const Field = () =>{
                             <div className='slot-virus'></div>
                             <div className='slot-virus'></div>
                         </div>
-                        <div>
+                        <div className='item'>
+
                             <div className='slot-antibody'></div>
                             <div className='slot-virus'></div>
                             <div className='slot-antibody'></div>
@@ -23,7 +25,8 @@ const Field = () =>{
                             <div className='slot-antibody'></div>
                             <div className='slot-antibody'></div>
                         </div>
-                        <div>
+                        <div className='item'>
+
                             <div className='slot-antibody'></div>
                             <div className='slot-antibody'></div>
                             <div className='slot-antibody'></div>
@@ -32,7 +35,8 @@ const Field = () =>{
                             <div className='slot-virus'></div>
                             <div className='slot-virus'></div>
                         </div>
-                        <div>
+                        <div className='item'>
+
                             <div className='slot-virus'></div>
                             <div className='slot-antibody'></div>
                             <div className='slot-antibody'></div>
@@ -41,7 +45,8 @@ const Field = () =>{
                             <div className='slot-virus'></div>
                             <div className='slot-antibody'></div>
                         </div>
-                        <div>
+                        <div className='item'>
+
                             <div className='slot-antibody'></div>
                             <div className='slot-virus'></div>
                             <div className='slot-antibody'></div>
@@ -50,7 +55,8 @@ const Field = () =>{
                             <div className='slot-antibody'></div>
                             <div className='slot-antibody'></div>
                         </div>
-                        <div>
+                        <div className='item'>
+
                             <div className='slot-virus'></div>
                             <div className='slot-antibody'></div>
                             <div className='slot-antibody'></div>
@@ -59,9 +65,11 @@ const Field = () =>{
                             <div className='slot-antibody'></div>
                             <div className='slot-virus'></div>
                         </div>
-                        </div>
-                    </TransformComponent>
-                </TransformWrapper>
+                    </div>
+                </TransformComponent>
+            </TransformWrapper>
+        </div>
+
     )
 }
 

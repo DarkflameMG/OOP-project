@@ -2,6 +2,8 @@ body{
     margin: 0;
     padding: 0;
     background:  #373563;
+    max-width: 100%;
+    height: auto;
 }
 
 .name-game{

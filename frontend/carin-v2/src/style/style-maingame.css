@@ -72,13 +72,35 @@
 }
 .field{
     /* background-color: grey; */
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    /* text-align: center; */
+    justify-content: center;
     margin-right: 50px;
     margin-left: 50px;
     margin-top: 70px;
     margin-bottom: 30px;
     padding: 10px;
+    width: 100%;
+    object-fit: cover;
 }
+.container{
+    justify-content: center;
+    /* padding: 10px; */
+    width: auto;
+    /* display: flex; */
+    /* flex-wrap: nowrap; */
+}
+.item {
+    width: -moz-fit-content;
+    width: fit-content;
+    /* background-color: #8ca0ff; */
+    /* padding: 5px; */
+    /* margin-bottom: 1em; */
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
 .slot-antibody{
     width: 100px;
     height: 100px;

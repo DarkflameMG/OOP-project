@@ -55,13 +55,14 @@ const Maingame = () => {
             <div className='flex justify-between'>
                 {/* shop */}
                 <Shop/>
-                
+                                
                 {/* field */}
                 <Field/>
                 
-                <div className='opacity-0'>
-                    <Shop/>
-                </div>
+                
+                    {/* <div className='opacity-0'>
+                        <Shop/>
+                    </div> */}
             </div>
             
             {/**Modal */}
