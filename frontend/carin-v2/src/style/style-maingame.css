@@ -1,5 +1,5 @@
 .bg-pause{
-    background-color: rgb(221, 65, 65);
+    background-color: rgb(220, 13, 13);
 }
 .topnav {
     position: relative;
@@ -51,76 +51,89 @@
 }
 .shop-text{
     font-size: 40px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 .shop{
-    background-color: rgba(223, 172, 78, 0.953);
+    background-color: rgba(242,198,95);
     border-radius: 40px;
     float: left;
     margin-left: 60px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 40px;
-    padding-bottom: 30px;
+    margin-top: 60px;
+    margin-bottom:auto;
+    padding: 25px;
+    /* padding-right: 30px; */
+    /* padding-top: 40px; */
+    /* padding-bottom: 30px; */
     text-align: center;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+}
+.slot-shop{
+    height: 150px;
+    width: 150px;
+    background-color: rgb(138, 134, 53);
+    border-radius: 10px ;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    padding: 5px;
+}
+.antibody-text{
+    margin: 10px;
+    padding-top: 10px;
+    font-size: 25px;
+}
+
+.slot-shop img:hover {
+    /* background-color: #ddd; */
+    transform: scale(1.3);
 }
 .antibody-set{
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
     margin-top: 15px;
 }
+.layout-field{
+    margin-top: 10px;
+    margin-left: 60px;
+    padding: 50px;
+}
 .field{
-    /* background-color: grey; */
-    display: flex;
-    flex-wrap: wrap;
-    /* text-align: center; */
-    justify-content: center;
-    margin-right: 50px;
-    margin-left: 50px;
-    margin-top: 70px;
-    margin-bottom: 30px;
-    padding: 10px;
     width: 100%;
     object-fit: cover;
 }
 .container{
     justify-content: center;
-    /* padding: 10px; */
     width: auto;
-    /* display: flex; */
-    /* flex-wrap: nowrap; */
+    background-color: #333;
 }
 .item {
     width: -moz-fit-content;
     width: fit-content;
-    /* background-color: #8ca0ff; */
-    /* padding: 5px; */
-    /* margin-bottom: 1em; */
     display: flex;
     flex-wrap: nowrap;
   }
 
 .slot-antibody{
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     border: 2px;
     border-style: solid;
     display: inline-block;
     margin: -2px;
     margin-top: -5px;
-    background-color: rgb(98, 157, 108);
+    background-color: rgb(55, 121, 79);
 
 }
 .slot-virus{
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     border: 2px;
     border-style: solid;
     display: inline-block;
     margin: -2px;
     margin-top: -5px;
-    background-color: rgb(182, 98, 92);
+    background-color: rgb(242, 91, 57);
 
 }
 .pause button:hover {

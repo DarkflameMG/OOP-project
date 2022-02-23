@@ -31,7 +31,10 @@ const Maingame = () => {
     }
 
     var wave = 1,
-        maxWave = 10;
+        maxWave = 5;
+    var money = 100000
+    var speedUp= ">>"
+    var speedDown = "<<"
 
     return (
         <div>
@@ -42,12 +45,12 @@ const Maingame = () => {
                 </div>
 
                 <div >
-                    <p className="font-Righteous mx-7 ">Money $100000</p>
+                    <p className="font-Righteous mx-7 ">Money ${money}</p>
                 </div>
 
                 <div className="topnav-right">
-                    <button onClick={clickSpeedUP} className="font-Righteous">Speed up</button>
-                    <button onClick={clickSpeedDown} className="font-Righteous">Speed down</button>
+                    <button onClick={clickSpeedUP} className="font-Righteous">Speed up {speedUp}</button>
+                    <button onClick={clickSpeedDown} className="font-Righteous">Speed down {speedDown}</button>
                     <button onClick={() => { clickPause(); handleOpen(); }} className='bg-pause font-Righteous'>Pause</button>
                 </div>
             </div>
@@ -57,7 +60,7 @@ const Maingame = () => {
                 <Shop/>
                                 
                 {/* field */}
-                <div className='my-40'>
+                <div className='layout-field'>
                     <Field/>
                 </div>
                 
