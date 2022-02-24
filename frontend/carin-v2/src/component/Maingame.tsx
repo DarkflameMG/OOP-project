@@ -8,6 +8,7 @@ import closeBT from '../image/CloseBTmini.png'
 import { useState } from 'react';
 import Field from './Field';
 import Shop from './Shop';
+import InvisibleShop from './InvisibleShop';
 
 const Maingame = () => {
     const [open, setOpen] = useState(false);
@@ -30,8 +31,8 @@ const Maingame = () => {
         console.log("pause clicked")
     }
 
-    var wave = 1,
-        maxWave = 5;
+    var numAntibody = 0,
+        numVirus = 0;
     var money = 100000
     var speedUp= ">>"
     var speedDown = "<<"
@@ -41,7 +42,7 @@ const Maingame = () => {
             {/* navbar */}
             <div className="topnav" >
                 <div className="topnav-centered">
-                    <p className="active font-Righteous">Wave {wave}/{maxWave}</p>
+                            <p className="active font-Righteous">Antibody {numAntibody}/{numVirus} Virus</p>                        
                 </div>
 
                 <div >
@@ -64,11 +65,7 @@ const Maingame = () => {
                     <Field/>
                 </div>
                 
-                
-                
-                <div className='opacity-0'>
-                    <Shop/>
-                </div>
+                 <InvisibleShop/>
             </div>
             
             {/**Modal */}
