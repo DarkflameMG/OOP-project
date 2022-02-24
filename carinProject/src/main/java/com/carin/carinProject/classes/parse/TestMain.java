@@ -50,7 +50,7 @@ public class TestMain{
     "}";
 
     // GeneticGrammar t = new GeneticGrammar(test);
-    String s = "x = 10"+"x = x + 10";
+    String s = "x = 2^3^2";
 //    GeneticGrammar l = new GeneticGrammar("2");
 //    GeneticGrammar r = new GeneticGrammar("5");
 //    BinaryArithmetic lr = new BinaryArithmetic(l.parseExpression(), r.parseExpression(), "+");

@@ -14,7 +14,7 @@ public class ExprTokenizer implements  Tokenizer{
 
     public ExprTokenizer(String src) throws SyntaxError, TokenizerError {
         ch.add('+');ch.add('-');ch.add('*');ch.add('/');ch.add('%');ch.add('(');ch.add(')');
-        ch.add('{');ch.add('}');ch.add('=');
+        ch.add('{');ch.add('}');ch.add('=');ch.add('^');
         this.src = src;
         pos = 0;
         computeNext();

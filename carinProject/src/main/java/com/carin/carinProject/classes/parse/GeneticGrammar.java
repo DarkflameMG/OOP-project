@@ -130,9 +130,6 @@ public class GeneticGrammar {
         tknz.consume("then");
         Execute statementTrue = parseStatement();
         tknz.consume("else");
-//        if(tknz.peek("if")){              //case: else if
-//            parseIfStatement();
-//        }
         Execute statementFalse = parseStatement();
         return new NodeIfStatement(statementTrue, statementFalse, expr, bindings);
     }
@@ -172,7 +169,7 @@ public class GeneticGrammar {
         Node pw = parsePower();
         while(tknz.peek("^")){
             String operator = tknz.consume();
-            pw = new BinaryArithmetic(pw, parsePower(), operator);;
+            pw = new BinaryArithmetic(pw, parseFactor(), operator);;
         }
         return pw;
     }
