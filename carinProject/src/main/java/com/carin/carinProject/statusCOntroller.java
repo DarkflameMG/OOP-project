@@ -14,6 +14,6 @@ public class statusController {
 
     @GetMapping
     public List<Status> getStatus(){
-        return List.of( new Status(1000, 5 , 2));
+        return List.of( new Status());
     } 
 }

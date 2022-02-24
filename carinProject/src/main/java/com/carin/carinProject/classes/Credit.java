@@ -16,4 +16,9 @@ public class Credit {
     {
         credit += gainCredit;
     }
+
+    public int current_credit()
+    {
+        return credit;
+    }
 }

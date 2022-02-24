@@ -1,42 +1,38 @@
 package com.carin.carinProject.classes;
 
 public class Status {
-    private int money;
-    private int max_wave ;
-    private int cur_wave ;
+    private Credit credit = Credit.getInstance();
+    private FieldImp field = FieldImp.getInstance(ConfigImp.getM(),ConfigImp.getN());
+//    private int money;
 
-    public Status(int money,int max_wave, int cur_wave){
-        this.money = money;
-        this.max_wave = max_wave;
-        this.cur_wave = cur_wave;
-    }
+//    public Status(int money){
+//        this.money = money;
+//    }
+//
+//    public void setMoney(int money){
+//        this.money = money;
+//    }
 
-    public void setMoney(int money){
-        this.money = money;
-    }
-    public void setMaxWave(int max_wave){
-        this.max_wave = max_wave;
-    }
-    public void setCurWave(int cur_wave){
-        this.cur_wave = cur_wave;
+    public int getCredit(){
+       return credit.current_credit();
     }
 
-    public int getMoney(){
-       return money;
+    public int getNum_antibody()
+    {
+        return field.getNum_antibody();
     }
-    public int getMaxWave(){
-        return max_wave;
-    }
-    public int getCurWave(){
-        return cur_wave;
+
+    public int getNum_virus()
+    {
+        return field.getNum_virus();
     }
 
     @Override
     public String toString(){
         return "Status{"+
-        "money" + money + '\'' +
-        "max_wave" + max_wave + '\''+
-        "cur_wave" + cur_wave +
+        "money" + getCredit() +'\''+
+        "cur_antibody"+getNum_antibody()+'\''+
+        "cur_virus"+getNum_virus()+'\''+
         "}";
     }
 }
