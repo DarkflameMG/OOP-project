@@ -21,11 +21,14 @@ export type TestFech = {
 
 const Maingame = () => {
     const [open, setOpen] = useState(false);
-    const [data,setData] = useState<TestFech|null>(null);
+    const [data,setData] = useState<TestFech[]>();
+    const [money, setMoney] = useState<number>();
+    const [virus, setVirus] = useState<number>();
+    const [antibody, setAntibody] = useState<number>();
 
     const fetchTest = async() =>{
         try{
-            const resp = await axios.get<TestFech>(Test)
+            const resp = await axios.get<TestFech[]>(Test)
             setData(resp.data)
         }
         catch(err){
@@ -33,9 +36,16 @@ const Maingame = () => {
         }
     }
 
+    
+
     useEffect(()=>{
         fetchTest()
-        console.log(data?.credit)
+        if(data != null){
+            console.log(data[0].credit)
+            setMoney(data[0].credit)
+            setVirus(data[0].num_virus)
+            setAntibody(data[0].num_antibody)
+        }
     },[])
 
     const handleOpen = () => {
@@ -57,9 +67,6 @@ const Maingame = () => {
         console.log("pause clicked")   
     }
 
-    var numAntibody = 0,
-        numVirus = 0;
-    var money = 100000
     var speedUp= ">>"
     var speedDown = "<<"
 
@@ -71,11 +78,11 @@ const Maingame = () => {
             {/* navbar */}
             <div className="topnav" >
                 <div className="topnav-centered">
-                            <p className="active font-Righteous">Antibody {numAntibody}/{numVirus} Virus</p>                        
+                            <p className="active font-Righteous">Antibody: {antibody} / Virus: {virus} </p>                        
                 </div>
                 
                 <div >
-                    <p className="font-Righteous mx-7 ">Money ${money}</p>
+                    <p className="font-Righteous mx-7 ">Money $ {money}</p>
                 </div>
 
                 <div className="topnav-right">
