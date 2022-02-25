@@ -1,18 +1,27 @@
 package com.carin.carinProject.classes.parse;
 
-import com.carin.carinProject.interfaces.Node;
+import java.util.Random;
 
-import java.util.Map;
+public class RandomNumber{
+    private static RandomNumber instance;
+    private final Random rand;
 
-public class RandomNumber implements Node {
-    int num;
-
-    public RandomNumber(int num){
-        this.num = num;
+    private RandomNumber()
+    {
+        rand = new Random();
     }
 
-    @Override
-    public int evaluate(Map<String,Integer> bindings) throws SyntaxError {
-        return num;
+    public static RandomNumber getInstance()
+    {
+        if(instance == null)
+        {
+            instance = new RandomNumber();
+        }
+        return instance;
+    }
+
+    public int RandNum()
+    {
+        return rand.nextInt(1000);
     }
 }

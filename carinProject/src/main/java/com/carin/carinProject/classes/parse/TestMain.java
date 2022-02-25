@@ -4,6 +4,8 @@ import com.carin.carinProject.classes.AntiBodyImp;
 import com.carin.carinProject.classes.parse.nodes.BinaryArithmetic;
 import com.carin.carinProject.interfaces.Unit;
 
+import java.util.Random;
+
 public class TestMain{
 
     public static String printexp (BinaryArithmetic s){
@@ -50,7 +52,7 @@ public class TestMain{
     "}";
 
     // GeneticGrammar t = new GeneticGrammar(test);
-    String s = "x = 2^3^2";
+    String s = "x = random"+" y = random";
 //    GeneticGrammar l = new GeneticGrammar("2");
 //    GeneticGrammar r = new GeneticGrammar("5");
 //    BinaryArithmetic lr = new BinaryArithmetic(l.parseExpression(), r.parseExpression(), "+");
@@ -63,6 +65,7 @@ public class TestMain{
         t1.parseProgram();
         t1.run();
         System.out.println("Hello");
+
     }
 
 }
