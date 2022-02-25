@@ -19,15 +19,13 @@ public class SensorExpression implements Node{
 
     @Override
     public int evaluate(Map<String,Integer> bindings) throws SyntaxError {
-        if(host.equals("antibody")){
-            return 1;
+        if(host.equals("antibody") || host.equals("virus")){
+            return unit.Sensor();
         }
-        else if(host.equals("virus")){
-            return -1;
+        else if(host.equals("nearby")){
+            return unit.SensorNearby(direction.evaluate(bindings));
         }
-        else{
-            return 0;
-        }
+        return -1;
     }
 
 }

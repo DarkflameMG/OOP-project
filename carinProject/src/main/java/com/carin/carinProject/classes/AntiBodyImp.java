@@ -18,6 +18,34 @@ public class AntiBodyImp extends UnitImp implements AntiBodyUnit {
 
     }
 
+    @Override
+    public int Sensor()
+    {
+        int Max = Math.max(ConfigImp.getM(),ConfigImp.getN());
+        for(int i=1;i<=Max;i++)
+        {
+            for(int direction = 1;direction <= 8;direction++)
+            {
+                int x = coordinateX,y = coordinateY;
+                if(direction == 1 || direction == 2 || direction == 8)
+                    y += i;
+                if(direction == 4 || direction == 5 || direction == 6)
+                    y -= i;
+                if(direction == 2 || direction == 3 || direction == 4)
+                    x += i;
+                if(direction == 6 || direction == 7 || direction == 8)
+                    x -= i;
+                Unit target = field.getTarget(x,y);
+                if(target != null)
+                {
+                    if(target.isVirus() > 0)
+                        return (i*10)+direction;
+                }
+            }
+        }
+        return 0;
+    }
+
     public void recovery()
     {
         hp += hp_gain;
@@ -26,7 +54,6 @@ public class AntiBodyImp extends UnitImp implements AntiBodyUnit {
     @Override
     public void attack(int direction)
     {
-        FieldImp field = FieldImp.getInstance(10,10);
         int x = coordinateX,y = coordinateY;
         if(direction == 1 || direction == 2 || direction == 8)
             y += 1;

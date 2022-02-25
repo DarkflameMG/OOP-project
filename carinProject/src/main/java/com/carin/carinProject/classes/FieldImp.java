@@ -51,7 +51,9 @@ public class FieldImp implements Field {
 
     public Unit getTarget(int x, int y)
     {
-        return slot[x][y];
+        if(x < ConfigImp.getM() && y < ConfigImp.getM() && x > 0 && y > 0)
+            return slot[x][y];
+        return null;
     }
 
     public int getNum_virus()

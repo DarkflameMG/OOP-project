@@ -11,6 +11,7 @@ public class UnitImp implements Unit {
     protected GeneticGrammar gene;
     protected String type;
     protected String species;
+    protected FieldImp field = FieldImp.getInstance(ConfigImp.getM(),ConfigImp.getN());
 
     protected UnitImp(String type,String species,int x,int y)
     {
@@ -118,6 +119,36 @@ public class UnitImp implements Unit {
     public void transform(String species)
     {
 
+    }
+
+    public int Sensor()
+    {
+        return 0;
+    }
+
+    public int SensorNearby(int direction)
+    {
+        int Max = Math.max(ConfigImp.getM(),ConfigImp.getN());
+        for(int i=1;i<=Max;i++)
+        {
+            int x = coordinateX,y = coordinateY;
+            if(direction == 1 || direction == 2 || direction == 8)
+                y += i;
+            if(direction == 4 || direction == 5 || direction == 6)
+                y -= i;
+            if(direction == 2 || direction == 3 || direction == 4)
+                x += i;
+            if(direction == 6 || direction == 7 || direction == 8)
+                x -= i;
+            Unit target = field.getTarget(x,y);
+            if(target != null)
+            {
+                if(target.isVirus() > 0)
+                    return (i*10)+1;
+                return (i*10)+2;
+            }
+        }
+        return 0;
     }
 
 }

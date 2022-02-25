@@ -48,4 +48,17 @@ public interface Unit {
      * @param species a name of virus that antibody transform
      */
     void transform(String species);
+
+    /**
+     * return direction and distant of the closest Unit
+     * @return a number that number%10 is direction and number/10 is distant
+     */
+    int Sensor();
+
+    /**
+     * return distant and type of the closest Unit
+     * @return a number that number%10 is type of Unit if 1 is virus else antibody
+     *          number/10 is distant
+     */
+    int SensorNearby(int direction);
 }
