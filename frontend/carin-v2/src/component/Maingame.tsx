@@ -5,13 +5,39 @@ import antibodyA from '../image/antibodyA.png';
 import antibodyB from '../image/antibodyB.png';
 import antibodyC from '../image/antibodyC.png';
 import closeBT from '../image/CloseBTmini.png'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Field from './Field';
 import Shop from './Shop';
 import InvisibleShop from './InvisibleShop';
+import axios from 'axios';
+
+const Test = 'http://localhost:8080/api/status'
+
+export type TestFech = {
+    credit : number,
+    num_virus : number,
+    num_antibody : number,
+}
 
 const Maingame = () => {
     const [open, setOpen] = useState(false);
+    const [data,setData] = useState<TestFech|null>(null);
+
+    const fetchTest = async() =>{
+        try{
+            const resp = await axios.get<TestFech>(Test)
+            setData(resp.data)
+        }
+        catch(err){
+            console.log(err) 
+        }
+    }
+
+    useEffect(()=>{
+        fetchTest()
+        console.log(data?.credit)
+    },[])
+
     const handleOpen = () => {
         setOpen(true);
     }
@@ -28,7 +54,7 @@ const Maingame = () => {
     }
 
     function clickPause() {
-        console.log("pause clicked")
+        console.log("pause clicked")   
     }
 
     var numAntibody = 0,
@@ -37,6 +63,9 @@ const Maingame = () => {
     var speedUp= ">>"
     var speedDown = "<<"
 
+
+    
+
     return (
         <div>
             {/* navbar */}
@@ -44,7 +73,7 @@ const Maingame = () => {
                 <div className="topnav-centered">
                             <p className="active font-Righteous">Antibody {numAntibody}/{numVirus} Virus</p>                        
                 </div>
-
+                
                 <div >
                     <p className="font-Righteous mx-7 ">Money ${money}</p>
                 </div>
@@ -58,8 +87,8 @@ const Maingame = () => {
 
             <div className='flex justify-between'>
                 {/* shop */}
-                <Shop/>
-                                
+                <Shop/>    
+
                 {/* field */}
                 <div className='layout-field'>
                     <Field/>
