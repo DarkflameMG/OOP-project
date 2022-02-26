@@ -4,6 +4,8 @@ import com.carin.carinProject.classes.AntiBodyImp;
 import com.carin.carinProject.classes.parse.nodes.BinaryArithmetic;
 import com.carin.carinProject.interfaces.Unit;
 
+import java.io.IOException;
+
 
 public class TestMain{
 
@@ -14,7 +16,7 @@ public class TestMain{
         return a.toString();
     }
     
-    public static void main(String[] args) throws TokenizerError, SyntaxError {
+    public static void main(String[] args) throws TokenizerError, SyntaxError , IOException {
         // GeneticGrammar gen = GeneticGrammar.getInstance();
     String test = "virusLoc = virus" +
     "if (virusLoc / 10 - 1)" +
@@ -51,7 +53,10 @@ public class TestMain{
     "}";
 
     // GeneticGrammar t = new GeneticGrammar(test);
-    String s = "x = random"+" y = random";
+    String s;
+    geneImp.main(args);
+    geneImp instance = geneImp.getInstance();
+    s = instance.getAntibodyGene();
 //    GeneticGrammar l = new GeneticGrammar("2");
 //    GeneticGrammar r = new GeneticGrammar("5");
 //    BinaryArithmetic lr = new BinaryArithmetic(l.parseExpression(), r.parseExpression(), "+");
@@ -63,8 +68,6 @@ public class TestMain{
         GeneticGrammar t1 = new GeneticGrammar(s,host);
         t1.parseProgram();
         t1.run();
-        System.out.println("Hello");
-
     }
 
 }
