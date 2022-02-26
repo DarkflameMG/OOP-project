@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class ConfigImp {
-    private static final String inFile = "src/classes/configfile/config1.in";
+    private static final String inFile = "src/main/java/com/carin/carinProject/classes/configfile/config1.in";
 //    protected static ConfigImp instance;
     private static int m;
     private static int n;
