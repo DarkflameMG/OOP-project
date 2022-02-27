@@ -6,8 +6,10 @@ import java.util.Scanner;
 
 public class geneImp {
     private static final String D_A = "src/main/java/com/carin/carinProject/classes/configfile/antibodyGene.in";
+    private static final String D_V = "src/main/java/com/carin/carinProject/classes/configfile/virusGene.in";
     private static geneImp instance;
     private String antibodyGene;
+    private String virusGene;
 
     private geneImp(){}
 
@@ -23,6 +25,11 @@ public class geneImp {
         antibodyGene = s;
     }
 
+    private void setV_Gene(String s)
+    {
+        virusGene = s;
+    }
+
     public String getAntibodyGene()
     {
         return antibodyGene;
@@ -31,6 +38,7 @@ public class geneImp {
     public static void main(String[] args) throws IOException {
         StringBuilder s = new StringBuilder();
         geneImp instance = geneImp.getInstance();
+
         try (FileReader fr =  new FileReader(D_A);
              Scanner scan = new Scanner(fr)){
             while(scan.hasNext())
@@ -40,5 +48,15 @@ public class geneImp {
             }
         }
         instance.setA_Gene(s.toString());
+
+        try (FileReader fr =  new FileReader(D_V);
+             Scanner scan = new Scanner(fr)){
+            while(scan.hasNext())
+            {
+                s.append(scan.nextLine());
+                s.append(" ");
+            }
+        }
+        instance.setV_Gene(s.toString());
     }
 }
