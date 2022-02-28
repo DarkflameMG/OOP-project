@@ -1,5 +1,8 @@
 package com.carin.carinProject.classes;
 
+import com.carin.carinProject.classes.parse.SyntaxError;
+import com.carin.carinProject.classes.parse.TokenizerError;
+
 public class VirusFactory {
     private static VirusFactory instance;
 
@@ -12,7 +15,7 @@ public class VirusFactory {
         return instance;
     }
 
-    public VirusImp newVirus(String species)
+    public VirusImp newVirus(String species)throws SyntaxError, TokenizerError
     {
         return new VirusImp(species);
     }

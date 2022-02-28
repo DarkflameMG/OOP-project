@@ -1,11 +1,13 @@
 package com.carin.carinProject.classes;
 
+import com.carin.carinProject.classes.parse.SyntaxError;
+import com.carin.carinProject.classes.parse.TokenizerError;
 import com.carin.carinProject.interfaces.VirusUnit;
 import com.carin.carinProject.interfaces.Unit;
 
 public class VirusImp extends UnitImp implements VirusUnit {
     private final int hp_drain = ConfigImp.getVirus_gain();
-    public VirusImp(String species)
+    public VirusImp(String species)throws SyntaxError, TokenizerError
     {
         super("virus",species,0,0);
     }

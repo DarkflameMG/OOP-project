@@ -1,5 +1,8 @@
 package com.carin.carinProject.interfaces;
 
+import com.carin.carinProject.classes.parse.SyntaxError;
+import com.carin.carinProject.classes.parse.TokenizerError;
+
 public interface Unit {
     /**
      * move unit to another location
@@ -61,4 +64,6 @@ public interface Unit {
      *          number/10 is distant
      */
     int SensorNearby(int direction);
+
+    void run() throws TokenizerError, SyntaxError;
 }

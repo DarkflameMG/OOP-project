@@ -1,5 +1,7 @@
 package com.carin.carinProject.classes;
 
+import com.carin.carinProject.classes.parse.SyntaxError;
+import com.carin.carinProject.classes.parse.TokenizerError;
 import com.carin.carinProject.interfaces.AntiBodyUnit;
 import com.carin.carinProject.interfaces.Unit;
 
@@ -7,9 +9,9 @@ import com.carin.carinProject.interfaces.Unit;
 public class AntiBodyImp extends UnitImp implements AntiBodyUnit {
     private final int hp_gain = ConfigImp.getAntibody_gain();
 
-    public AntiBodyImp(String species)
+    public AntiBodyImp(String species,int x,int y) throws SyntaxError, TokenizerError
     {
-        super("antibody",species,0,0);
+        super("antibody",species,x,y);
     }
 
     @Override

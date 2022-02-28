@@ -11,14 +11,14 @@ public class FieldImp implements Field {
 
     private FieldImp(int m,int n)
     {
-        slot = new Unit[m][n];
+        slot = new Unit[n][m];
     }
 
     public static FieldImp getInstance(int m, int n)
     {
         if(instance == null)
         {
-            instance = new FieldImp(m,n);
+            instance = new FieldImp(n,m);
         }
         return instance;
     }
@@ -44,7 +44,7 @@ public class FieldImp implements Field {
 
     public int isEmpty(int x, int y)
     {
-        if(slot[x][y] == null)
+        if(slot[y][x] == null)
             return 1;
         return 0;
     }
@@ -52,7 +52,7 @@ public class FieldImp implements Field {
     public Unit getTarget(int x, int y)
     {
         if(x < ConfigImp.getM() && y < ConfigImp.getM() && x > 0 && y > 0)
-            return slot[x][y];
+            return slot[y][x];
         return null;
     }
 

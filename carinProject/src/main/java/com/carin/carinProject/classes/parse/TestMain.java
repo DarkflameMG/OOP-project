@@ -64,7 +64,7 @@ public class TestMain{
 //    GeneticGrammar g = new GeneticGrammar(s);
 //    Node e = g.parseExpression();
 //        System.out.println(e.evaluate());
-        Unit host = new AntiBodyImp("Cox");
+        Unit host = new AntiBodyImp("Cox",2,3);
         GeneticGrammar t1 = new GeneticGrammar(s,host);
         t1.parseProgram();
         t1.run();
