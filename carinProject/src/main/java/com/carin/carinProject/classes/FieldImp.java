@@ -11,7 +11,7 @@ public class FieldImp implements Field {
 
     private FieldImp(int m,int n)
     {
-        slot = new Unit[n][m];
+        slot = new Unit[n+1][m+1];
     }
 
     public static FieldImp getInstance(int m, int n)
@@ -25,7 +25,7 @@ public class FieldImp implements Field {
 
     public void placeUnit(int x, int y, Unit unit)
     {
-        slot[x][y] = unit;
+        slot[y][x] = unit;
         if(unit.isAntiBody() > 0)
             num_antibody++;
         else
@@ -34,12 +34,12 @@ public class FieldImp implements Field {
 
     public void removeUnit(int x, int y)
     {
-        if(slot[x][y].isAntiBody() > 0)
+        if(slot[y][x].isAntiBody() > 0)
             num_antibody--;
         else
             num_virus--;
 
-        slot[x][y] = null;
+        slot[y][x] = null;
     }
 
     public int isEmpty(int x, int y)
@@ -51,7 +51,7 @@ public class FieldImp implements Field {
 
     public Unit getTarget(int x, int y)
     {
-        if(x < ConfigImp.getM() && y < ConfigImp.getM() && x > 0 && y > 0)
+        if(x < ConfigImp.getM() && y < ConfigImp.getN() && x >= 0 && y >= 0)
             return slot[y][x];
         return null;
     }

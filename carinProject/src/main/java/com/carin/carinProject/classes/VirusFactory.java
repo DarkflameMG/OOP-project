@@ -15,8 +15,8 @@ public class VirusFactory {
         return instance;
     }
 
-    public VirusImp newVirus(String species)throws SyntaxError, TokenizerError
+    public VirusImp newVirus(String species,int x,int y)throws SyntaxError, TokenizerError
     {
-        return new VirusImp(species);
+        return new VirusImp(species,x,y);
     }
 }

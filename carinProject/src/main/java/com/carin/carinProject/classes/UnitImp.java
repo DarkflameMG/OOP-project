@@ -25,6 +25,8 @@ public class UnitImp implements Unit {
         initStat(type);
         if(type.equals("antibody"))
             this.gene = new GeneticGrammar(geneImp.getInstance().getAntibodyGene(),this);
+        else if(type.equals("virus"))
+            this.gene = new GeneticGrammar(geneImp.getInstance().getVirusGene(),this);
     }
 
     private void initStat(String type)
@@ -43,7 +45,7 @@ public class UnitImp implements Unit {
 
     public void move(int direction)
     {
-        System.out.println("direction "+direction);
+        System.out.println("direction : "+direction);
         FieldImp field = FieldImp.getInstance(10,10);
         int m = ConfigImp.getM();
         int n = ConfigImp.getN();
@@ -165,6 +167,8 @@ public class UnitImp implements Unit {
         gene.parseProgram().execute();
         if(type.equals("antibody"))
             this.gene = new GeneticGrammar(geneImp.getInstance().getAntibodyGene(),this);
+        else if(type.equals("virus"))
+            this.gene = new GeneticGrammar(geneImp.getInstance().getVirusGene(),this);
     }
 
 }

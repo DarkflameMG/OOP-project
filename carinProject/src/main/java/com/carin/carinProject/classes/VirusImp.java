@@ -7,9 +7,9 @@ import com.carin.carinProject.interfaces.Unit;
 
 public class VirusImp extends UnitImp implements VirusUnit {
     private final int hp_drain = ConfigImp.getVirus_gain();
-    public VirusImp(String species)throws SyntaxError, TokenizerError
+    public VirusImp(String species,int x,int y)throws SyntaxError, TokenizerError
     {
-        super("virus",species,0,0);
+        super("virus",species,x,y);
     }
 
     public void spawn()
@@ -20,6 +20,7 @@ public class VirusImp extends UnitImp implements VirusUnit {
     @Override
     public int Sensor()
     {
+        System.out.println("V -> x :"+coordinateX+" y : "+coordinateY);
         int Max = Math.max(ConfigImp.getM(),ConfigImp.getN());
         for(int i=1;i<=Max;i++)
         {
@@ -27,9 +28,9 @@ public class VirusImp extends UnitImp implements VirusUnit {
             {
                 int x = coordinateX,y = coordinateY;
                 if(direction == 1 || direction == 2 || direction == 8)
-                    y += i;
-                if(direction == 4 || direction == 5 || direction == 6)
                     y -= i;
+                if(direction == 4 || direction == 5 || direction == 6)
+                    y += i;
                 if(direction == 2 || direction == 3 || direction == 4)
                     x += i;
                 if(direction == 6 || direction == 7 || direction == 8)
@@ -38,7 +39,10 @@ public class VirusImp extends UnitImp implements VirusUnit {
                 if(target != null)
                 {
                     if(target.isAntiBody() > 0)
-                        return (i*10)+direction;
+                    {
+                        System.out.println("V : "+((i*10)+direction));
+                        return ((i*10)+direction);
+                    }
                 }
             }
         }
@@ -55,9 +59,9 @@ public class VirusImp extends UnitImp implements VirusUnit {
     {
         int x = coordinateX,y = coordinateY;
         if(direction == 1 || direction == 2 || direction == 8)
-            y += 1;
-        if(direction == 4 || direction == 5 || direction == 6)
             y -= 1;
+        if(direction == 4 || direction == 5 || direction == 6)
+            y += 1;
         if(direction == 2 || direction == 3 || direction == 4)
             x += 1;
         if(direction == 6 || direction == 7 || direction == 8)

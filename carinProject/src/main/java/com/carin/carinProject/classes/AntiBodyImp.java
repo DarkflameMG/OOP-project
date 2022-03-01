@@ -23,6 +23,7 @@ public class AntiBodyImp extends UnitImp implements AntiBodyUnit {
     @Override
     public int Sensor()
     {
+        System.out.println("A -> x :"+coordinateX+" y : "+coordinateY);
         int Max = Math.max(ConfigImp.getM(),ConfigImp.getN());
         for(int i=1;i<=Max;i++)
         {
@@ -30,9 +31,9 @@ public class AntiBodyImp extends UnitImp implements AntiBodyUnit {
             {
                 int x = coordinateX,y = coordinateY;
                 if(direction == 1 || direction == 2 || direction == 8)
-                    y += i;
-                if(direction == 4 || direction == 5 || direction == 6)
                     y -= i;
+                if(direction == 4 || direction == 5 || direction == 6)
+                    y += i;
                 if(direction == 2 || direction == 3 || direction == 4)
                     x += i;
                 if(direction == 6 || direction == 7 || direction == 8)
@@ -41,7 +42,10 @@ public class AntiBodyImp extends UnitImp implements AntiBodyUnit {
                 if(target != null)
                 {
                     if(target.isVirus() > 0)
-                        return (i*10)+direction;
+                    {
+                        System.out.println("A : "+((i*10)+direction));
+                        return ((i*10)+direction);
+                    }
                 }
             }
         }
@@ -58,9 +62,9 @@ public class AntiBodyImp extends UnitImp implements AntiBodyUnit {
     {
         int x = coordinateX,y = coordinateY;
         if(direction == 1 || direction == 2 || direction == 8)
-            y += 1;
-        if(direction == 4 || direction == 5 || direction == 6)
             y -= 1;
+        if(direction == 4 || direction == 5 || direction == 6)
+            y += 1;
         if(direction == 2 || direction == 3 || direction == 4)
             x += 1;
         if(direction == 6 || direction == 7 || direction == 8)

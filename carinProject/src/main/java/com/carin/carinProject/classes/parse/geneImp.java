@@ -35,6 +35,11 @@ public class geneImp {
         return antibodyGene;
     }
 
+    public String getVirusGene()
+    {
+        return virusGene;
+    }
+
     public static void main(String[] args) throws IOException {
         StringBuilder s = new StringBuilder();
         geneImp instance = geneImp.getInstance();
@@ -49,6 +54,7 @@ public class geneImp {
         }
         instance.setA_Gene(s.toString());
 
+        s = new StringBuilder();
         try (FileReader fr =  new FileReader(D_V);
              Scanner scan = new Scanner(fr)){
             while(scan.hasNext())
