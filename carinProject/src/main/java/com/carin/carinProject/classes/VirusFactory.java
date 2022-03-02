@@ -17,6 +17,8 @@ public class VirusFactory {
 
     public VirusImp newVirus(String species,int x,int y)throws SyntaxError, TokenizerError
     {
-        return new VirusImp(species,x,y);
+        VirusImp unit = new VirusImp(species, x, y);
+        FieldImp.getInstance(ConfigImp.getM(),ConfigImp.getN()).placeUnit(x,y,unit);
+        return unit;
     }
 }

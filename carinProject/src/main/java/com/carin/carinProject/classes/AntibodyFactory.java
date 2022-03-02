@@ -16,6 +16,8 @@ public class AntibodyFactory {
     }
     public AntiBodyImp newAntibody(String species,int x,int y) throws SyntaxError, TokenizerError
     {
-        return new AntiBodyImp(species,x,y);
+        AntiBodyImp unit = new AntiBodyImp(species,x,y);
+        FieldImp.getInstance(ConfigImp.getM(),ConfigImp.getN()).placeUnit(x,y,unit);
+        return unit;
     }
 }
