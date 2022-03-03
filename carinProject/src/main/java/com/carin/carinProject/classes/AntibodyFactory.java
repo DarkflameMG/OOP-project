@@ -18,6 +18,7 @@ public class AntibodyFactory {
     {
         AntiBodyImp unit = new AntiBodyImp(species,x,y);
         FieldImp.getInstance(ConfigImp.getM(),ConfigImp.getN()).placeUnit(x,y,unit);
+        UnitCollection.getInstance().addUnit(unit);
         return unit;
     }
 }

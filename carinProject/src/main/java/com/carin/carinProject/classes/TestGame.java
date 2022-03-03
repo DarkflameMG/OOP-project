@@ -12,14 +12,14 @@ public class TestGame {
         ConfigImp.main(args);
         geneImp.main(args);
         FieldImp field = FieldImp.getInstance(ConfigImp.getM(),ConfigImp.getN());
-        Unit host = AntibodyFactory.getInstance().newAntibody("ox",4,0);
-        Unit host2 = VirusFactory.getInstance().newVirus("cx",0,4);
+        AntibodyFactory.getInstance().newAntibody("ox",4,0);
+        VirusFactory.getInstance().newVirus("cx",0,4);
+        AntibodyFactory.getInstance().newAntibody("gg",2,3);
+        VirusFactory.getInstance().newVirus("meme",3,2);
+        VirusFactory.getInstance().newVirus("momo",1,0);
         UnitCollection allU = UnitCollection.getInstance();
-        allU.addUnit(host);
-        allU.addUnit(host2);
 
-        System.out.println("m "+ConfigImp.getM()+" n "+ConfigImp.getN());
-        for(int k =0;k<5;k++)
+        for(int k =0;k<20;k++)
         {
             for(int i=0;i<ConfigImp.getN();i++)
             {

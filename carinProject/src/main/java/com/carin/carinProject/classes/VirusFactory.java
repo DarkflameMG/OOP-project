@@ -19,6 +19,7 @@ public class VirusFactory {
     {
         VirusImp unit = new VirusImp(species, x, y);
         FieldImp.getInstance(ConfigImp.getM(),ConfigImp.getN()).placeUnit(x,y,unit);
+        UnitCollection.getInstance().addUnit(unit);
         return unit;
     }
 }

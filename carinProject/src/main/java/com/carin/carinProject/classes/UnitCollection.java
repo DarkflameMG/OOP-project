@@ -4,16 +4,16 @@ import com.carin.carinProject.classes.parse.SyntaxError;
 import com.carin.carinProject.classes.parse.TokenizerError;
 import com.carin.carinProject.interfaces.Unit;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class UnitCollection {
     private static UnitCollection instance;
-    private Set<Unit> allUnit;
+    private Map<Unit,Unit> allUnit;
 
     private UnitCollection()
     {
-        allUnit = new HashSet<>();
+        allUnit = new ConcurrentHashMap<>();
     }
 
     public static UnitCollection getInstance()
@@ -25,7 +25,7 @@ public class UnitCollection {
 
     public void addUnit(Unit unit)
     {
-        allUnit.add(unit);
+        allUnit.put(unit,unit);
     }
 
     public void removeUnit(Unit unit)
@@ -35,9 +35,9 @@ public class UnitCollection {
 
     public void UnitRun()throws SyntaxError, TokenizerError
     {
-        for(Unit unit: allUnit)
+        for(Map.Entry<Unit,Unit> unit : allUnit.entrySet())
         {
-            unit.run();
+            unit.getValue().run();
         }
     }
 }

@@ -45,7 +45,6 @@ public class UnitImp implements Unit {
 
     public void move(int direction)
     {
-        System.out.println("direction : "+direction);
         FieldImp field = FieldImp.getInstance(10,10);
         int m = ConfigImp.getM();
         int n = ConfigImp.getN();
@@ -60,7 +59,6 @@ public class UnitImp implements Unit {
         if(direction == 6 || direction == 7 || direction == 8)
             x = -1;
 
-        System.out.println("move from "+coordinateX+","+coordinateY+" to "+(coordinateX+x)+","+(coordinateY+y));
         if(coordinateX + x >= 0 && coordinateY + y >= 0 && coordinateX + x < m && coordinateY + y < n
                 && field.isEmpty(coordinateX+x,coordinateY+y) > 0)
         {
@@ -104,17 +102,17 @@ public class UnitImp implements Unit {
 
     public void decreaseHp(int damage)
     {
+        System.out.print("name :"+species+" hp :"+hp);
         if (this.hp - damage >= 0)
             this.hp -= damage;
         else
         {
             this.hp = 0;
-            if(isVirus() > 0)
-            {
-                FieldImp field = FieldImp.getInstance(10,10);
-                field.removeUnit(coordinateX,coordinateY);
-            }
+            field.removeUnit(coordinateX,coordinateY);
+            UnitCollection allU = UnitCollection.getInstance();
+            allU.removeUnit(this);
         }
+        System.out.println(" -> :"+hp);
     }
 
     public int getDamage()
@@ -127,7 +125,7 @@ public class UnitImp implements Unit {
         return hp;
     }
 
-    public void transform(String species)
+    public void transform(String species) throws TokenizerError, SyntaxError
     {
 
     }

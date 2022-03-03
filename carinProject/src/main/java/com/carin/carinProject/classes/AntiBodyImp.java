@@ -15,15 +15,17 @@ public class AntiBodyImp extends UnitImp implements AntiBodyUnit {
     }
 
     @Override
-    public void transform(String species)
+    public void transform(String species) throws TokenizerError, SyntaxError
     {
-
+//        field.removeUnit(coordinateX,coordinateY);
+        UnitCollection allU = UnitCollection.getInstance();
+        Unit newV = VirusFactory.getInstance().newVirus(species,coordinateX,coordinateY);
+        allU.addUnit(newV);
     }
 
     @Override
     public int Sensor()
     {
-        System.out.println("A -> x :"+coordinateX+" y : "+coordinateY);
         int Max = Math.max(ConfigImp.getM(),ConfigImp.getN());
         for(int i=1;i<=Max;i++)
         {
@@ -43,7 +45,6 @@ public class AntiBodyImp extends UnitImp implements AntiBodyUnit {
                 {
                     if(target.isVirus() > 0)
                     {
-                        System.out.println("A : "+((i*10)+direction));
                         return ((i*10)+direction);
                     }
                 }

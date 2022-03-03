@@ -50,7 +50,7 @@ public interface Unit {
      * transform form antibody to virus
      * @param species a name of virus that antibody transform
      */
-    void transform(String species);
+    void transform(String species) throws TokenizerError, SyntaxError;
 
     /**
      * return direction and distant of the closest Unit

@@ -34,12 +34,15 @@ public class FieldImp implements Field {
 
     public void removeUnit(int x, int y)
     {
-        if(slot[y][x].isAntiBody() > 0)
-            num_antibody--;
-        else
-            num_virus--;
+        if(isEmpty(x,y)==0)
+        {
+            if(slot[y][x].isAntiBody() > 0)
+                num_antibody--;
+            else
+                num_virus--;
 
-        slot[y][x] = null;
+            slot[y][x] = null;
+        }
     }
 
     public int isEmpty(int x, int y)
