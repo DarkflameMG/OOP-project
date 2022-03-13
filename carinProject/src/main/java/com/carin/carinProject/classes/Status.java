@@ -3,7 +3,10 @@ package com.carin.carinProject.classes;
 public class Status {
     private Credit credit = Credit.getInstance();
     private FieldImp field = FieldImp.getInstance(ConfigImp.getM(),ConfigImp.getN());
-//    private int money;
+    private int m = ConfigImp.getM();
+    private int n = ConfigImp.getN();
+
+    //    private int money;
 
 //    public Status(int money){
 //        this.money = money;
@@ -27,12 +30,5 @@ public class Status {
         return field.getNum_virus();
     }
 
-    @Override
-    public String toString(){
-        return "Status{"+
-        "money" + getCredit() +'\''+
-        "cur_antibody"+getNum_antibody()+'\''+
-        "cur_virus"+getNum_virus()+'\''+
-        "}";
-    }
+
 }

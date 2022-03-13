@@ -94,6 +94,14 @@ public class ConfigImp {
         return virusSpawn;
     }
 
+    public int getX() {
+        return m;
+    }
+
+    public int getY() {
+        return n;
+    }
+
 
     public static void main(String[] args) throws FileNotFoundException, IOException{
         try(FileReader fr =  new FileReader(inFile);
@@ -126,5 +134,5 @@ public class ConfigImp {
             // System.out.println("antibody credit gain  = " + antibody_credit_gain);
 
         }
-    }       
+    }
 }
