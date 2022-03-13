@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 
 @CrossOrigin(origins = "*")
@@ -14,7 +16,8 @@ import java.util.List;
 public class FieldController {
 
     @GetMapping
-    public List<ConfigImp> getSizeMap(){
+    public static List<ConfigImp> getSizeMap() throws FileNotFoundException, IOException{
+        ConfigImp.ReadFile();
         return List.of(new ConfigImp());
     }
 }
