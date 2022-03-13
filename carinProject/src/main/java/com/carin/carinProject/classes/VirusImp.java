@@ -6,10 +6,12 @@ import com.carin.carinProject.interfaces.VirusUnit;
 import com.carin.carinProject.interfaces.Unit;
 
 public class VirusImp extends UnitImp implements VirusUnit {
-    private final int hp_drain = ConfigImp.getVirus_gain();
+    private int hp_drain = ConfigImp.getVirus_gain();
     public VirusImp(String species,int x,int y)throws SyntaxError, TokenizerError
     {
         super("virus",species,x,y);
+        if(species.equals("Abnormal"))
+            hp_drain*=1.2;
     }
 
     public void spawn()
