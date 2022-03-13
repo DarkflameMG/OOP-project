@@ -3,8 +3,6 @@ package com.carin.carinProject.classes;
 public class Status {
     private Credit credit = Credit.getInstance();
     private FieldImp field = FieldImp.getInstance(ConfigImp.getM(),ConfigImp.getN());
-    private int m = ConfigImp.getM();
-    private int n = ConfigImp.getN();
 
     //    private int money;
 
