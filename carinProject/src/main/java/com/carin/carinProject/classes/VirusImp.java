@@ -14,11 +14,6 @@ public class VirusImp extends UnitImp implements VirusUnit {
             hp_drain*=1.2;
     }
 
-    public void spawn()
-    {
-
-    }
-
     @Override
     public int Sensor()
     {
