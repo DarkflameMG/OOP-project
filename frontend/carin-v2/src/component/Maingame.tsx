@@ -110,7 +110,15 @@ const Maingame = () => {
 
                 {/* field */}
                 <div className='layout-field'>
-                    <Field/>
+                    {/* <Field/> */}
+                    <TransformWrapper>
+                        <TransformComponent>
+                            <div className='container field'>
+                                {Field()}
+                            </div>
+                        </TransformComponent>
+                    </TransformWrapper>
+
                 </div>
                 
                  <InvisibleShop/>
