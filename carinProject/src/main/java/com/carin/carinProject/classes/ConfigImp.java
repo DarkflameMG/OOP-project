@@ -102,6 +102,25 @@ public class ConfigImp {
         return n;
     }
 
+    public static void ReadFile() throws FileNotFoundException, IOException{
+        try(FileReader fr =  new FileReader(inFile);
+        Scanner s = new Scanner(fr)){
+            m = s.nextInt();
+            n = s.nextInt();
+            virusSpawn = s.nextDouble();
+            antibody_credit = s.nextInt();
+            antibody_placementCost = s.nextInt();
+            virus_health = s.nextInt();
+            antibody_health = s.nextInt();
+            virus_damage = s.nextInt();
+            virus_gain = s.nextInt();
+            antibody_damage = s.nextInt();
+            antibody_gain = s.nextInt();
+            antibody_moveCost = s.nextInt();
+            antibody_credit_gain = s.nextInt();
+       }
+    }
+
 
     public static void main(String[] args) throws FileNotFoundException, IOException{
         try(FileReader fr =  new FileReader(inFile);
