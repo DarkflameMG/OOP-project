@@ -1,9 +1,19 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch"
 import square from '../image/square.png';
 
-const Field = () => {
-    const m = 10
-    const n = 10
+
+const Field = ({X,Y}:any) => {
+
+    let m = 10
+    let n = 10
+
+    if(X != undefined && Y != undefined){
+        m = X
+        n = Y
+    }
+    
     let maxScale = 5
     
     let winWidth = window.innerWidth * 0.2
@@ -39,7 +49,11 @@ const Field = () => {
         }
     }
 
-    return setMap.map((y: JSX.Element[]) => { return <tr>{y.map((x:JSX.Element) => {return <td>{x}</td>})} </tr>})
+    return(
+        <div>
+            {setMap.map((y: JSX.Element[]) => { return <tr>{y.map((x:JSX.Element) => {return <td>{x}</td>})} </tr>})}
+        </div>
+    )
 }
 
 export default Field
