@@ -13,6 +13,13 @@ import axios from 'axios';
 
 const Test = 'http://localhost:8080/api/status'
 
+const api = 'http://localhost:8080/api/field'
+
+export type fieldType = {
+    y : number,
+    x : number,
+} 
+
 export type TestFech = {
     credit : number,
     num_virus : number,
@@ -26,27 +33,43 @@ const Maingame = () => {
     const [virus, setVirus] = useState<number>(0);
     const [antibody, setAntibody] = useState<number>();
 
+    const [fieldData,setField] = useState<fieldType[]>();
+    const [M,setX] = useState<number>();
+    const [N,setY] = useState<number>();
+
     const fetchTest = async() =>{
         try{
             const resp = await axios.get<TestFech[]>(Test)
             setData(resp.data)
+
+            const resp1 = await axios.get<fieldType[]>(api)
+            setField(resp1.data)
         }
         catch(err){
             console.log(err) 
         }
     }
 
-    
-
     useEffect(()=>{
         fetchTest()
         if(data != null){
-            console.log(data[0].credit)
             setMoney(data[0].credit)
             setVirus(data[0].num_virus)
             setAntibody(data[0].num_antibody)
+            console.log(data)
+            console.log(money)
+            console.log(virus)
+            console.log(antibody)
+        }
+        if(fieldData != null){
+            setX(fieldData[0].x)
+            setY(fieldData[0].y)
+            console.log(fieldData)
+            console.log(M)
+            console.log(N)
         }
     },[])
+
 
     const handleOpen = () => {
         setOpen(true);
@@ -68,13 +91,13 @@ const Maingame = () => {
     }
 
     const buyAntigen = (anti: any) =>{
-        if(anti == 1 || anti == "A"){
+        if(anti === 1 || anti === "A"){
             setMoney(money);
         }
-        if(anti == 2 || anti == "B"){
+        if(anti === 2 || anti === "B"){
             setMoney(money);
         }
-        if(anti == 3 || anti == "C"){
+        if(anti === 3 || anti === "C"){
             setMoney(money);
         }
     }
@@ -114,7 +137,8 @@ const Maingame = () => {
                     <TransformWrapper>
                         <TransformComponent>
                             <div className='container field'>
-                                {Field()}
+                                {/* {Field()} */} 
+                                <Field X={M} Y={N}></Field>
                             </div>
                         </TransformComponent>
                     </TransformWrapper>
