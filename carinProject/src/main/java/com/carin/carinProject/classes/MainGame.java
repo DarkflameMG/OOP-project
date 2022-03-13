@@ -30,14 +30,31 @@ public class MainGame {
         return instance;
     }
 
-    public void setGame_speed(int speed)
+    public void increaseGame_speed()
     {
-        game_speed = speed;
+        if(game_speed < 3)
+            game_speed++;
+    }
+
+    public void decreaseGame_speed()
+    {
+        if(game_speed > 0)
+            game_speed--;
     }
 
     public int getGame_speed()
     {
         return game_speed;
+    }
+
+    public int current_speedTime()
+    {
+        if(game_speed <= 1 )
+            return 500;
+        else if(game_speed == 2)
+            return 250;
+        else
+            return 100;
     }
 
     public void setGame_start()

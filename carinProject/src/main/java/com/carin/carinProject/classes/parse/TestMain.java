@@ -54,7 +54,7 @@ public class TestMain{
 
     // GeneticGrammar t = new GeneticGrammar(test);
     String s;
-    geneImp.main(args);
+    geneImp.Run();
     geneImp instance = geneImp.getInstance();
     s = instance.getAntibodyGene();
 //    GeneticGrammar l = new GeneticGrammar("2");

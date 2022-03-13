@@ -66,7 +66,7 @@ public class TestGame {
                 System.out.println();
             }
             try {
-                Thread.sleep(500);
+                Thread.sleep(game.current_speedTime());
             }
             catch (InterruptedException e)
             {
