@@ -1,5 +1,7 @@
-package com.carin.carinProject.classes;
+package com.carin.carinProject.classes.Units;
 
+import com.carin.carinProject.classes.ConfigImp;
+import com.carin.carinProject.classes.FieldImp;
 import com.carin.carinProject.classes.parse.SyntaxError;
 import com.carin.carinProject.classes.parse.TokenizerError;
 

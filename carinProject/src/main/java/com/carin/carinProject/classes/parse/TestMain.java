@@ -1,6 +1,6 @@
 package com.carin.carinProject.classes.parse;
 
-import com.carin.carinProject.classes.AntiBodyImp;
+import com.carin.carinProject.classes.Units.AntiBodyImp;
 import com.carin.carinProject.classes.parse.nodes.BinaryArithmetic;
 import com.carin.carinProject.interfaces.Unit;
 

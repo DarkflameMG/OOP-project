@@ -1,5 +1,6 @@
 package com.carin.carinProject.classes;
 
+import com.carin.carinProject.classes.Units.UnitCollection;
 import com.carin.carinProject.classes.parse.SyntaxError;
 import com.carin.carinProject.classes.parse.TokenizerError;
 import com.carin.carinProject.classes.parse.geneImp;
