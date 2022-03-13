@@ -22,8 +22,8 @@ export type TestFech = {
 const Maingame = () => {
     const [open, setOpen] = useState(false);
     const [data,setData] = useState<TestFech[]>();
-    const [money, setMoney] = useState<number>();
-    const [virus, setVirus] = useState<number>();
+    const [money, setMoney] = useState<number>(0);
+    const [virus, setVirus] = useState<number>(0);
     const [antibody, setAntibody] = useState<number>();
 
     const fetchTest = async() =>{
@@ -67,6 +67,18 @@ const Maingame = () => {
         console.log("pause clicked")   
     }
 
+    const buyAntigen = (anti: any) =>{
+        if(anti == 1 || anti == "A"){
+            setMoney(money);
+        }
+        if(anti == 2 || anti == "B"){
+            setMoney(money);
+        }
+        if(anti == 3 || anti == "C"){
+            setMoney(money);
+        }
+    }
+
     var speedUp= ">>"
     var speedDown = "<<"
 
@@ -82,7 +94,7 @@ const Maingame = () => {
                 </div>
                 
                 <div >
-                    <p className="font-Righteous mx-7 ">Money $ {money}</p>
+                    <p className="font-Righteous mx-7 ">Money: {money} $</p>
                 </div>
 
                 <div className="topnav-right">
