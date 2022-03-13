@@ -74,6 +74,22 @@ public class ConfigImp {
         return antibody_credit;
     }
 
+    public static int getAntibodyA_credit()
+    {
+        return antibody_credit*1;
+    }
+
+    public static int getAntibodyB_credit()
+    {
+        return antibody_credit*2;
+    }
+
+    public static int getAntibodyC_credit()
+    {
+        return antibody_credit*3;
+    }
+
+
     public static int getAntibody_placementCost()
     {
         return antibody_placementCost;
@@ -100,6 +116,18 @@ public class ConfigImp {
 
     public int getY() {
         return n;
+    }
+
+    public int getCostAntibodyA() {
+        return antibody_credit*1;
+    }
+
+    public int getCostAntibodyB() {
+        return antibody_credit*2;
+    }
+
+    public int getCostAntibodyC() {
+        return antibody_credit*3;
     }
 
     public static void ReadFile() throws FileNotFoundException, IOException{
