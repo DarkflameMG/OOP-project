@@ -27,7 +27,11 @@ public class FieldImp implements Field {
     {
         slot[y][x] = unit;
         if(unit.isAntiBody() > 0)
+        {
             num_antibody++;
+            if(num_antibody == 3)
+                MainGame.getInstance().setGame_start();
+        }
         else
             num_virus++;
     }
