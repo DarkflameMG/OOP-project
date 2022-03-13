@@ -35,11 +35,30 @@ public class UnitImp implements Unit {
         {
             hp = ConfigImp.getVirus_health();
             damage = ConfigImp.getVirus_damage();
+            if(species.equals("Mimi"))
+            {
+                hp*=2;
+            }
+            // Damage Highest
+            else if(species.equals("Karon"))
+            {
+                damage*=2;
+            }
         }
         else if(type.equals("antibody"))
         {
             hp = ConfigImp.getAntibody_health();
             damage = ConfigImp.getAntibody_damage();
+            // HP Highest
+            if(species.equals("PongPong"))
+            {
+                hp*=2;
+            }
+            // Damage Highest
+            else if(species.equals("Machina"))
+            {
+                damage*=2;
+            }
         }
     }
 

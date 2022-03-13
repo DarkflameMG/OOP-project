@@ -7,11 +7,13 @@ import com.carin.carinProject.interfaces.Unit;
 
 
 public class AntiBodyImp extends UnitImp implements AntiBodyUnit {
-    private final int hp_gain = ConfigImp.getAntibody_gain();
+    private int hp_gain = ConfigImp.getAntibody_gain();
 
     public AntiBodyImp(String species,int x,int y) throws SyntaxError, TokenizerError
     {
         super("antibody",species,x,y);
+        if(species.equals("Momotaros"))
+            hp_gain*=1.2;
     }
 
     @Override
