@@ -40,7 +40,8 @@ public class geneImp {
         return virusGene;
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void Run() throws IOException
+    {
         StringBuilder s = new StringBuilder();
         geneImp instance = geneImp.getInstance();
 
@@ -65,4 +66,30 @@ public class geneImp {
         }
         instance.setV_Gene(s.toString());
     }
+
+//    public static void main(String[] args) throws IOException {
+//        StringBuilder s = new StringBuilder();
+//        geneImp instance = geneImp.getInstance();
+//
+//        try (FileReader fr =  new FileReader(D_A);
+//             Scanner scan = new Scanner(fr)){
+//            while(scan.hasNext())
+//            {
+//                s.append(scan.nextLine());
+//                s.append(" ");
+//            }
+//        }
+//        instance.setA_Gene(s.toString());
+//
+//        s = new StringBuilder();
+//        try (FileReader fr =  new FileReader(D_V);
+//             Scanner scan = new Scanner(fr)){
+//            while(scan.hasNext())
+//            {
+//                s.append(scan.nextLine());
+//                s.append(" ");
+//            }
+//        }
+//        instance.setV_Gene(s.toString());
+//    }
 }

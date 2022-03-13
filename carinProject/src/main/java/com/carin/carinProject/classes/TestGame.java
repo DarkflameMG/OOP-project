@@ -9,8 +9,8 @@ import java.io.IOException;
 
 public class TestGame {
     public static void main(String[] args) throws IOException, SyntaxError, TokenizerError {
-        ConfigImp.main(args);
-        geneImp.main(args);
+        ConfigImp.ReadFile();
+        geneImp.Run();
         FieldImp field = FieldImp.getInstance(ConfigImp.getM(),ConfigImp.getN());
         MainGame game = MainGame.getInstance();
 //        AntibodyFactory.getInstance().newAntibody("A1",4,0);
@@ -27,7 +27,6 @@ public class TestGame {
 //        while((v_num !=0 && a_num !=0) || game.getGame_start() == 0)
         for(int k=0;k<10;k++)
         {
-            game.VirusSpawn();
             if(game.getGame_speed() == 0)
             {
                 while (game.getGame_speed() != 0)
@@ -35,6 +34,7 @@ public class TestGame {
 
                 }
             }
+            game.VirusSpawn();
             v_num = field.getNum_virus();
             a_num = field.getNum_antibody();
             allU.UnitRun();
