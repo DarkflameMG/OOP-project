@@ -1,6 +1,10 @@
 package com.carin.carinProject.classes;
 
+import com.carin.carinProject.classes.parse.SyntaxError;
+import com.carin.carinProject.classes.parse.TokenizerError;
 import com.carin.carinProject.interfaces.Unit;
+
+import java.util.Random;
 
 public class MainGame {
     private int MoveCost = ConfigImp.getAntibody_moveCost();
@@ -9,8 +13,12 @@ public class MainGame {
     private static MainGame instance;
     private int game_speed = 1;
     private int game_start = 0;
+    private final Random rand;
 
-    private MainGame(){}
+    private MainGame()
+    {
+        rand = new Random();
+    }
 
     public static MainGame getInstance()
     {
@@ -45,8 +53,32 @@ public class MainGame {
         target.decreaseHp(MoveCost);
     }
 
-    public void VirusSpawn()
+    public void VirusSpawn() throws SyntaxError, TokenizerError
     {
-
+        float num = rand.nextFloat(10)/10;
+        System.out.println(num);
+        if(num < spawnRate)
+        {
+            String s;
+            int m = ConfigImp.getM();
+            int n = ConfigImp.getN();
+            int sp = rand.nextInt(3)%3;
+            int x = rand.nextInt(m);
+            int y = rand.nextInt(n);
+            System.out.println("x : "+x);
+            System.out.println("y : "+y);
+            while (field.isEmpty(x,y) == 0)
+            {
+                x = rand.nextInt(m);
+                y = rand.nextInt(n);
+            }
+            if(sp == 0)
+                s = "Mimi";
+            else if(sp == 1)
+                s = "Karon";
+            else
+                s = "Abnormal";
+            VirusFactory.getInstance().newVirus(s,x,y);
+        }
     }
 }
