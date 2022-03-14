@@ -16,11 +16,10 @@ public class AntibodyFactory {
             instance = new AntibodyFactory();
         return instance;
     }
-    public AntiBodyImp newAntibody(String species,int x,int y) throws SyntaxError, TokenizerError
+    public void newAntibody(String species,int x,int y) throws SyntaxError, TokenizerError
     {
         AntiBodyImp unit = new AntiBodyImp(species,x,y);
         FieldImp.getInstance(ConfigImp.getM(),ConfigImp.getN()).placeUnit(x,y,unit);
         UnitCollection.getInstance().addUnit(unit);
-        return unit;
     }
 }

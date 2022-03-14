@@ -74,7 +74,6 @@ public class MainGame {
     public void VirusSpawn() throws SyntaxError, TokenizerError
     {
         float num = rand.nextFloat(10)/10;
-        System.out.println(num);
         if(num < spawnRate)
         {
             String s;
@@ -83,8 +82,6 @@ public class MainGame {
             int sp = rand.nextInt(3)%3;
             int x = rand.nextInt(m);
             int y = rand.nextInt(n);
-            System.out.println("x : "+x);
-            System.out.println("y : "+y);
             while (field.isEmpty(x,y) == 0)
             {
                 x = rand.nextInt(m);

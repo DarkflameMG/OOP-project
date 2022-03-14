@@ -1,6 +1,7 @@
 package com.carin.carinProject.classes.Units;
 
 import com.carin.carinProject.classes.ConfigImp;
+import com.carin.carinProject.classes.Credit;
 import com.carin.carinProject.classes.parse.SyntaxError;
 import com.carin.carinProject.classes.parse.TokenizerError;
 import com.carin.carinProject.interfaces.AntiBodyUnit;
@@ -80,6 +81,7 @@ public class AntiBodyImp extends UnitImp implements AntiBodyUnit {
             if(target.getHp() == 0)
             {
                 recovery();
+                Credit.getInstance().CreditGain();
             }
         }
     }
