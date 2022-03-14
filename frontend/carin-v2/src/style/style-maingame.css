@@ -58,26 +58,24 @@
     border-radius: 40px;
     float: left;
     margin-left: 60px;
-    margin-top: 60px;
+    margin-top: 30px;
     margin-bottom:auto;
-    padding: 25px;
-    /* padding-right: 30px; */
-    /* padding-top: 40px; */
-    /* padding-bottom: 30px; */
+    padding: 10px;
     text-align: center;
     border: 2px;
     border-style: solid;
     border-color: black;
 }
 .slot-shop{
-    height: 150px;
+    height: 180px;
     width: 150px;
     background-color: rgb(138, 134, 53);
     border-radius: 10px ;
     border: 2px;
     border-style: solid;
     border-color: black;
-    padding: 5px;
+    padding: 2px;
+    margin: 0
 }
 .antibody-text{
     margin: 10px;
@@ -91,19 +89,20 @@
 }
 .antibody-set{
     /* margin-bottom: 5px; */
-    margin-top: 15px;
+    margin-top: 5px;
 }
 .layout-field{
-    margin-top: 10px;
-    /* margin-left: 5px; */
-    padding: 50px;
+    margin-top: 30px;
+    margin-left: 70px;
+    margin-right: 60px;
+    margin-bottom: auto;
+    /* padding: 50px; */
 }
 .field{
     width: 100%;
     object-fit: cover;
 }
 .container{
-    justify-content: center;
     width: auto;
     background-color: #333;
 }
@@ -114,28 +113,6 @@
     flex-wrap: nowrap;
   }
 
-.slot-antibody{
-    width: 90px;
-    height: 90px;
-    border: 2px;
-    border-style: solid;
-    display: inline-block;
-    margin: -2px;
-    margin-top: -5px;
-    background-color: rgb(55, 121, 79);
-
-}
-.slot-virus{
-    width: 90px;
-    height: 90px;
-    border: 2px;
-    border-style: solid;
-    display: inline-block;
-    margin: -2px;
-    margin-top: -5px;
-    background-color: rgb(242, 91, 57);
-
-}
 .pause button:hover {
     background-color: rgb(255, 131, 73);
     color: black;
