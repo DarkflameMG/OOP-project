@@ -6,19 +6,11 @@ import antibodyB from '../image/antibodyB.png';
 import antibodyC from '../image/antibodyC.png';
 import closeBT from '../image/CloseBTmini.png'
 import { useEffect, useState } from 'react';
-import Field from './Field';
 import Shop from './Shop';
-import InvisibleShop from './InvisibleShop';
 import axios from 'axios';
+import Field from './Field';
 
-const Test = 'http://localhost:8080/api/status'
-
-const api = 'http://localhost:8080/api/field'
-
-export type fieldType = {
-    y : number,
-    x : number,
-} 
+const Test = 'http://localhost:8080/api/status' 
 
 export type TestFech = {
     credit : number,
@@ -28,22 +20,16 @@ export type TestFech = {
 
 const Maingame = () => {
     const [open, setOpen] = useState(false);
-    const [data,setData] = useState<TestFech[]>();
-    const [money, setMoney] = useState<number>(0);
-    const [virus, setVirus] = useState<number>(0);
+    const [data,setData] = useState<TestFech>();
+    const [money, setMoney] = useState<number>();
+    const [virus, setVirus] = useState<number>();
     const [antibody, setAntibody] = useState<number>();
-
-    const [fieldData,setField] = useState<fieldType[]>();
-    const [M,setX] = useState<number>();
-    const [N,setY] = useState<number>();
 
     const fetchTest = async() =>{
         try{
-            const resp = await axios.get<TestFech[]>(Test)
+            const resp = await axios.get<TestFech>(Test) 
             setData(resp.data)
-
-            const resp1 = await axios.get<fieldType[]>(api)
-            setField(resp1.data)
+            console.log(data)
         }
         catch(err){
             console.log(err) 
@@ -53,20 +39,13 @@ const Maingame = () => {
     useEffect(()=>{
         fetchTest()
         if(data != null){
-            setMoney(data[0].credit)
-            setVirus(data[0].num_virus)
-            setAntibody(data[0].num_antibody)
+            setMoney(data.credit)
+            setVirus(data.num_virus)
+            setAntibody(data.num_antibody)
             console.log(data)
             console.log(money)
             console.log(virus)
             console.log(antibody)
-        }
-        if(fieldData != null){
-            setX(fieldData[0].x)
-            setY(fieldData[0].y)
-            console.log(fieldData)
-            console.log(M)
-            console.log(N)
         }
     },[])
 
@@ -127,7 +106,7 @@ const Maingame = () => {
                 </div>
             </div>
 
-            <div className='flex justify-between'>
+            <div className='flex '>
                 {/* shop */}
                 <Shop/>    
 
@@ -137,15 +116,13 @@ const Maingame = () => {
                     <TransformWrapper>
                         <TransformComponent>
                             <div className='container field'>
-                                {/* {Field()} */} 
-                                <Field X={M} Y={N}></Field>
+                                {Field()} 
                             </div>
                         </TransformComponent>
                     </TransformWrapper>
 
                 </div>
                 
-                 <InvisibleShop/>
             </div>
             
             {/**Modal */}
