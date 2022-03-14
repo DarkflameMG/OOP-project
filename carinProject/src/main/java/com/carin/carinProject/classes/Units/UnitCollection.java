@@ -5,6 +5,7 @@ import com.carin.carinProject.classes.parse.TokenizerError;
 import com.carin.carinProject.interfaces.Unit;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class UnitCollection {
@@ -39,5 +40,10 @@ public class UnitCollection {
         {
             unit.getValue().run();
         }
+    }
+
+    public Set<Unit> getAllUnit()
+    {
+        return allUnit.keySet();
     }
 }
