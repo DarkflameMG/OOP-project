@@ -1,12 +1,22 @@
 package com.carin.carinProject;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.carin.carinProject.classes.GameData;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping(path = "api/game")
+@RequestMapping(path = "gamedata")
 public class gameController {
-    
+
+    @GetMapping
+    public GameData getGameData(){
+        return GameDataService.getGameData();
+    }
+
+    @PutMapping("/put")
+    public GameData putGameData(@RequestBody GameData gameData){
+        GameDataService.setGameData(gameData);
+        return GameDataService.getGameData();
+    }
+
 }
