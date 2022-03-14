@@ -42,13 +42,15 @@ const Maingame = () => {
     const [costAntibodyB, setCostAntibodyB] = useState<number>();
     const [costAntibodyC, setCostAntibodyC] = useState<number>();
 
-    const [timer, setTimer] = useState<number>(0);
+    const [pause, setPause] = useState<boolean>(false);
 
     const fetchStatus = async() =>{
         try{
             const resp = await axios.get<statusType>(apiStatus) 
-            setData(resp.data)
-            console.log(resp.data)
+            if(data != resp.data){
+                setData(resp.data)
+                console.log(resp.data)
+            }
         }
         catch(err){
             console.log(err) 
@@ -58,8 +60,10 @@ const Maingame = () => {
     const fetchField = async() =>{
         try{
             const resp1 = await axios.get<fieldType>(apiField) 
-            setField(resp1.data)
-            console.log(resp1.data)
+            if(fieldData != resp1.data){
+                setField(resp1.data)
+                console.log(resp1.data)
+            }
         }
         catch(err){
             console.log(err) 
@@ -67,35 +71,39 @@ const Maingame = () => {
     }
 
     useEffect(()=>{
-        setInterval(()=>{
-            fetchStatus()
-            fetchField()
-        },(2000))
+            setInterval(()=>{
+                fetchStatus()
+                fetchField()
+            },(2000))
     },[])
 
     useEffect(()=>{
-        if(data != null){
-            setMoney(data.credit)
-            setVirus(data.num_virus)
-            setAntibody(data.num_antibody)
-            console.log("money: "+money)
-            console.log("virus: "+virus)
-            console.log("antibody: "+antibody)
+        if(pause != true){
+            if(data != null){
+                setMoney(data.credit)
+                setVirus(data.num_virus)
+                setAntibody(data.num_antibody)
+                console.log("money: "+money)
+                console.log("virus: "+virus)
+                console.log("antibody: "+antibody)
+            }
         }
     },[data])
 
     useEffect(()=>{
-        if(fieldData != null){
-            setM(fieldData.x)
-            setN(fieldData.y)
-            setCostAntibodyA(fieldData.costAntibodyA)
-            setCostAntibodyB(fieldData.costAntibodyB)
-            setCostAntibodyC(fieldData.costAntibodyC)
-            console.log("x:" + M)
-            console.log("y:" + N)
-            console.log("costAntibodyA:" + costAntibodyA)
-            console.log("costAntibodyB:" + costAntibodyB)
-            console.log("costAntibodyC:" + costAntibodyC)
+        if(pause != true){
+            if(fieldData != null){
+                setM(fieldData.x)
+                setN(fieldData.y)
+                setCostAntibodyA(fieldData.costAntibodyA)
+                setCostAntibodyB(fieldData.costAntibodyB)
+                setCostAntibodyC(fieldData.costAntibodyC)
+                console.log("x:" + M)
+                console.log("y:" + N)
+                console.log("costAntibodyA:" + costAntibodyA)
+                console.log("costAntibodyB:" + costAntibodyB)
+                console.log("costAntibodyC:" + costAntibodyC)
+            }
         }
     },[fieldData])
 
@@ -115,7 +123,13 @@ const Maingame = () => {
     }
 
     function clickPause() {
+        setPause(true)
         console.log("pause clicked")   
+    }
+
+    function unPause() {
+        setPause(false)
+        console.log("unPause")   
     }
 
     const buyAntigen = (anti: any) =>{
@@ -151,7 +165,7 @@ const Maingame = () => {
                 <div className="topnav-right">
                     <button onClick={clickSpeedUP} className="font-Righteous">Speed up {speedUp}</button>
                     <button onClick={clickSpeedDown} className="font-Righteous">Speed down {speedDown}</button>
-                    <button onClick={() => { clickPause(); handleOpen(); }} className='bg-pause font-Righteous'>Pause</button>
+                    <button onClick={() => { clickPause(); handleOpen();}} className='bg-pause font-Righteous'>Pause</button>
                 </div>
             </div>
 
@@ -185,7 +199,7 @@ const Maingame = () => {
                                 {/*content*/}
                                 <div className="border-4 border-black rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                                     {/*header*/}
-                                    <button onClick={handleClose} className='absolute h-14 w-14 -right-10 -top-7'>
+                                    <button onClick={()=>{handleClose(); unPause();}} className='absolute h-14 w-14 -right-10 -top-7'>
                                         <img src={closeBT}></img>
                                     </button>
                                     <h3 className="text-3xl p-2 text-center font-semibold font-Righteous">
@@ -193,7 +207,7 @@ const Maingame = () => {
                                     </h3>
                                     {/*body*/}
                                     <div className="flex flex-col px-9 py-2 pause">
-                                        <button className="font-Righteous px-3 my-2 " onClick={handleClose}>Restart</button>
+                                        <button className="font-Righteous px-3 my-2 " onClick={()=>{handleClose(); unPause();}} >Restart</button>
                                         <button className="font-Righteous">
                                             <Link to='/'>
                                                 Quit
