@@ -64,6 +64,16 @@ public class UnitImp implements Unit {
         }
     }
 
+    public int getCoordinateX()
+    {
+        return coordinateX;
+    }
+
+    public int getCoordinateY()
+    {
+        return coordinateY;
+    }
+    
     public void move(int direction)
     {
         FieldImp field = FieldImp.getInstance(10,10);
