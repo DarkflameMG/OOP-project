@@ -67,8 +67,13 @@ const Maingame = () => {
     }
 
     useEffect(()=>{
-        fetchStatus()
-        fetchField()
+        setInterval(()=>{
+            fetchStatus()
+            fetchField()
+        },(2000))
+    },[])
+
+    useEffect(()=>{
         if(data != null){
             setMoney(data.credit)
             setVirus(data.num_virus)
@@ -77,6 +82,9 @@ const Maingame = () => {
             console.log("virus: "+virus)
             console.log("antibody: "+antibody)
         }
+    },[data])
+
+    useEffect(()=>{
         if(fieldData != null){
             setM(fieldData.x)
             setN(fieldData.y)
@@ -89,8 +97,7 @@ const Maingame = () => {
             console.log("costAntibodyB:" + costAntibodyB)
             console.log("costAntibodyC:" + costAntibodyC)
         }
-    },[data,fieldData])
-
+    },[fieldData])
 
     const handleOpen = () => {
         setOpen(true);
