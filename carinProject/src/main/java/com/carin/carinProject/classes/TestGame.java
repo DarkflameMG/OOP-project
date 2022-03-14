@@ -18,14 +18,14 @@ public class TestGame {
         Shop shop = Shop.getInstance();
         UnitCollection allU = UnitCollection.getInstance();
 
-        shop.buy("Machina",0,0);
-        shop.buy("Machina",1,0);
-        shop.buy("Machina",2,0);
+//        shop.buy("Machina",0,0);
+//        shop.buy("Machina",1,0);
+//        shop.buy("Machina",2,0);
 
         int v_num = field.getNum_virus();
         int a_num = field.getNum_antibody();
 
-        while((v_num !=0 && a_num !=0) || game.getGame_start() == 0)
+        while((v_num !=0 && a_num !=0) || game.getGame_start() == 0 && v_num != ConfigImp.getM()*ConfigImp.getN())
 //        for(int k=0;k<10;k++)
         {
             if(game.getGame_speed() == 0)
