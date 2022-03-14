@@ -54,26 +54,26 @@
     /* margin-bottom: 20px; */
 }
 .shop{
-    background-color: rgba(242,198,95);
+    background-color: rgb(97, 116, 77);
     border-radius: 40px;
     float: left;
     margin-left: 60px;
     margin-top: 30px;
     margin-bottom:auto;
-    padding: 10px;
+    padding: 19px;
     text-align: center;
-    border: 2px;
+    border: 4px;
     /* border-style: solid; */
-    /* border-color: black; */
+    /* border-color: rgb(255, 255, 255); */
 }
 .slot-shop{
-    height: 180px;
+    height: 200px;
     width: 150px;
-    background-color: rgb(138, 134, 53);
+    background-color: rgb(135,155,122);
     border-radius: 10px ;
-    border: 2px;
-    /* border-style: solid;
-    border-color: black; */
+    border: 3px;
+    border-style: solid;
+    border-color: rgb(232,225,209);
     padding: 2px;
     margin: 0
 }
@@ -96,9 +96,10 @@
     margin-left: 70px;
     margin-right: 60px;
     margin-bottom: 30px;
-    border: 2px;
+    border: 5px;
     border-style: solid;
-    border-color: black;
+    border-color: rgb(0, 0, 0);
+    border-radius: 10px ;
   
 }
 .container{
