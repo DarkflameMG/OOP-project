@@ -10,26 +10,56 @@ import Shop from './Shop';
 import axios from 'axios';
 import Field from './Field';
 
-const Test = 'http://localhost:8080/api/status' 
+const apiStatus = 'http://localhost:8080/api/status'
+const apiField = 'http://localhost:8080/api/field'
 
-export type TestFech = {
+export type statusType = {
     credit : number,
     num_virus : number,
     num_antibody : number,
 }
 
+export type fieldType = {
+    costAntibodyB : number,
+    x : number,
+    y : number,
+    costAntibodyA : number,
+    costAntibodyC : number,
+}
+
 const Maingame = () => {
     const [open, setOpen] = useState(false);
-    const [data,setData] = useState<TestFech>();
+    
+    const [data,setData] = useState<statusType>();
     const [money, setMoney] = useState<number>();
     const [virus, setVirus] = useState<number>();
     const [antibody, setAntibody] = useState<number>();
 
-    const fetchTest = async() =>{
+    const [fieldData,setField] = useState<fieldType>();
+    const [M, setM] = useState<number>();
+    const [N, setN] = useState<number>();
+    const [costAntibodyA, setCostAntibodyA] = useState<number>();
+    const [costAntibodyB, setCostAntibodyB] = useState<number>();
+    const [costAntibodyC, setCostAntibodyC] = useState<number>();
+
+    const [timer, setTimer] = useState<number>(0);
+
+    const fetchStatus = async() =>{
         try{
-            const resp = await axios.get<TestFech>(Test) 
+            const resp = await axios.get<statusType>(apiStatus) 
             setData(resp.data)
-            console.log(data)
+            console.log(resp.data)
+        }
+        catch(err){
+            console.log(err) 
+        }
+    }
+
+    const fetchField = async() =>{
+        try{
+            const resp1 = await axios.get<fieldType>(apiField) 
+            setField(resp1.data)
+            console.log(resp1.data)
         }
         catch(err){
             console.log(err) 
@@ -37,17 +67,29 @@ const Maingame = () => {
     }
 
     useEffect(()=>{
-        fetchTest()
+        fetchStatus()
+        fetchField()
         if(data != null){
             setMoney(data.credit)
             setVirus(data.num_virus)
             setAntibody(data.num_antibody)
-            console.log(data)
-            console.log(money)
-            console.log(virus)
-            console.log(antibody)
+            console.log("money: "+money)
+            console.log("virus: "+virus)
+            console.log("antibody: "+antibody)
         }
-    },[])
+        if(fieldData != null){
+            setM(fieldData.x)
+            setN(fieldData.y)
+            setCostAntibodyA(fieldData.costAntibodyA)
+            setCostAntibodyB(fieldData.costAntibodyB)
+            setCostAntibodyC(fieldData.costAntibodyC)
+            console.log("x:" + M)
+            console.log("y:" + N)
+            console.log("costAntibodyA:" + costAntibodyA)
+            console.log("costAntibodyB:" + costAntibodyB)
+            console.log("costAntibodyC:" + costAntibodyC)
+        }
+    },[data,fieldData])
 
 
     const handleOpen = () => {
@@ -108,7 +150,7 @@ const Maingame = () => {
 
             <div className='flex '>
                 {/* shop */}
-                <Shop/>    
+                <Shop costA={costAntibodyA} costB={costAntibodyB} costC={costAntibodyC}/>    
 
                 {/* field */}
                 <div className='layout-field'>
@@ -116,7 +158,7 @@ const Maingame = () => {
                     <TransformWrapper>
                         <TransformComponent>
                             <div className='container field'>
-                                {Field()} 
+                                <Field X={M} Y={N}></Field> 
                             </div>
                         </TransformComponent>
                     </TransformWrapper>
