@@ -3,6 +3,8 @@ import { Component, useEffect, useState } from "react";
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch"
 import { resourceLimits } from "worker_threads";
 import square from '../image/square.png';
+import slot from '../image/slot.png';
+
 
 export type dataType = {
     x : number,
@@ -54,7 +56,7 @@ const Field = ({X,Y}:any) => {
     for (let i = 0; i < n; i++) {
         setMap[i] = new Array(m)
         for (let j = 0; j < m; j++) {
-            setMap[i][j] = <img src={square} alt="" style={{
+            setMap[i][j] = <img src={slot} alt="" style={{
                 position: "relative",
                 width: `${maxScale}px`,
                 height: `${maxScale}px`,
