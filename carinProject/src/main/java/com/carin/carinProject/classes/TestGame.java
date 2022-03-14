@@ -13,20 +13,20 @@ public class TestGame {
         ConfigImp.ReadFile();
         geneImp.Run();
         FieldImp field = FieldImp.getInstance(ConfigImp.getM(),ConfigImp.getN());
+        Credit credit = Credit.getInstance();
         MainGame game = MainGame.getInstance();
-//        AntibodyFactory.getInstance().newAntibody("A1",4,0);
-//        VirusFactory.getInstance().newVirus("V1",0,4);
-//        AntibodyFactory.getInstance().newAntibody("A2",2,3);
-//        AntibodyFactory.getInstance().newAntibody("A3",3,3);
-//        VirusFactory.getInstance().newVirus("V2",3,2);
-//        VirusFactory.getInstance().newVirus("V3",1,0);
+        Shop shop = Shop.getInstance();
         UnitCollection allU = UnitCollection.getInstance();
+
+        shop.buy("Machina",0,0);
+        shop.buy("Machina",1,0);
+        shop.buy("Machina",2,0);
 
         int v_num = field.getNum_virus();
         int a_num = field.getNum_antibody();
 
-//        while((v_num !=0 && a_num !=0) || game.getGame_start() == 0)
-        for(int k=0;k<10;k++)
+        while((v_num !=0 && a_num !=0) || game.getGame_start() == 0)
+//        for(int k=0;k<10;k++)
         {
             if(game.getGame_speed() == 0)
             {
@@ -41,6 +41,7 @@ public class TestGame {
             allU.UnitRun();
             System.out.println("Virus : "+field.getNum_virus());
             System.out.println("Antibody : "+field.getNum_antibody());
+            System.out.println("Credit : "+credit.current_credit());
             for(int i=0;i<ConfigImp.getN();i++)
             {
                 for (int j=0;j<ConfigImp.getM();j++)

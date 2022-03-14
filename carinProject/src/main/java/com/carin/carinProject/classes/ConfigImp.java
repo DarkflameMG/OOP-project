@@ -11,7 +11,7 @@ public class ConfigImp {
     private static int m;
     private static int n;
     private static double virusSpawn;
-    private static int antibody_credit;
+    private static int antibody_start_credit;
     private static int antibody_placementCost;
     private static int virus_health;
     private static int antibody_health;
@@ -69,24 +69,24 @@ public class ConfigImp {
         return virus_gain;
     }
 
-    public static int getAntibody_credit()
+    public static int getAntibody_start_credit()
     {
-        return antibody_credit;
+        return antibody_start_credit;
     }
 
     public static int getAntibodyA_credit()
     {
-        return antibody_credit*1;
+        return antibody_placementCost;
     }
 
     public static int getAntibodyB_credit()
     {
-        return antibody_credit*2;
+        return antibody_placementCost*12/10;
     }
 
     public static int getAntibodyC_credit()
     {
-        return antibody_credit*3;
+        return antibody_placementCost*15/10;
     }
 
 
@@ -119,15 +119,15 @@ public class ConfigImp {
     }
 
     public int getCostAntibodyA() {
-        return antibody_credit*1;
+        return antibody_placementCost;
     }
 
     public int getCostAntibodyB() {
-        return antibody_credit*2;
+        return antibody_placementCost*12/10;
     }
 
     public int getCostAntibodyC() {
-        return antibody_credit*3;
+        return antibody_placementCost*15/10;
     }
 
     public static void ReadFile() throws FileNotFoundException, IOException{
@@ -136,7 +136,7 @@ public class ConfigImp {
             m = s.nextInt();
             n = s.nextInt();
             virusSpawn = s.nextDouble();
-            antibody_credit = s.nextInt();
+            antibody_start_credit = s.nextInt();
             antibody_placementCost = s.nextInt();
             virus_health = s.nextInt();
             antibody_health = s.nextInt();
@@ -156,7 +156,7 @@ public class ConfigImp {
             m = s.nextInt();
             n = s.nextInt();
             virusSpawn = s.nextDouble();
-            antibody_credit = s.nextInt();
+            antibody_start_credit = s.nextInt();
             antibody_placementCost = s.nextInt();
             virus_health = s.nextInt();
             antibody_health = s.nextInt();

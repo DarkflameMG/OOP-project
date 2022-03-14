@@ -123,7 +123,6 @@ public class UnitImp implements Unit {
 
     public void decreaseHp(int damage)
     {
-        System.out.print("name :"+species+" hp :"+hp);
         if (this.hp - damage > 0)
             this.hp -= damage;
         else
@@ -133,7 +132,6 @@ public class UnitImp implements Unit {
             UnitCollection allU = UnitCollection.getInstance();
             allU.removeUnit(this);
         }
-        System.out.println(" -> :"+hp);
     }
 
     public int getDamage()

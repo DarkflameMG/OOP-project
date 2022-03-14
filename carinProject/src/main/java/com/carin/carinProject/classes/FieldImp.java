@@ -29,11 +29,12 @@ public class FieldImp implements Field {
         if(unit.isAntiBody() > 0)
         {
             num_antibody++;
-            if(num_antibody == 3)
-                MainGame.getInstance().setGame_start();
         }
         else
             num_virus++;
+
+        if(num_antibody == 3 && num_virus == 1)
+            MainGame.getInstance().setGame_start();
     }
 
     public void removeUnit(int x, int y)
