@@ -14,19 +14,25 @@ export type dataType = {
 
 const Field = ({X,Y}:any) => {
 
-    let m = 10
-    let n = 10
+    let m = 0
+    let n = 0
 
     if(X != undefined && Y != undefined){
         m = X
         n = Y
     }
-    let maxScale = 100
+    let maxScale 
 
-    let winWidth = window.innerWidth * 0.8
-    let winHeight = window.innerHeight * 0.4
+    let winWidth = window.innerWidth - 400
+    let winHeight = window.innerHeight - 200
+    
     let x_scale: number = winWidth / m
-    let y_scale: number = winWidth / n
+    let y_scale: number = winHeight / n
+    console.log("width:" + winWidth)
+    console.log("height:" + winHeight)
+    console.log("x:" + x_scale)
+    console.log("x:" + x_scale)
+    console.log("y:" + y_scale)
     if (n < m) {
         if (y_scale * m <= winWidth) {
             maxScale = y_scale
@@ -40,6 +46,8 @@ const Field = ({X,Y}:any) => {
             maxScale = y_scale
         }
     }
+    console.log("maxScale: " + Math.round(maxScale))
+    maxScale = Math.round(maxScale)
     let setMap: JSX.Element[][] = new Array(n)
 
 

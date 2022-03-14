@@ -63,8 +63,8 @@
     padding: 10px;
     text-align: center;
     border: 2px;
-    border-style: solid;
-    border-color: black;
+    /* border-style: solid; */
+    /* border-color: black; */
 }
 .slot-shop{
     height: 180px;
@@ -72,8 +72,8 @@
     background-color: rgb(138, 134, 53);
     border-radius: 10px ;
     border: 2px;
-    border-style: solid;
-    border-color: black;
+    /* border-style: solid;
+    border-color: black; */
     padding: 2px;
     margin: 0
 }
@@ -95,12 +95,11 @@
     margin-top: 30px;
     margin-left: 70px;
     margin-right: 60px;
-    margin-bottom: auto;
-    /* padding: 50px; */
-}
-.field{
-    width: 100%;
-    object-fit: cover;
+    margin-bottom: 30px;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+  
 }
 .container{
     width: auto;
