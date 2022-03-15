@@ -117,6 +117,8 @@ const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
     maxScale = Math.round(maxScale)
     let setMap: JSX.Element[][] = new Array(n)
 
+    
+    
 
     for (let i = 0; i < n; i++) {
         setMap[i] = new Array(m)
@@ -124,8 +126,6 @@ const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
             
             if(posX.indexOf(j) == posY.indexOf(i)){
                 let img = ""
-                let hp = Hp.at(posX.indexOf(j))
-                let hpMax = maxHp.at(posX.indexOf(j))
                 if(type.at(posX.indexOf(j)) == 1){
                     img = virusA
                 }
@@ -159,12 +159,12 @@ const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
                     }} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"/>
                     <img src={img} style={{
                     position: "relative",
-                    width: `${maxScale-(maxScale/3)}px`,
-                    height: `${maxScale-(maxScale/3)}px`,
+                    width: `${maxScale-(maxScale/2)}px`,
+                    height: `${maxScale-(maxScale/2)}px`,
                     margin: 0
                 }} className="absolute -top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"/>
                     <p className=" absolute bottom-1 left-1/2 transform -translate-x-1/2  font-Righteous" >
-                        {hp}/{hpMax}</p>                
+                        {Hp.at(posX.indexOf(j))}/{maxHp.at(posX.indexOf(j))}</p>                
                 </div>
             }else{
                 setMap[i][j] = <img src={slot} alt="" style={{
