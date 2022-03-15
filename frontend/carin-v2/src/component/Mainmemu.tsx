@@ -1,12 +1,6 @@
 import { Link } from 'react-router-dom';
-import logo from '../image/Logo.png'
 import startBT from '../image/startButton.png'
-import virus from '../image/virusLogo.png'
-import virusB from '../image/virusLogoB.png'
-import credit from '../image/CreditButton.png'
-import closeBT from '../image/CloseBTmini.png'
 import '../style/style-font.css'
-import { useState } from 'react';
 import Credit from './Credit';
 
 const Mainmenu = () =>{
