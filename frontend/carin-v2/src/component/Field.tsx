@@ -11,6 +11,8 @@ import virusA from '../image/virusA.png';
 import virusB from '../image/virusB.png';
 import virusC from '../image/virusC.png';
 
+import {setBuyingState} from './Shop'
+
 
 function placeObj(props: any){
     let charactor: any = null;
@@ -18,6 +20,9 @@ function placeObj(props: any){
     let height = size*0.1
     let width = size*0.8
 
+    ////////////////
+    setBuyingState(false)//สำหรับใส่ Onclick ลงตาราง เพื่อให้สถานะ buying เป็น false
+    ////////////////
 
     if (props.type === 1) {
         charactor= virusA
