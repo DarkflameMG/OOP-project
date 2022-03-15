@@ -124,6 +124,8 @@ const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
             
             if(posX.indexOf(j) == posY.indexOf(i)){
                 let img = ""
+                let hp = Hp.at(posX.indexOf(j))
+                let hpMax = maxHp.at(posX.indexOf(j))
                 if(type.at(posX.indexOf(j)) == 1){
                     img = virusA
                 }
@@ -142,12 +144,28 @@ const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
                 if(type.at(posX.indexOf(j)) == 6){
                     img = antibodyC
                 }
-                setMap[i][j] = <img src={img} alt="" style={{
+                setMap[i][j] = 
+                <div style={{
                     position: "relative",
                     width: `${maxScale}px`,
                     height: `${maxScale}px`,
                     margin: 0
-                }} />
+                    }}>
+                    <img src={slot} alt="" style={{
+                    position: "relative",
+                    width: `${maxScale}px`,
+                    height: `${maxScale}px`,
+                    margin: 0
+                    }} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"/>
+                    <img src={img} style={{
+                    position: "relative",
+                    width: `${maxScale-(maxScale/4)}px`,
+                    height: `${maxScale-(maxScale/4)}px`,
+                    margin: 0
+                }} className="absolute -top-20 left-4 transform -translate-y-8"/>
+                    <p className="absolute bottom-1 left-1/2 transform -translate-x-1/2  font-Righteous">
+                        {hp}/{hpMax}</p>                
+                </div>
             }else{
                 setMap[i][j] = <img src={slot} alt="" style={{
                     position: "relative",
