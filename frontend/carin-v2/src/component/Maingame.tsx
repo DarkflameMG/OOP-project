@@ -66,9 +66,6 @@ const Maingame = () => {
     const [hpMax, setHpMax] = useState<number[]>();
     const [type, setType] = useState<number[]>();
 
-
-
-
     const fetchStatus = async () => {
         try {
             const resp = await axios.get<statusType>(apiStatus)
