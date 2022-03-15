@@ -12,6 +12,7 @@ import Field from './Field';
 
 const apiStatus = 'http://localhost:8080/api/status'
 const apiField = 'http://localhost:8080/api/field'
+const apiGameData = 'http://localhost:8080/gamedata'
 
 export type statusType = {
     credit: number,
@@ -27,22 +28,44 @@ export type fieldType = {
     costAntibodyC: number,
 }
 
-const Maingame = () => {
-    const [open, setOpen] = useState(false);
+export type gameDataType = {
+    m: number,
+    n: number,
+    credit: number,
+    cost: number[],
+    posX: number[],
+    posY: number[],
+    hp: number[],
+    hpMax: number[],
+    type: number[]
+}
 
+    
+const Maingame = () => {
+    const [pause, setPause] = useState<boolean>(false);
+
+    const [open, setOpen] = useState(false);
+    //--------------Status-------------------------------------------
     const [data, setData] = useState<statusType>();
-    const [money, setMoney] = useState<number>();
     const [virus, setVirus] = useState<number>();
     const [antibody, setAntibody] = useState<number>();
-
+    //--------------Field-------------------------------------------
     const [fieldData, setField] = useState<fieldType>();
     const [M, setM] = useState<number>();
     const [N, setN] = useState<number>();
     const [costAntibodyA, setCostAntibodyA] = useState<number>();
     const [costAntibodyB, setCostAntibodyB] = useState<number>();
     const [costAntibodyC, setCostAntibodyC] = useState<number>();
+    //---------------GameData----------------------------------------
+    const [gameData, setGameData] = useState<gameDataType>();
+    const [money, setMoney] = useState<number>();
+    const [cost, setCost] = useState<number[]>();
+    const [posX, setPosX] = useState<number[]>();
+    const [posY, setPosY] = useState<number[]>();
+    const [hp, setHp] = useState<number[]>();
+    const [hpMax, setHpMax] = useState<number[]>();
+    const [type, setType] = useState<number[]>();
 
-    const [pause, setPause] = useState<boolean>(false);
 
     const fetchStatus = async () => {
         try {
@@ -70,10 +93,24 @@ const Maingame = () => {
         }
     }
 
+    const fetchGameDAta = async () => {
+        try {
+            const resp2 = await axios.get<gameDataType>(apiGameData)
+            if (gameData != resp2.data) {
+                setGameData(resp2.data)
+                console.log(resp2.data)
+            }
+        }
+        catch (err) {
+            console.log(err)
+        }
+    }
+
     useEffect(() => {
         setInterval(() => {
             fetchStatus()
             fetchField()
+            fetchGameDAta()
         }, (2000))
     }, [])
 
@@ -106,6 +143,20 @@ const Maingame = () => {
             }
         }
     }, [fieldData])
+
+    useEffect(() => {
+        if (pause != true) {
+            if (gameData != null) {
+                setMoney(gameData.credit)
+                setCost(gameData.cost)
+                setPosX(gameData.posX)
+                setPosY(gameData.posY)
+                setHp(gameData.hp)
+                setHpMax(gameData.hpMax)
+                setType(gameData.type)
+            }
+        }
+    }, [gameData])
 
     const handleOpen = () => {
         setOpen(true);
@@ -164,8 +215,8 @@ const Maingame = () => {
                 </div>
 
                 <div className="topnav-right">
-                    <button onClick={clickSpeedUP} className="font-Righteous">Speed up {speedUp}</button>
                     <button onClick={clickSpeedDown} className="font-Righteous">Speed down {speedDown}</button>
+                    <button onClick={clickSpeedUP} className="font-Righteous">Speed up {speedUp}</button>
                     <button onClick={() => { clickPause(); handleOpen(); }} className='bg-pause font-Righteous'>Pause</button>
                 </div>
             </div>
