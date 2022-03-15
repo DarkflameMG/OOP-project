@@ -21,7 +21,7 @@ function placeObj(props: any){
     let width = size*0.8
 
     ////////////////
-    setBuyingState(false)//สำหรับใส่ Onclick ลงตาราง เพื่อให้สถานะ buying เป็น false
+    // setBuyingState(false)//สำหรับใส่ Onclick ลงตาราง เพื่อให้สถานะ buying เป็น false
     ////////////////
 
     if (props.type === 1) {
@@ -76,12 +76,12 @@ const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
     let Type = type
     let Credit = money
 
-    console.log("//////////// positionX: "+positionX?.at(0))
-    console.log("//////////// positionY: "+positionY?.at(0))
-    console.log("//////////// Hp: "+Hp?.at(0))
-    console.log("//////////// maxHp: "+maxHp?.at(0))
-    console.log("//////////// Type: "+Type?.at(0))
-    console.log("//////////// Credit: "+Credit)
+    // console.log("//////////// positionX: "+positionX?.at(0))
+    // console.log("//////////// positionY: "+positionY?.at(0))
+    // console.log("//////////// Hp: "+Hp?.at(0))
+    // console.log("//////////// maxHp: "+maxHp?.at(0))
+    // console.log("//////////// Type: "+Type?.at(0))
+    // console.log("//////////// Credit: "+Credit)
 
     if(X != undefined && Y != undefined){
         m = X
@@ -93,11 +93,11 @@ const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
     
     let x_scale: number = winWidth / m
     let y_scale: number = winHeight / n
-    console.log("width:" + winWidth)
-    console.log("height:" + winHeight)
-    console.log("x:" + x_scale)
-    console.log("x:" + x_scale)
-    console.log("y:" + y_scale)
+    // console.log("width:" + winWidth)
+    // console.log("height:" + winHeight)
+    // console.log("x:" + x_scale)
+    // console.log("x:" + x_scale)
+    // console.log("y:" + y_scale)
     if (n < m) {
         if (y_scale * m <= winWidth) {
             maxScale = y_scale
@@ -111,7 +111,9 @@ const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
             maxScale = y_scale
         }
     }
+
     console.log("maxScale: " + Math.round(maxScale))
+    
     maxScale = Math.round(maxScale)
     let setMap: JSX.Element[][] = new Array(n)
 
@@ -119,19 +121,50 @@ const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
     for (let i = 0; i < n; i++) {
         setMap[i] = new Array(m)
         for (let j = 0; j < m; j++) {
-            setMap[i][j] = <img src={slot} alt="" style={{
-                position: "relative",
-                width: `${maxScale}px`,
-                height: `${maxScale}px`,
-                margin: 0
-
-            }} />
+            
+            if(posX.indexOf(j) == posY.indexOf(i)){
+                let img = ""
+                if(type.at(posX.indexOf(j)) == 1){
+                    img = virusA
+                }
+                if(type.at(posX.indexOf(j)) == 2){
+                    img = virusB
+                }
+                if(type.at(posX.indexOf(j)) == 3){
+                    img = virusC
+                }
+                if(type.at(posX.indexOf(j)) == 4){
+                    img = antibodyA
+                }
+                if(type.at(posX.indexOf(j)) == 5){
+                    img = antibodyB
+                }
+                if(type.at(posX.indexOf(j)) == 6){
+                    img = antibodyC
+                }
+                setMap[i][j] = <img src={img} alt="" style={{
+                    position: "relative",
+                    width: `${maxScale}px`,
+                    height: `${maxScale}px`,
+                    margin: 0
+                }} />
+            }else{
+                setMap[i][j] = <img src={slot} alt="" style={{
+                    position: "relative",
+                    width: `${maxScale}px`,
+                    height: `${maxScale}px`,
+                    margin: 0
+    
+                }} />
+            }
+                
         }
     }
 
     return(
         <div>
             {setMap.map((y: JSX.Element[]) => { return <tr>{y.map((x:JSX.Element) => {return <td>{x}</td>})} </tr>})}
+            
         </div>
     )
 }
