@@ -1,7 +1,10 @@
 package com.carin.carinProject;
 
+import com.carin.carinProject.classes.Controller;
 import com.carin.carinProject.classes.GameData;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
 
 @CrossOrigin(origins = "*")
 @RestController
@@ -9,7 +12,8 @@ import org.springframework.web.bind.annotation.*;
 public class gameController {
 
     @GetMapping
-    public GameData getGameData(){
+    public GameData getGameData() throws IOException {
+        Controller.ReadController();
         return GameDataService.getGameData();
     }
 
