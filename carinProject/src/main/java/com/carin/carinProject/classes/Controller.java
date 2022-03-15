@@ -1,5 +1,6 @@
 package com.carin.carinProject.classes;
 
+import com.carin.carinProject.GameDataService;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -17,6 +18,20 @@ import java.util.List;
 public class Controller {
 
     static JSONObject input;
+    public static void ReadController() throws IOException {
+        ConfigImp.ReadFile();
+        int m = ConfigImp.getM();
+        int n = ConfigImp.getN();
+        int credit = ConfigImp.getAntibody_start_credit();
+        List<Integer> cost = Arrays.asList(ConfigImp.getAntibodyA_credit(),ConfigImp.getAntibodyB_credit(),ConfigImp.getAntibodyC_credit());
+        List<Integer> posX = Arrays.asList(1,2,3,4,5);  //อันนี้ลองเซตค่าขึ้นมาเอง ค่าจริงๆจะได้จากแรนดอมสุ่มเกิด
+        List<Integer> posY = Arrays.asList(4,3,5,1,2);
+        List<Integer> hp = Arrays.asList(20,30,40,10,6);
+        List<Integer> hpMax = Arrays.asList(50,30,50,30,20);
+        List<Integer> type = Arrays.asList(1,2,3,4,5,6);
+        GameData g = new GameData(m, n, credit, cost,  posX, posY, hp, hpMax, type);
+        GameDataService.setGameData(g);
+    }
 
     public static void main(String[] args) throws IOException, InterruptedException, ParseException, JSONException {
         ConfigImp.ReadFile();
@@ -29,8 +44,10 @@ public class Controller {
         List<Integer> hp = Arrays.asList(20,30,40,10,6);
         List<Integer> hpMax = Arrays.asList(50,30,50,30,20);
         List<Integer> type = Arrays.asList(1,2,3,4,5,6);
-
-        sendGameState(0);
+        GameData g = new GameData(m, n, credit, cost,  posX, posY, hp, hpMax, type);
+        GameDataService.setGameData(g);
+        
+//        sendGameState(0);
     }
 
     @SuppressWarnings("uncheck")
