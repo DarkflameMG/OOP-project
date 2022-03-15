@@ -183,18 +183,6 @@ const Maingame = () => {
         console.log("unPause")
     }
 
-    const buyAntigen = (anti: any) => {
-        if (anti === 1 || anti === "A") {
-            setMoney(money);
-        }
-        if (anti === 2 || anti === "B") {
-            setMoney(money);
-        }
-        if (anti === 3 || anti === "C") {
-            setMoney(money);
-        }
-    }
-
     var speedUp = ">>"
     var speedDown = "<<"
 
