@@ -230,7 +230,7 @@ const Maingame = () => {
                         <TransformComponent >
                             <div className='' style={{ width: gameScreenWidth, height: gameScreenHeight }}>
                                 <div className='flex items-center justify-center'>
-                                    <Field X={M} Y={N}></Field>
+                                    <Field X={M} Y={N} posX={posX} posY={posY} money={money} hp={hp} hpMax={hpMax} type={type}></Field>
                                 </div>
                             </div>
 

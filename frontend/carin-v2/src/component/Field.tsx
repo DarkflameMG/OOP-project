@@ -59,17 +59,30 @@ export type dataType = {
     costAntibodyC : number,
 }
 
-const Field = ({X,Y}:any) => {
+const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
 
     let m = 0
     let n = 0
+
+    let positionX = posX
+    let positionY = posY
+    let Hp = hp
+    let maxHp = hpMax
+    let Type = type
+    let Credit = money
+
+    console.log("//////////// positionX: "+positionX?.at(0))
+    console.log("//////////// positionY: "+positionY?.at(0))
+    console.log("//////////// Hp: "+Hp?.at(0))
+    console.log("//////////// maxHp: "+maxHp?.at(0))
+    console.log("//////////// Type: "+Type?.at(0))
+    console.log("//////////// Credit: "+Credit)
 
     if(X != undefined && Y != undefined){
         m = X
         n = Y
     }
     let maxScale 
-
     let winWidth = window.innerWidth - 400
     let winHeight = window.innerHeight - 200
     
