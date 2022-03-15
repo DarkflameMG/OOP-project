@@ -159,10 +159,10 @@ const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
                     }} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"/>
                     <img src={img} style={{
                     position: "relative",
-                    width: `${maxScale-(maxScale/4)}px`,
-                    height: `${maxScale-(maxScale/4)}px`,
+                    width: `${maxScale-(maxScale/3)}px`,
+                    height: `${maxScale-(maxScale/3)}px`,
                     margin: 0
-                }} className="absolute -top-20 left-4 transform -translate-y-8"/>
+                }} className="absolute -top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"/>
                     <p className="absolute bottom-1 left-1/2 transform -translate-x-1/2  font-Righteous">
                         {hp}/{hpMax}</p>                
                 </div>
