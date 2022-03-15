@@ -67,6 +67,8 @@ const Maingame = () => {
     const [type, setType] = useState<number[]>();
 
 
+
+
     const fetchStatus = async () => {
         try {
             const resp = await axios.get<statusType>(apiStatus)
@@ -154,6 +156,13 @@ const Maingame = () => {
                 setHp(gameData.hp)
                 setHpMax(gameData.hpMax)
                 setType(gameData.type)
+                console.log("credit:" + money)
+                console.log("cost:" + cost)
+                console.log("posX:" + posX)
+                console.log("posY:" + posY)
+                console.log("hp:" + hp)
+                console.log("hpMax:" + hpMax)
+                console.log("type:" + type)
             }
         }
     }, [gameData])
