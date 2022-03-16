@@ -17,6 +17,7 @@ public class MainGame {
     private int game_speed = 1;
     private int game_start = 0;
     private final Random rand;
+    private int virus_count = 0;
     private static int current_state = 0;
 
     public static int getCurrent_state()
@@ -80,6 +81,11 @@ public class MainGame {
         return game_start;
     }
 
+    public int getVirus_count()
+    {
+        return virus_count;
+    }
+
     public void moveAntibody(Unit target)
     {
         target.decreaseHp(MoveCost);
@@ -90,6 +96,7 @@ public class MainGame {
         float num = rand.nextFloat(10)/10;
         if(num < spawnRate)
         {
+            virus_count++;
             String s;
             int m = ConfigImp.getM();
             int n = ConfigImp.getN();

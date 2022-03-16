@@ -12,6 +12,7 @@ public class Shop {
     private final int costC = ConfigImp.getAntibodyB_credit();
     private FieldImp field = FieldImp.getInstance(ConfigImp.getM(),ConfigImp.getN());
     private AntibodyFactory AFac = AntibodyFactory.getInstance();
+    private int antibody_count = 0;
     private static Shop instance;
 
     private Shop(){}
@@ -23,10 +24,16 @@ public class Shop {
         return instance;
     }
 
+    public int getAntibody_count()
+    {
+        return antibody_count;
+    }
+
     public void buy(String species,int x,int y) throws SyntaxError, TokenizerError
     {
         if(field.isEmpty(x,y) > 0)
         {
+            antibody_count++;
            AFac.newAntibody(species,x,y);
             if(species.equals("PongPong"))
                 Credit.getInstance().Buy(costA);

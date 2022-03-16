@@ -72,7 +72,7 @@ public class TestGame {
 //            System.out.println(UnitData.getInstance().getPosX());
 //            System.out.println(UnitData.getInstance().getPosY());
 //            System.out.println(UnitData.getInstance().getType());
-            if(game.getGame_start() == 0)
+            if((v_num ==0 || a_num ==0) && game.getVirus_count() >= 3 && shop.getAntibody_count() >=3)
                 break;
             try {
                 Thread.sleep(game.current_speedTime());
@@ -83,5 +83,6 @@ public class TestGame {
             }
             System.out.println();
         }
+        System.out.println("end");
     }
 }
