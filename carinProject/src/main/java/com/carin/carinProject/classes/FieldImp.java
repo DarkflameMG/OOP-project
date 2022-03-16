@@ -52,7 +52,6 @@ public class FieldImp implements Field {
 
     public int isEmpty(int x, int y)
     {
-        System.out.println(slot.length);
         if(slot[y][x] == null)
             return 1;
         return 0;

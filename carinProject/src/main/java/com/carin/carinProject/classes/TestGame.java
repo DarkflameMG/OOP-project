@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class TestGame {
     public static void main(String[] args) throws IOException, SyntaxError, TokenizerError {
-//        ConfigImp.ReadFile();
+        ConfigImp.ReadFile();
         geneImp.Run();
         FieldImp field = FieldImp.getInstance(ConfigImp.getM(),ConfigImp.getN());
         Credit credit = Credit.getInstance();
