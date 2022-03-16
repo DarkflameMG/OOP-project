@@ -24,7 +24,7 @@ public class Controller {
         ConfigImp.ReadFile();
         int m = ConfigImp.getM();
         int n = ConfigImp.getN();
-        int credit = ConfigImp.getAntibody_start_credit();
+        int credit = Credit.getInstance().current_credit();
         List<Integer> cost = Arrays.asList(ConfigImp.getAntibodyA_credit(),ConfigImp.getAntibodyB_credit(),ConfigImp.getAntibodyC_credit());
         List<Integer> posX = Arrays.asList(0,1,2,3,4,5);  //อันนี้ลองเซตค่าขึ้นมาเอง ค่าจริงๆจะได้จากแรนดอมสุ่มเกิด
         List<Integer> posY = Arrays.asList(0,4,3,5,1,2);

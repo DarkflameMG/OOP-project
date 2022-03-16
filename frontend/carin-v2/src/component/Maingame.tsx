@@ -124,7 +124,7 @@ const Maingame = () => {
             // fetchStatus()
             // fetchField()
             // fetchGameDAta()
-        }, (2000))
+        }, (1000))
     }, [])
 
     useEffect(() => {
