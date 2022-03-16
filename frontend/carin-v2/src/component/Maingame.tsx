@@ -132,7 +132,7 @@ const Maingame = () => {
         if (pause != true) {
             if (data != null) {
                 setMoney(data.credit)
-                
+
             }
         }
     }, [data])
@@ -198,6 +198,7 @@ const Maingame = () => {
 
 
 
+
     return (
         <div>
             {/* navbar */}
@@ -227,7 +228,7 @@ const Maingame = () => {
                     <TransformWrapper centerOnInit={true} initialScale={0.9} limitToBounds={false} minScale={0.5} maxScale={100} >
 
                         <TransformComponent >
-                            <div className='' style={{ width: gameScreenWidth, height: gameScreenHeight }}>
+                            <div className='' style={{ width: gameScreenWidth, height: gameScreenHeight-35 }}>
                                 <div className='flex items-center justify-center'>
                                     <Field X={M} Y={N} posX={posX} posY={posY} money={money} hp={hp} hpMax={hpMax} type={type} virus={virus} antibody={antibody}></Field>
                                 </div>
@@ -237,6 +238,11 @@ const Maingame = () => {
 
 
                     </TransformWrapper>
+                    <div className ='textEndgame'>
+                        {virus == 0 && <h1>You're still alive!</h1>}
+                        {antibody == 0 && <h1>You're LOSER</h1>}
+                    </div>
+
 
                 </div>
 
