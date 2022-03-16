@@ -57,8 +57,9 @@ public class TestGame {
                         {
                             if(U.isAntiBody() > 0)
                                 System.out.print("A");
-                            else
+                            else{
                                 System.out.print("V");
+                            }
                         }
                     }
                     System.out.print("]");
