@@ -44,17 +44,6 @@ function placeObj(props: any){
     else
         image = null
 
-    // return (
-    //     <div>
-    //         <div>
-    //                 {props.type !== 0 && <progress className='' style={{ transform: "translate(-50%,-80%)", height: height, width: width }} value={props.hp} max={props.hpMax}></progress>}
-    //             </div>
-    //             <div>
-    //                 {image}
-    //             </div>
-    //     </div>
-    // )
-
 }
 export type dataType = {
     x : number,
@@ -117,40 +106,52 @@ const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
     maxScale = Math.round(maxScale)
     let setMap: JSX.Element[][] = new Array(n)
 
-    
-    
-
+    let img = ""
+    let indexX = 0;
+    let indexY = 0; 
+    let unitHp = 0;
+    let unitMaxHp = 0;
+    let getType = 0;
     for (let i = 0; i < n; i++) {
         setMap[i] = new Array(m)
+        indexY = positionY?.indexOf(i)
         for (let j = 0; j < m; j++) {
-            
-            if(posX.indexOf(j) == posY.indexOf(i)){
-                let img = ""
-                if(type.at(posX.indexOf(j)) == 1){
+            indexX = positionX?.indexOf(j)
+            if(indexX == indexY){
+                unitHp = Hp?.at(indexX)
+                unitMaxHp = maxHp?.at(indexX)
+                getType = Type?.at(indexX )
+                if(getType == 1){
                     img = virusA
                 }
-                if(type.at(posX.indexOf(j)) == 2){
+                else if(getType == 2){
                     img = virusB
                 }
-                if(type.at(posX.indexOf(j)) == 3){
+                else if(getType == 3){
                     img = virusC
                 }
-                if(type.at(posX.indexOf(j)) == 4){
+                else if(getType == 4){
                     img = antibodyA
                 }
-                if(type.at(posX.indexOf(j)) == 5){
+                else if(getType == 5){
                     img = antibodyB
                 }
-                if(type.at(posX.indexOf(j)) == 6){
+                else if(getType == 6){
                     img = antibodyC
                 }
                 setMap[i][j] = 
+                // <img src={img} alt="" style={{
+                //         position: "relative",
+                //         width: `${maxScale}px`,
+                //         height: `${maxScale}px`,
+                //         margin: 0
+                //         }} />
                 <div style={{
                     position: "relative",
                     width: `${maxScale}px`,
                     height: `${maxScale}px`,
                     margin: 0
-                    }}>
+                }}>
                     <img src={slot} alt="" style={{
                     position: "relative",
                     width: `${maxScale}px`,
@@ -163,8 +164,8 @@ const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
                     height: `${maxScale-(maxScale/3)}px`,
                     margin: 0
                 }} className="absolute -top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"/>
-                    <p className=" absolute bottom-0 left-1/2 transform -translate-x-1/2  font-Righteous" >
-                        {Hp.at(posX.indexOf(j))}/{maxHp.at(posX.indexOf(j))}</p>                
+                    <p className="absolute bottom-1 left-1/2 transform -translate-x-1/2  font-Righteous">
+                        {unitHp}/{unitMaxHp}</p>
                 </div>
             }else{
                 setMap[i][j] = <img src={slot} alt="" style={{
@@ -174,8 +175,7 @@ const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
                     margin: 0
     
                 }} />
-            }
-                
+            }     
         }
     }
 
