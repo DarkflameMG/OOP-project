@@ -1,5 +1,9 @@
 package com.carin.carinProject.classes.Units;
 
+import com.carin.carinProject.GameDataService;
+import com.carin.carinProject.classes.ConfigImp;
+import com.carin.carinProject.classes.Credit;
+import com.carin.carinProject.classes.GameData;
 import com.carin.carinProject.classes.UnitData;
 import com.carin.carinProject.classes.parse.SyntaxError;
 import com.carin.carinProject.classes.parse.TokenizerError;
@@ -42,8 +46,12 @@ public class UnitCollection {
         for(Map.Entry<Unit,Unit> unit : allUnit.entrySet())
         {
             data.addXYT(unit.getValue().getCoordinateX(),unit.getValue().getCoordinateY(),unit.getValue().getSpecies());
+            data.addHp(unit.getValue().getHp());
             unit.getValue().run();
         }
+        GameData g = new GameData(ConfigImp.getM(),ConfigImp.getN(), Credit.getInstance().current_credit(),null,data.getPosX(),
+                data.getPosY(),data.getHp(),null,data.getType());
+        GameDataService.setGameData(g);
     }
 
     public Set<Unit> getAllUnit()

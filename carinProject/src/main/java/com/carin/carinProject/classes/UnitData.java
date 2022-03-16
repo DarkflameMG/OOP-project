@@ -8,6 +8,7 @@ public class UnitData {
     private List<Integer> posX = new ArrayList<>();
     private List<Integer> posY = new ArrayList<>();
     private List<Integer> Type = new ArrayList<>();
+    private List<Integer> Hp = new ArrayList<>();
 
     private UnitData(){}
 
@@ -23,6 +24,7 @@ public class UnitData {
         posX = new ArrayList<>();
         posY = new ArrayList<>();
         Type = new ArrayList<>();
+        Hp = new ArrayList<>();
     }
 
     public void addXYT(int x,int y,int t)
@@ -30,6 +32,11 @@ public class UnitData {
         posX.add(x);
         posY.add(y);
         Type.add(t);
+    }
+
+    public void addHp(int hp)
+    {
+        Hp.add(hp);
     }
 
     public List<Integer> getPosX()
@@ -45,5 +52,10 @@ public class UnitData {
     public List<Integer> getType()
     {
         return Type;
+    }
+
+    public List<Integer> getHp()
+    {
+        return Hp;
     }
 }
