@@ -18,9 +18,9 @@ public class TestGame {
         Shop shop = Shop.getInstance();
         UnitCollection allU = UnitCollection.getInstance();
 
-//        shop.buy("Machina",0,0);
-//        shop.buy("Machina",1,0);
-//        shop.buy("Machina",2,0);
+        shop.buy("Machina",0,0);
+        shop.buy("Machina",1,0);
+        shop.buy("Machina",2,0);
 
         int v_num = field.getNum_virus();
         int a_num = field.getNum_antibody();
@@ -38,7 +38,6 @@ public class TestGame {
             game.VirusSpawn();
             v_num = field.getNum_virus();
             a_num = field.getNum_antibody();
-            allU.UnitRun();
             System.out.println("Virus : "+field.getNum_virus());
             System.out.println("Antibody : "+field.getNum_antibody());
             System.out.println("Credit : "+credit.current_credit());
@@ -67,6 +66,10 @@ public class TestGame {
                 }
                 System.out.println();
             }
+            allU.UnitRun();
+            System.out.println(UnitData.getInstance().getPosX());
+            System.out.println(UnitData.getInstance().getPosY());
+            System.out.println(UnitData.getInstance().getType());
             try {
                 Thread.sleep(game.current_speedTime());
             }
