@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class TestGame {
     public static void main(String[] args) throws IOException, SyntaxError, TokenizerError {
-        ConfigImp.ReadFile();
+//        ConfigImp.ReadFile();
         geneImp.Run();
         FieldImp field = FieldImp.getInstance(ConfigImp.getM(),ConfigImp.getN());
         Credit credit = Credit.getInstance();
@@ -68,9 +68,9 @@ public class TestGame {
                 System.out.println();
             }
             allU.UnitRun();
-            System.out.println(UnitData.getInstance().getPosX());
-            System.out.println(UnitData.getInstance().getPosY());
-            System.out.println(UnitData.getInstance().getType());
+//            System.out.println(UnitData.getInstance().getPosX());
+//            System.out.println(UnitData.getInstance().getPosY());
+//            System.out.println(UnitData.getInstance().getType());
             if(game.getGame_start() == 0)
                 break;
             try {

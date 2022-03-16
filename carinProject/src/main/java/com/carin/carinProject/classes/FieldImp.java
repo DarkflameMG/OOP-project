@@ -18,7 +18,7 @@ public class FieldImp implements Field {
     {
         if(instance == null)
         {
-            instance = new FieldImp(n,m);
+            instance = new FieldImp(ConfigImp.getN(),ConfigImp.getM());
         }
         return instance;
     }
@@ -52,6 +52,7 @@ public class FieldImp implements Field {
 
     public int isEmpty(int x, int y)
     {
+        System.out.println(slot.length);
         if(slot[y][x] == null)
             return 1;
         return 0;

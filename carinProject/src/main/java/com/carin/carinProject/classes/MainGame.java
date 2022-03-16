@@ -1,12 +1,14 @@
+
 package com.carin.carinProject.classes;
 
 import com.carin.carinProject.classes.Units.VirusFactory;
 import com.carin.carinProject.classes.parse.SyntaxError;
 import com.carin.carinProject.classes.parse.TokenizerError;
 import com.carin.carinProject.interfaces.Unit;
+import org.springframework.stereotype.Service;
 
 import java.util.Random;
-
+@Service
 public class MainGame {
     private int MoveCost = ConfigImp.getAntibody_moveCost();
     private double spawnRate = ConfigImp.getVirusSpawn();

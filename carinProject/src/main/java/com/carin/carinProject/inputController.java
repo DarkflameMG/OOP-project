@@ -15,12 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class inputController {
 
     @Autowired
-    private MainGame mainGame;
+    private MainGame mainGame = MainGame.getInstance();
 
     @PostMapping("/startgame")
     public void add(){
 
-       MainGame.getInstance().setGame_startStatic();
+        System.out.println("yes");
+//       MainGame.getInstance().setGame_startStatic();
 //       System.out.println("start");
 //       return mainGame.getInstance().getGame_start();
     }
