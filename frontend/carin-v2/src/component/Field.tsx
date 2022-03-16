@@ -117,7 +117,7 @@ const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
         indexY = positionY?.indexOf(i)
         for (let j = 0; j < m; j++) {
             indexX = positionX?.indexOf(j)
-            if(indexX == indexY){
+            if(indexX == indexY && indexX != -1 && indexY != -1){
                 unitHp = Hp?.at(indexX)
                 unitMaxHp = maxHp?.at(indexX)
                 getType = Type?.at(indexX )
@@ -164,7 +164,7 @@ const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
                     height: `${maxScale-(maxScale/3)}px`,
                     margin: 0
                 }} className="absolute -top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"/>
-                    <p className="absolute bottom-1 left-1/2 transform -translate-x-1/2  font-Righteous">
+                    <p className="absolute bottom-1 left-1/2 transform -translate-x-1/2  font-Righteous text-black font-semibold">
                         {unitHp}/{unitMaxHp}</p>
                 </div>
             }else{
