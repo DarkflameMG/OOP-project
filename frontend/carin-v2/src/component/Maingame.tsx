@@ -29,8 +29,8 @@ export type fieldType = {
 }
 
 export type gameDataType = {
-    m: number,
-    n: number,
+    virus: number,
+    antibody: number,
     credit: number,
     cost: number[],
     posX: number[],
@@ -40,15 +40,14 @@ export type gameDataType = {
     type: number[]
 }
 
-    
+
 const Maingame = () => {
     const [pause, setPause] = useState<boolean>(false);
 
     const [open, setOpen] = useState(false);
     //--------------Status-------------------------------------------
     const [data, setData] = useState<statusType>();
-    const [virus, setVirus] = useState<number>();
-    const [antibody, setAntibody] = useState<number>();
+
     //--------------Field-------------------------------------------
     const [fieldData, setField] = useState<fieldType>();
     const [M, setM] = useState<number>();
@@ -58,6 +57,8 @@ const Maingame = () => {
     const [costAntibodyC, setCostAntibodyC] = useState<number>();
     //---------------GameData----------------------------------------
     const [gameData, setGameData] = useState<gameDataType>();
+    const [virus, setVirus] = useState<number>();
+    const [antibody, setAntibody] = useState<number>();
     const [money, setMoney] = useState<number>();
     const [cost, setCost] = useState<number[]>();
     const [posX, setPosX] = useState<number[]>();
@@ -66,15 +67,15 @@ const Maingame = () => {
     const [hpMax, setHpMax] = useState<number[]>();
     const [type, setType] = useState<number[]>();
 
-    const fetchAll =async () => {
-        try{
+    const fetchAll = async () => {
+        try {
             const resp = await axios.get<statusType>(apiStatus)
             const resp1 = await axios.get<fieldType>(apiField)
             const resp2 = await axios.get<gameDataType>(apiGameData)
             setData(resp.data)
             setField(resp1.data)
             setGameData(resp2.data)
-        }catch(err){
+        } catch (err) {
             console.log(err)
         }
     }
@@ -124,15 +125,14 @@ const Maingame = () => {
             // fetchStatus()
             // fetchField()
             // fetchGameDAta()
-        }, (1000))
+        }, (100))
     }, [])
 
     useEffect(() => {
         if (pause != true) {
             if (data != null) {
                 setMoney(data.credit)
-                setVirus(data.num_virus)
-                setAntibody(data.num_antibody)
+                
             }
         }
     }, [data])
@@ -152,6 +152,8 @@ const Maingame = () => {
     useEffect(() => {
         if (pause != true) {
             if (gameData != null) {
+                setVirus(gameData.virus)
+                setAntibody(gameData.antibody)
                 setMoney(gameData.credit)
                 setCost(gameData.cost)
                 setPosX(gameData.posX)
@@ -195,6 +197,7 @@ const Maingame = () => {
     let gameScreenHeight = window.innerHeight - 200
 
 
+
     return (
         <div>
             {/* navbar */}
@@ -226,7 +229,7 @@ const Maingame = () => {
                         <TransformComponent >
                             <div className='' style={{ width: gameScreenWidth, height: gameScreenHeight }}>
                                 <div className='flex items-center justify-center'>
-                                    <Field X={M} Y={N} posX={posX} posY={posY} money={money} hp={hp} hpMax={hpMax} type={type}></Field>
+                                    <Field X={M} Y={N} posX={posX} posY={posY} money={money} hp={hp} hpMax={hpMax} type={type} virus={virus} antibody={antibody}></Field>
                                 </div>
                             </div>
 
