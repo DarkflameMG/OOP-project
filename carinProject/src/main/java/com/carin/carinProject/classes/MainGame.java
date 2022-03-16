@@ -50,7 +50,7 @@ public class MainGame {
     public int current_speedTime()
     {
         if(game_speed <= 1 )
-            return 1000;
+            return 3000;
         else if(game_speed == 2)
             return 250;
         else
