@@ -17,6 +17,17 @@ public class MainGame {
     private int game_speed = 1;
     private int game_start = 0;
     private final Random rand;
+    private static int current_state = 0;
+
+    public static int getCurrent_state()
+    {
+        return current_state;
+    }
+
+    public static void setCurrent_state()
+    {
+        current_state = 1;
+    }
 
     private MainGame()
     {
@@ -62,6 +73,7 @@ public class MainGame {
     public void setGame_start()
     {
         game_start = 1;
+        MainGame.setCurrent_state();
     }
     public int getGame_start()
     {

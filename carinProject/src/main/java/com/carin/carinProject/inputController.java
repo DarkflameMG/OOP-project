@@ -20,7 +20,8 @@ public class inputController {
     @PostMapping("/startgame")
     public void add(){
 
-        System.out.println("yes");
+        mainGame.setGame_start();
+        System.out.println(mainGame.getGame_start());
 //       MainGame.getInstance().setGame_startStatic();
 //       System.out.println("start");
 //       return mainGame.getInstance().getGame_start();

@@ -5,6 +5,7 @@ import com.carin.carinProject.classes.parse.SyntaxError;
 import com.carin.carinProject.classes.parse.TokenizerError;
 import com.carin.carinProject.classes.parse.geneImp;
 import com.carin.carinProject.interfaces.Unit;
+import com.sun.tools.javac.Main;
 
 import java.io.IOException;
 
@@ -25,9 +26,9 @@ public class TestGame {
         int v_num = field.getNum_virus();
         int a_num = field.getNum_antibody();
 
-        while(game.getGame_start() == 0)
+        while(MainGame.getCurrent_state() != 1)
         {
-
+            System.out.println(MainGame.getCurrent_state());
         }
         while((v_num !=0 && a_num !=0) ||  v_num != ConfigImp.getM()*ConfigImp.getN())
 //        for(int k=0;k<10;k++)
