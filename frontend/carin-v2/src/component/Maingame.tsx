@@ -66,50 +66,64 @@ const Maingame = () => {
     const [hpMax, setHpMax] = useState<number[]>();
     const [type, setType] = useState<number[]>();
 
-    const fetchStatus = async () => {
-        try {
+    const fetchAll =async () => {
+        try{
             const resp = await axios.get<statusType>(apiStatus)
-            if (data != resp.data) {
-                setData(resp.data)
-                console.log(resp.data)
-            }
-        }
-        catch (err) {
-            console.log(err)
-        }
-    }
-
-    const fetchField = async () => {
-        try {
             const resp1 = await axios.get<fieldType>(apiField)
-            if (fieldData != resp1.data) {
-                setField(resp1.data)
-                console.log(resp1.data)
-            }
-        }
-        catch (err) {
+            const resp2 = await axios.get<gameDataType>(apiGameData)
+            setData(resp.data)
+            setField(resp1.data)
+            setGameData(resp2.data)
+        }catch(err){
             console.log(err)
         }
     }
 
-    const fetchGameDAta = async () => {
-        try {
-            const resp2 = await axios.get<gameDataType>(apiGameData)
-            if (gameData != resp2.data) {
-                setGameData(resp2.data)
-                console.log(resp2.data)
-            }
-        }
-        catch (err) {
-            console.log(err)
-        }
-    }
+    // const fetchStatus = async () => {
+    //     try {
+    //         const resp = await axios.get<statusType>(apiStatus)
+    //         if (data != resp.data) {
+    //             setData(resp.data)
+    //             console.log(resp.data)
+    //         }
+    //     }
+    //     catch (err) {
+    //         console.log(err)
+    //     }
+    // }
+
+    // const fetchField = async () => {
+    //     try {
+    //         const resp1 = await axios.get<fieldType>(apiField)
+    //         if (fieldData != resp1.data) {
+    //             setField(resp1.data)
+    //             console.log(resp1.data)
+    //         }
+    //     }
+    //     catch (err) {
+    //         console.log(err)
+    //     }
+    // }
+
+    // const fetchGameDAta = async () => {
+    //     try {
+    //         const resp2 = await axios.get<gameDataType>(apiGameData)
+    //         if (gameData != resp2.data) {
+    //             setGameData(resp2.data)
+    //             console.log(resp2.data)
+    //         }
+    //     }
+    //     catch (err) {
+    //         console.log(err)
+    //     }
+    // }
 
     useEffect(() => {
         setInterval(() => {
-            fetchStatus()
-            fetchField()
-            fetchGameDAta()
+            fetchAll()
+            // fetchStatus()
+            // fetchField()
+            // fetchGameDAta()
         }, (2000))
     }, [])
 
@@ -119,9 +133,6 @@ const Maingame = () => {
                 setMoney(data.credit)
                 setVirus(data.num_virus)
                 setAntibody(data.num_antibody)
-                console.log("money: " + money)
-                console.log("virus: " + virus)
-                console.log("antibody: " + antibody)
             }
         }
     }, [data])
@@ -134,11 +145,6 @@ const Maingame = () => {
                 setCostAntibodyA(fieldData.costAntibodyA)
                 setCostAntibodyB(fieldData.costAntibodyB)
                 setCostAntibodyC(fieldData.costAntibodyC)
-                console.log("x:" + M)
-                console.log("y:" + N)
-                console.log("costAntibodyA:" + costAntibodyA)
-                console.log("costAntibodyB:" + costAntibodyB)
-                console.log("costAntibodyC:" + costAntibodyC)
             }
         }
     }, [fieldData])
@@ -153,13 +159,6 @@ const Maingame = () => {
                 setHp(gameData.hp)
                 setHpMax(gameData.hpMax)
                 setType(gameData.type)
-                console.log("credit:" + money)
-                console.log("cost:" + cost)
-                console.log("posX:" + posX)
-                console.log("posY:" + posY)
-                console.log("hp:" + hp)
-                console.log("hpMax:" + hpMax)
-                console.log("type:" + type)
             }
         }
     }, [gameData])
