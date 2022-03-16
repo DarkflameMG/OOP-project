@@ -80,45 +80,6 @@ const Maingame = () => {
         }
     }
 
-    // const fetchStatus = async () => {
-    //     try {
-    //         const resp = await axios.get<statusType>(apiStatus)
-    //         if (data != resp.data) {
-    //             setData(resp.data)
-    //             console.log(resp.data)
-    //         }
-    //     }
-    //     catch (err) {
-    //         console.log(err)
-    //     }
-    // }
-
-    // const fetchField = async () => {
-    //     try {
-    //         const resp1 = await axios.get<fieldType>(apiField)
-    //         if (fieldData != resp1.data) {
-    //             setField(resp1.data)
-    //             console.log(resp1.data)
-    //         }
-    //     }
-    //     catch (err) {
-    //         console.log(err)
-    //     }
-    // }
-
-    // const fetchGameDAta = async () => {
-    //     try {
-    //         const resp2 = await axios.get<gameDataType>(apiGameData)
-    //         if (gameData != resp2.data) {
-    //             setGameData(resp2.data)
-    //             console.log(resp2.data)
-    //         }
-    //     }
-    //     catch (err) {
-    //         console.log(err)
-    //     }
-    // }
-
     useEffect(() => {
         setInterval(() => {
             fetchAll()
