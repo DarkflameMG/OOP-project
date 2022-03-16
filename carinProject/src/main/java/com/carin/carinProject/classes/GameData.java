@@ -3,16 +3,16 @@ package com.carin.carinProject.classes;
 import java.util.List;
 
 public class GameData {
-    private int m;
-    private int n;
+    private int virus;
+    private int antibody;
     private int credit;
     private List<Integer> cost;
     private List<Integer> posX, posY, hp, hpMax;
     private List<Integer> type;
 
-    public GameData(int m, int n,  int credit,List<Integer> cost,  List<Integer> posX, List<Integer> posY, List<Integer> hp, List<Integer> hpMax, List<Integer> type) {
-        this.m = m;
-        this.n = n;
+    public GameData(int virus, int antibody,  int credit,List<Integer> cost,  List<Integer> posX, List<Integer> posY, List<Integer> hp, List<Integer> hpMax, List<Integer> type) {
+        this.virus = virus;
+        this.antibody = antibody;
         this.credit = credit;
         this.cost = cost;
         this.posX = posX;
@@ -25,20 +25,20 @@ public class GameData {
     public GameData(int m, int n, Object o, Object cost, Object posX, Object posY, Object hp, Object hpMax) {
     }
 
-    public int getM() {
-        return m;
+    public int getVirus() {
+        return virus;
     }
 
-    public void setM(int m) {
-        this.m = m;
+    public void setVirus(int virus) {
+        this.virus = virus;
     }
 
-    public int getN() {
-        return n;
+    public int getAntibody() {
+        return antibody;
     }
 
-    public void setN(int n) {
-        this.n = n;
+    public void setAntibody(int antibody) {
+        this.antibody = antibody;
     }
 
     public int getCredit() {
