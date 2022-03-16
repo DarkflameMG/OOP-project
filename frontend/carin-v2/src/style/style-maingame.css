@@ -122,3 +122,9 @@
     border-color: black;
     transform: scale(1.2);
 }
+
+.textEndgame{
+    margin-left: 50px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 40px;
+}

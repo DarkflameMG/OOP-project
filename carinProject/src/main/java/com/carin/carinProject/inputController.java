@@ -1,19 +1,29 @@
 package com.carin.carinProject;
 
 
+import com.carin.carinProject.classes.MainGame;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping(path = "input")
 
+@RestController
+@RequestMapping(path = "/input")
+@CrossOrigin(origins = "*")
 public class inputController {
 
-    //stateGame (play and pause)
-//    @CrossOrigin
-//    @GetMapping("/stategame")
-//    public int getStategame(){
-//
-//    }
+    @Autowired
+    private MainGame mainGame = MainGame.getInstance();
+
+    @PostMapping("/startgame")
+    public void add(){
+
+        System.out.println("yes");
+//       MainGame.getInstance().setGame_startStatic();
+//       System.out.println("start");
+//       return mainGame.getInstance().getGame_start();
+    }
 
 }

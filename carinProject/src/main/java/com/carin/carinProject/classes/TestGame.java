@@ -10,7 +10,7 @@ import java.io.IOException;
 
 public class TestGame {
     public static void main(String[] args) throws IOException, SyntaxError, TokenizerError {
-        ConfigImp.ReadFile();
+//        ConfigImp.ReadFile();
         geneImp.Run();
         FieldImp field = FieldImp.getInstance(ConfigImp.getM(),ConfigImp.getN());
         Credit credit = Credit.getInstance();
@@ -25,15 +25,16 @@ public class TestGame {
         int v_num = field.getNum_virus();
         int a_num = field.getNum_antibody();
 
-        while((v_num !=0 && a_num !=0) || game.getGame_start() == 0 && v_num != ConfigImp.getM()*ConfigImp.getN())
+        while(game.getGame_start() == 0)
+        {
+
+        }
+        while((v_num !=0 && a_num !=0) ||  v_num != ConfigImp.getM()*ConfigImp.getN())
 //        for(int k=0;k<10;k++)
         {
-            if(game.getGame_speed() == 0)
+            while (game.getGame_speed() == 0)
             {
-                while (game.getGame_speed() != 0)
-                {
 
-                }
             }
             game.VirusSpawn();
             v_num = field.getNum_virus();
@@ -67,9 +68,11 @@ public class TestGame {
                 System.out.println();
             }
             allU.UnitRun();
-            System.out.println(UnitData.getInstance().getPosX());
-            System.out.println(UnitData.getInstance().getPosY());
-            System.out.println(UnitData.getInstance().getType());
+//            System.out.println(UnitData.getInstance().getPosX());
+//            System.out.println(UnitData.getInstance().getPosY());
+//            System.out.println(UnitData.getInstance().getType());
+            if(game.getGame_start() == 0)
+                break;
             try {
                 Thread.sleep(game.current_speedTime());
             }
