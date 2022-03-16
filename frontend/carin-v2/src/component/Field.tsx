@@ -11,21 +11,21 @@ import virusA from '../image/virusA.png';
 import virusB from '../image/virusB.png';
 import virusC from '../image/virusC.png';
 
-import {setBuyingState} from './Shop'
+import { setBuyingState } from './Shop'
 
 
-function placeObj(props: any){
+function placeObj(props: any) {
     let charactor: any = null;
     let size = props.size
-    let height = size*0.1
-    let width = size*0.8
+    let height = size * 0.1
+    let width = size * 0.8
 
     ////////////////
     // setBuyingState(false)//สำหรับใส่ Onclick ลงตาราง เพื่อให้สถานะ buying เป็น false
     ////////////////
 
     if (props.type === 1) {
-        charactor= virusA
+        charactor = virusA
     } else if (props.type === 2) {
         charactor = virusA
     } else if (props.type === 3) {
@@ -46,17 +46,21 @@ function placeObj(props: any){
 
 }
 export type dataType = {
-    x : number,
-    y : number,
-    costAntibodyA : number,
-    costAntibodyB : number,
-    costAntibodyC : number,
+    x: number,
+    y: number,
+    costAntibodyA: number,
+    costAntibodyB: number,
+    costAntibodyC: number,
 }
 
-const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
+const Field = ({ X, Y, posX, posY, hp, hpMax, type, money, virus, antibody }: any) => {
 
     let m = 0
     let n = 0
+
+    let countVirus = 0
+    let countAntibody = 0
+    let allUnit = 0
 
     let positionX = posX
     let positionY = posY
@@ -72,14 +76,22 @@ const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
     // console.log("//////////// Type: "+Type?.at(0))
     // console.log("//////////// Credit: "+Credit)
 
-    if(X != undefined && Y != undefined){
+    if (X != undefined && Y != undefined) {
         m = X
         n = Y
     }
-    let maxScale 
+
+    if (virus != undefined && antibody != undefined) {
+        countVirus = virus
+        countAntibody = antibody
+        allUnit = countVirus + countAntibody
+
+    }
+
+    let maxScale
     let winWidth = window.innerWidth - 400
     let winHeight = window.innerHeight - 200
-    
+
     let x_scale: number = winWidth / m
     let y_scale: number = winHeight / n
     // console.log("width:" + winWidth)
@@ -102,13 +114,13 @@ const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
     }
 
     console.log("maxScale: " + Math.round(maxScale))
-    
+
     maxScale = Math.round(maxScale)
     let setMap: JSX.Element[][] = new Array(n)
 
     let img = ""
     let indexX = 0;
-    let indexY = 0; 
+    let indexY = 0;
     let unitHp = 0;
     let unitMaxHp = 0;
     let getType = 0;
@@ -116,73 +128,136 @@ const Field = ({X,Y,posX,posY,hp,hpMax,type,money}:any) => {
         setMap[i] = new Array(m)
         indexY = positionY?.indexOf(i)
         for (let j = 0; j < m; j++) {
-            indexX = positionX?.indexOf(j)
-            if(indexX == indexY && indexX != -1 && indexY != -1){
-                unitHp = Hp?.at(indexX)
-                unitMaxHp = maxHp?.at(indexX)
-                getType = Type?.at(indexX )
-                if(getType == 1){
-                    img = virusA
+            setMap[i][j] = <img src={slot} alt="" style={{
+                position: "relative",
+                width: `${maxScale}px`,
+                height: `${maxScale}px`,
+                margin: 0
+
+            }} />
+            for (let k = 0; k < allUnit; k++) {
+                indexX = positionX?.at(k)
+                indexY = positionY?.at(k)
+                if ((indexX == j) && (indexY == i)) {
+                    unitHp = Hp?.at(k)
+                    unitMaxHp = maxHp?.at(k)
+                    getType = Type?.at(k)
+                    if (getType == 1) {
+                        img = virusA
+                    }
+                    else if (getType == 2) {
+                        img = virusB
+                    }
+                    else if (getType == 3) {
+                        img = virusC
+                    }
+                    else if (getType == 4) {
+                        img = antibodyA
+                    }
+                    else if (getType == 5) {
+                        img = antibodyB
+                    }
+                    else if (getType == 6) {
+                        img = antibodyC
+                    }
+                    setMap[i][j] =
+                        // <img src={img} alt="" style={{
+                        //         position: "relative",
+                        //         width: `${maxScale}px`,
+                        //         height: `${maxScale}px`,
+                        //         margin: 0
+                        //         }} />
+                        <div style={{
+                            position: "relative",
+                            width: `${maxScale}px`,
+                            height: `${maxScale}px`,
+                            margin: 0
+                        }}>
+                            <img src={slot} alt="" style={{
+                                position: "relative",
+                                width: `${maxScale}px`,
+                                height: `${maxScale}px`,
+                                margin: 0
+                            }} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+                            <img src={img} style={{
+                                position: "relative",
+                                width: `${maxScale - (maxScale / 3)}px`,
+                                height: `${maxScale - (maxScale / 3)}px`,
+                                margin: 0
+                            }} className="absolute -top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2" />
+                            <p className="absolute bottom-1 left-1/2 transform -translate-x-1/2  font-Righteous text-black font-semibold">
+                                {unitHp}</p>
+                        </div>
                 }
-                else if(getType == 2){
-                    img = virusB
-                }
-                else if(getType == 3){
-                    img = virusC
-                }
-                else if(getType == 4){
-                    img = antibodyA
-                }
-                else if(getType == 5){
-                    img = antibodyB
-                }
-                else if(getType == 6){
-                    img = antibodyC
-                }
-                setMap[i][j] = 
-                // <img src={img} alt="" style={{
-                //         position: "relative",
-                //         width: `${maxScale}px`,
-                //         height: `${maxScale}px`,
-                //         margin: 0
-                //         }} />
-                <div style={{
-                    position: "relative",
-                    width: `${maxScale}px`,
-                    height: `${maxScale}px`,
-                    margin: 0
-                }}>
-                    <img src={slot} alt="" style={{
-                    position: "relative",
-                    width: `${maxScale}px`,
-                    height: `${maxScale}px`,
-                    margin: 0
-                    }} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"/>
-                    <img src={img} style={{
-                    position: "relative",
-                    width: `${maxScale-(maxScale/3)}px`,
-                    height: `${maxScale-(maxScale/3)}px`,
-                    margin: 0
-                }} className="absolute -top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"/>
-                    <p className="absolute bottom-1 left-1/2 transform -translate-x-1/2  font-Righteous text-black font-semibold">
-                        {unitHp}/{unitMaxHp}</p>
-                </div>
-            }else{
-                setMap[i][j] = <img src={slot} alt="" style={{
-                    position: "relative",
-                    width: `${maxScale}px`,
-                    height: `${maxScale}px`,
-                    margin: 0
-    
-                }} />
-            }     
+            }
+
+            // indexX = positionX?.indexOf(j)
+            // if(indexX == indexY && indexX != -1 && indexY != -1){
+            //     unitHp = Hp?.at(indexX)
+            //     unitMaxHp = maxHp?.at(indexX)
+            //     getType = Type?.at(indexX )
+            //     if(getType == 1){
+            //         img = virusA
+            //     }
+            //     else if(getType == 2){
+            //         img = virusB
+            //     }
+            //     else if(getType == 3){
+            //         img = virusC
+            //     }
+            //     else if(getType == 4){
+            //         img = antibodyA
+            //     }
+            //     else if(getType == 5){
+            //         img = antibodyB
+            //     }
+            //     else if(getType == 6){
+            //         img = antibodyC
+            //     }
+            //     setMap[i][j] = 
+            //     // <img src={img} alt="" style={{
+            //     //         position: "relative",
+            //     //         width: `${maxScale}px`,
+            //     //         height: `${maxScale}px`,
+            //     //         margin: 0
+            //     //         }} />
+            //     <div style={{
+            //         position: "relative",
+            //         width: `${maxScale}px`,
+            //         height: `${maxScale}px`,
+            //         margin: 0
+            //     }}>
+            //         <img src={slot} alt="" style={{
+            //         position: "relative",
+            //         width: `${maxScale}px`,
+            //         height: `${maxScale}px`,
+            //         margin: 0
+            //         }} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"/>
+            //         <img src={img} style={{
+            //         position: "relative",
+            //         width: `${maxScale-(maxScale/3)}px`,
+            //         height: `${maxScale-(maxScale/3)}px`,
+            //         margin: 0
+            //     }} className="absolute -top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"/>
+            //         <p className="absolute bottom-1 left-1/2 transform -translate-x-1/2  font-Righteous text-black font-semibold">
+            //             {unitHp}/{unitMaxHp}</p>
+            //     </div>
+            // }else{
+            //     setMap[i][j] = <img src={slot} alt="" style={{
+            //         position: "relative",
+            //         width: `${maxScale}px`,
+            //         height: `${maxScale}px`,
+            //         margin: 0
+
+            //     }} />
+            // }     
         }
     }
 
-    return(
+    return (
         <div>
-            {setMap.map((y: JSX.Element[]) => { return <tr>{y.map((x:JSX.Element) => {return <td>{x}</td>})} </tr>})}
-            
+            {setMap.map((y: JSX.Element[]) => { return <tr>{y.map((x: JSX.Element) => { return <td>{x}</td> })} </tr> })}
+
         </div>
     )
 }
