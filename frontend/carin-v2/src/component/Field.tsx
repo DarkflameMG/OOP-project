@@ -113,7 +113,7 @@ const Field = ({ X, Y, posX, posY, hp, hpMax, type, money, virus, antibody }: an
         }
     }
 
-    console.log("maxScale: " + Math.round(maxScale))
+    // console.log("maxScale: " + Math.round(maxScale))
 
     maxScale = Math.round(maxScale)
     let setMap: JSX.Element[][] = new Array(n)
@@ -145,19 +145,19 @@ const Field = ({ X, Y, posX, posY, hp, hpMax, type, money, virus, antibody }: an
                     if (getType == 1) {
                         img = virusA
                     }
-                    else if (getType == 2) {
+                    if (getType == 2) {
                         img = virusB
                     }
-                    else if (getType == 3) {
+                    if (getType == 3) {
                         img = virusC
                     }
-                    else if (getType == 4) {
+                    if (getType == 6) {
                         img = antibodyA
                     }
-                    else if (getType == 5) {
+                    if (getType == 5) {
                         img = antibodyB
                     }
-                    else if (getType == 6) {
+                    if (getType == 4) {
                         img = antibodyC
                     }
                     setMap[i][j] =
@@ -185,7 +185,7 @@ const Field = ({ X, Y, posX, posY, hp, hpMax, type, money, virus, antibody }: an
                                 height: `${maxScale - (maxScale / 3)}px`,
                                 margin: 0
                             }} className="absolute -top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2" />
-                            <p className="absolute bottom-1 left-1/2 transform -translate-x-1/2  font-Righteous text-black font-semibold">
+                            <p className="absolute bottom-1 left-1/2 transform  -translate-x-1/2  font-Righteous text-black font-semibold">
                                 {unitHp}</p>
                         </div>
                 }
