@@ -66,4 +66,10 @@ public interface Unit {
     int SensorNearby(int direction);
 
     void run() throws TokenizerError, SyntaxError;
+
+    int getCoordinateX();
+
+    int getCoordinateY();
+
+    int getSpecies();
 }

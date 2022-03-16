@@ -73,7 +73,24 @@ public class UnitImp implements Unit {
     {
         return coordinateY;
     }
-    
+
+    public int getSpecies()
+    {
+        if(species.equals("Mimi"))
+            return 1;
+        else if(species.equals("Karon"))
+            return 2;
+        else if(species.equals("Abnormal"))
+            return 3;
+        else if(species.equals("PongPong"))
+            return 4;
+        else if(species.equals("Machina"))
+            return 5;
+        else if(species.equals("Momotaros"))
+            return 6;
+        return 0;
+    }
+
     public void move(int direction)
     {
         FieldImp field = FieldImp.getInstance(10,10);
