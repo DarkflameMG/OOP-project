@@ -3,11 +3,13 @@ package com.carin.carinProject;
 
 import com.carin.carinProject.classes.MainGame;
 import com.carin.carinProject.classes.Shop;
+import com.carin.carinProject.classes.TestGame;
 import com.carin.carinProject.classes.parse.SyntaxError;
 import com.carin.carinProject.classes.parse.TokenizerError;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.Map;
 
 
@@ -20,10 +22,11 @@ public class inputController {
     private MainGame mainGame = MainGame.getInstance();
 
     @PostMapping("/startgame")
-    public void add(){
+    public void add() throws SyntaxError, IOException, TokenizerError {
 
         mainGame.setGame_start();
         System.out.println("start");
+        TestGame.Run();
     }
 
     @PostMapping("/pause")
