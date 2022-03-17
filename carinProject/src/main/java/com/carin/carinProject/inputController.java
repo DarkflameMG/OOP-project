@@ -47,6 +47,12 @@ public class inputController {
         mainGame.decreaseGame_speed();
     }
 
+    @PostMapping("/quit")
+    public void quit(){
+//        mainGame.pause();
+        System.out.println("quit");
+    }
+
     @PostMapping("/getAntibodyxy")
     public void GetANtibodyXY(@RequestBody Map<String,Integer> body) throws SyntaxError, TokenizerError {
 //        mainGame.resume();

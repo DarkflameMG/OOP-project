@@ -43,6 +43,7 @@ export type gameDataType = {
 
 const Maingame = () => {
     const [pause, setPause] = useState<boolean>(false);
+    const [quitbutton, setQuit] = useState<boolean>(false);
 
     const [open, setOpen] = useState(false);
     //--------------Status-------------------------------------------
@@ -183,6 +184,19 @@ const Maingame = () => {
     })
     }
 
+    function quit() {
+        setQuit(true)
+        console.log("Quit")
+        const Quitbutton = true
+        fetch("http://localhost:8080/input/quit", {
+           method: "POST",
+           headers: {"Content-Type" : "application/json"},
+           body: JSON.stringify(Quitbutton)
+       }).then(()=>{
+        console.log("quit")
+    })
+    }
+
     var speedUp = ">>"
     var speedDown = "<<"
 
@@ -261,7 +275,7 @@ const Maingame = () => {
                                     {/*body*/}
                                     <div className="flex flex-col px-9 py-2 pause">
                                         <button className="font-Righteous px-3 my-2 " onClick={() => { handleClose(); unPause(); }} >Restart</button>
-                                        <button className="font-Righteous">
+                                        <button className="font-Righteous" onClick={() => {quit();}}>
                                             <Link to='/'>
                                                 Quit
                                             </Link>
