@@ -22,7 +22,11 @@ export const setBuyingUnit = (unit:string) =>{
     }
     return numAntibody
 }
-export {numAntibody}
+// export {numAntibody}
+
+export const getAntiboody = () => {
+    return numAntibody
+}
 
 const Shop = ({costA,costB,costC}:any) =>{
     const [AntiA,setAntiA] = useState<String>("")

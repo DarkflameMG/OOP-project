@@ -11,7 +11,7 @@ import virusA from '../image/virusA.png';
 import virusB from '../image/virusB.png';
 import virusC from '../image/virusC.png';
 
-import { numAntibody } from './Shop'
+import { setBuyingUnit , getAntiboody} from './Shop'
 
 
 
@@ -58,12 +58,12 @@ const clickPlaceAntibody = (X:number,Y: number) => {
 
     let placeX = X
     let placeY = Y
-    // let chooseAntibody
-    console.log("placeAntibody x: " +placeX + " y: " + placeY + " antibody :" + {numAntibody})
+    let chooseAntibody = getAntiboody
+    console.log("placeAntibody x: " +placeX + " y: " + placeY + " antibody :" + getAntiboody())
     // fetch("http://localhost:8080/input/getAntibodyXY"), {
     //     method: "POST",
     //        headers: {"Content-Type" : "application/json"},
-    //        body: JSON.stringify(placeX, placeY)
+    //        body: JSON.stringify(placeX, placeY, chooseAntibody)
     //    }).then(()=>{
     //        console.log("send x y of antibody")
     //    })
