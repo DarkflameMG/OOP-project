@@ -45,4 +45,9 @@ public class inputController {
         mainGame.decreaseGame_speed();
     }
 
+    @PostMapping("/getAntibodyXY")
+    public void GetANtibodyXY(){
+        mainGame.resume();
+    }
+
 }
