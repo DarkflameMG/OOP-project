@@ -12,6 +12,11 @@ public class Credit {
         return instance;
     }
 
+    public void restart()
+    {
+        credit = ConfigImp.getAntibody_start_credit();
+    }
+
     public void CreditGain()
     {
         credit += gainCredit;

@@ -28,6 +28,11 @@ public class UnitCollection {
         return instance;
     }
 
+    public void newCollection()
+    {
+        allUnit = new ConcurrentHashMap<>();
+    }
+
     public void addUnit(Unit unit)
     {
         allUnit.put(unit,unit);

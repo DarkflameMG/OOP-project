@@ -21,10 +21,31 @@ public class MainGame {
     private int virus_count = 0;
     private static int current_state = 0;
     private static int current_speed = 1;
+    private static int gameEnd = 0;
 
     public static int getCurrent_state()
     {
         return current_state;
+    }
+
+    public static int getGameEnd()
+    {
+        return gameEnd;
+    }
+
+    public static void setGameEnd(int i)
+    {
+        gameEnd = i;
+    }
+
+    public void notend()
+    {
+        MainGame.setGameEnd(0);
+    }
+
+    public void end()
+    {
+        MainGame.setGameEnd(1);
     }
 
     public static int getCurrent_speed()

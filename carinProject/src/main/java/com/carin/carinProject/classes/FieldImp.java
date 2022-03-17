@@ -23,6 +23,11 @@ public class FieldImp implements Field {
         return instance;
     }
 
+    public void restart()
+    {
+        slot = new Unit[ConfigImp.getN()+1][ConfigImp.getM()+1];
+    }
+
     public void placeUnit(int x, int y, Unit unit)
     {
         slot[y][x] = unit;

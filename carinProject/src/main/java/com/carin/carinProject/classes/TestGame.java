@@ -13,11 +13,15 @@ public class TestGame {
     public static void main(String[] args) throws IOException, SyntaxError, TokenizerError {
         ConfigImp.ReadFile();
         geneImp.Run();
-        FieldImp field = FieldImp.getInstance(ConfigImp.getM(),ConfigImp.getN());
+        FieldImp field = FieldImp.getInstance(0,0);
+        field.restart();
         Credit credit = Credit.getInstance();
+        credit.restart();
         MainGame game = MainGame.getInstance();
+        game.notend();
         Shop shop = Shop.getInstance();
         UnitCollection allU = UnitCollection.getInstance();
+        allU.newCollection();
 
         shop.buy("Machina",0,0);
         shop.buy("PongPong",1,4);
@@ -74,6 +78,8 @@ public class TestGame {
 //            System.out.println(UnitData.getInstance().getPosY());
 //            System.out.println(UnitData.getInstance().getType());
             if((v_num ==0 || a_num ==0) && game.getVirus_count() >= 3 && shop.getAntibody_count() >=3)
+                break;
+            if(MainGame.getGameEnd() == 1)
                 break;
             try {
                 Thread.sleep(game.current_speedTime());
