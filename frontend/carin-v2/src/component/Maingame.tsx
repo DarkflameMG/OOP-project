@@ -194,7 +194,13 @@ const Maingame = () => {
            body: JSON.stringify(Quitbutton)
        }).then(()=>{
         console.log("quit")
+        setQuit(false)
+        const Quitbutton = false
     })
+
+    const unquit = () =>{
+
+    }
     }
 
     var speedUp = ">>"
