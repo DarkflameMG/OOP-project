@@ -44,6 +44,7 @@ export type gameDataType = {
 const Maingame = () => {
     const [pause, setPause] = useState<boolean>(false);
     const [quitbutton, setQuit] = useState<boolean>(false);
+    const [restartbutton, setRestart] = useState<boolean>(false);
 
     const [open, setOpen] = useState(false);
     //--------------Status-------------------------------------------
@@ -138,24 +139,24 @@ const Maingame = () => {
         console.log("speed up clicked")
         const speedup = true
         fetch("http://localhost:8080/input/speedup", {
-           method: "POST",
-           headers: {"Content-Type" : "application/json"},
-           body: JSON.stringify(speedup)
-       }).then(()=>{
-        console.log("up speed")
-    })
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(speedup)
+        }).then(() => {
+            console.log("up speed")
+        })
     }
 
     function clickSpeedDown() {
         console.log("speed down clicked")
         const speeddown = true
         fetch("http://localhost:8080/input/speeddown", {
-           method: "POST",
-           headers: {"Content-Type" : "application/json"},
-           body: JSON.stringify(speeddown)
-       }).then(()=>{
-        console.log("up speed")
-    })
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(speeddown)
+        }).then(() => {
+            console.log("up speed")
+        })
     }
 
     function clickPause() {
@@ -163,12 +164,12 @@ const Maingame = () => {
         console.log("pause clicked")
         const pauseGame = true
         fetch("http://localhost:8080/input/pause", {
-           method: "POST",
-           headers: {"Content-Type" : "application/json"},
-           body: JSON.stringify(pauseGame)
-       }).then(()=>{
-        console.log("pause Game")
-    })
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(pauseGame)
+        }).then(() => {
+            console.log("pause Game")
+        })
     }
 
     function unPause() {
@@ -176,12 +177,12 @@ const Maingame = () => {
         console.log("unPause")
         const Unpause = true
         fetch("http://localhost:8080/input/unpause", {
-           method: "POST",
-           headers: {"Content-Type" : "application/json"},
-           body: JSON.stringify(Unpause)
-       }).then(()=>{
-        console.log("Unpause")
-    })
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(Unpause)
+        }).then(() => {
+            console.log("Unpause")
+        })
     }
 
     function quit() {
@@ -201,7 +202,21 @@ const Maingame = () => {
     const unquit = () =>{
 
     }
+
+    function restart() {
+        setRestart(true)
+        console.log("Restart")
+        const Quitbutton = true
+        fetch("http://localhost:8080/input/restart", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(Quitbutton)
+        }).then(() => {
+            console.log("restart")
+        })
     }
+
+
 
     var speedUp = ">>"
     var speedDown = "<<"
@@ -241,7 +256,7 @@ const Maingame = () => {
                     <TransformWrapper centerOnInit={true} initialScale={0.9} limitToBounds={false} minScale={0.5} maxScale={100} >
 
                         <TransformComponent >
-                            <div className='' style={{ width: gameScreenWidth, height: gameScreenHeight-35 }}>
+                            <div className='' style={{ width: gameScreenWidth, height: gameScreenHeight - 35 }}>
                                 <div className='flex items-center justify-center'>
                                     <Field X={M} Y={N} posX={posX} posY={posY} money={money} hp={hp} hpMax={hpMax} type={type} virus={virus} antibody={antibody}></Field>
                                 </div>
@@ -251,7 +266,7 @@ const Maingame = () => {
 
 
                     </TransformWrapper>
-                    <div className ='textEndgame'>
+                    <div className='textEndgame'>
                         {virus == 0 && <h1>You're still alive!</h1>}
                         {antibody == 0 && <h1>You're LOSER</h1>}
                     </div>
@@ -280,8 +295,8 @@ const Maingame = () => {
                                     </h3>
                                     {/*body*/}
                                     <div className="flex flex-col px-9 py-2 pause">
-                                        <button className="font-Righteous px-3 my-2 " onClick={() => { handleClose(); unPause(); }} >Restart</button>
-                                        <button className="font-Righteous" onClick={() => {quit();}}>
+                                        <button className="font-Righteous px-3 my-2 " onClick={() => { handleClose(); unPause(); restart(); }} >Restart</button>
+                                        <button className="font-Righteous" onClick={() => { quit(); }}>
                                             <Link to='/'>
                                                 Quit
                                             </Link>
