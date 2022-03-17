@@ -198,7 +198,7 @@ const Maingame = () => {
         // setQuit(false)
         // const Quitbutton = false
     })
-
+    }
     const unquit = () =>{
 
     }
