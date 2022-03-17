@@ -26,6 +26,8 @@ public class FieldImp implements Field {
     public void restart()
     {
         slot = new Unit[ConfigImp.getN()+1][ConfigImp.getM()+1];
+        num_antibody = 0;
+        num_virus = 0;
     }
 
     public void placeUnit(int x, int y, Unit unit)
