@@ -189,68 +189,7 @@ const Field = ({ X, Y, posX, posY, hp, hpMax, type, money, virus, antibody }: an
                                 {unitHp}</p>
                         </div>
                 }
-            }
-
-            // indexX = positionX?.indexOf(j)
-            // if(indexX == indexY && indexX != -1 && indexY != -1){
-            //     unitHp = Hp?.at(indexX)
-            //     unitMaxHp = maxHp?.at(indexX)
-            //     getType = Type?.at(indexX )
-            //     if(getType == 1){
-            //         img = virusA
-            //     }
-            //     else if(getType == 2){
-            //         img = virusB
-            //     }
-            //     else if(getType == 3){
-            //         img = virusC
-            //     }
-            //     else if(getType == 4){
-            //         img = antibodyA
-            //     }
-            //     else if(getType == 5){
-            //         img = antibodyB
-            //     }
-            //     else if(getType == 6){
-            //         img = antibodyC
-            //     }
-            //     setMap[i][j] = 
-            //     // <img src={img} alt="" style={{
-            //     //         position: "relative",
-            //     //         width: `${maxScale}px`,
-            //     //         height: `${maxScale}px`,
-            //     //         margin: 0
-            //     //         }} />
-            //     <div style={{
-            //         position: "relative",
-            //         width: `${maxScale}px`,
-            //         height: `${maxScale}px`,
-            //         margin: 0
-            //     }}>
-            //         <img src={slot} alt="" style={{
-            //         position: "relative",
-            //         width: `${maxScale}px`,
-            //         height: `${maxScale}px`,
-            //         margin: 0
-            //         }} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"/>
-            //         <img src={img} style={{
-            //         position: "relative",
-            //         width: `${maxScale-(maxScale/3)}px`,
-            //         height: `${maxScale-(maxScale/3)}px`,
-            //         margin: 0
-            //     }} className="absolute -top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2"/>
-            //         <p className="absolute bottom-1 left-1/2 transform -translate-x-1/2  font-Righteous text-black font-semibold">
-            //             {unitHp}/{unitMaxHp}</p>
-            //     </div>
-            // }else{
-            //     setMap[i][j] = <img src={slot} alt="" style={{
-            //         position: "relative",
-            //         width: `${maxScale}px`,
-            //         height: `${maxScale}px`,
-            //         margin: 0
-
-            //     }} />
-            // }     
+            }     
         }
     }
 
