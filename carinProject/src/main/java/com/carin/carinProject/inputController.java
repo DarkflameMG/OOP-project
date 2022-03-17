@@ -54,15 +54,21 @@ public class inputController {
     public void quit(){
 //        mainGame.pause();
         System.out.println("quit");
+        mainGame.resume();
+        mainGame.end();
+    }
+
+    @PostMapping("/restart")
+    public void restart() throws SyntaxError, IOException, TokenizerError {
+//        mainGame.pause();
+        System.out.println("restart");
+        mainGame.resume();
+        mainGame.end();
+        add();
     }
 
     @PostMapping("/getAntibodyxy")
     public void GetANtibodyXY(@RequestBody Map<String,Integer> body) throws SyntaxError, TokenizerError {
-//        mainGame.resume();
-//        System.out.println(x+" "+y+" "+t);
-//        System.out.println(body.get("type"));
-//        System.out.println(body.get("x"));
-//        System.out.println(body.get("y"));
         Shop.getInstance().buy(body.get("type"),body.get("x"),body.get("y"));
     }
 

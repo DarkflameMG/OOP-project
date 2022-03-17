@@ -16,9 +16,8 @@ import java.io.IOException;
 @RestController
 public class CarinProjectApplication {
 	
-	public static void main(String[] args) throws SyntaxError, IOException, TokenizerError {
+	public static void main(String[] args) throws IOException {
 		ConfigImp.ReadFile();
 		SpringApplication.run(CarinProjectApplication.class, args);
-		TestGame.main(args);
 	}	
 }
