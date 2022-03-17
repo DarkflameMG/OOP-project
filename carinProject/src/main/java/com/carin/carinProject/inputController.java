@@ -35,4 +35,14 @@ public class inputController {
         mainGame.resume();
     }
 
+    @PostMapping("/speedup")
+    public void speedUp(){
+        mainGame.increaseGame_speed();
+    }
+
+    @PostMapping("/speeddown")
+    public void speedDown(){
+        mainGame.decreaseGame_speed();
+    }
+
 }

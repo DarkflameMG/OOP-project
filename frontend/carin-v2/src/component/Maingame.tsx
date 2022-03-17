@@ -135,10 +135,26 @@ const Maingame = () => {
 
     function clickSpeedUP() {
         console.log("speed up clicked")
+        const speedup = true
+        fetch("http://localhost:8080/input/speedup", {
+           method: "POST",
+           headers: {"Content-Type" : "application/json"},
+           body: JSON.stringify(speedup)
+       }).then(()=>{
+        console.log("up speed")
+    })
     }
 
     function clickSpeedDown() {
         console.log("speed down clicked")
+        const speeddown = true
+        fetch("http://localhost:8080/input/speeddown", {
+           method: "POST",
+           headers: {"Content-Type" : "application/json"},
+           body: JSON.stringify(speeddown)
+       }).then(()=>{
+        console.log("up speed")
+    })
     }
 
     function clickPause() {

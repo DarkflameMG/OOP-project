@@ -58,14 +58,20 @@ public class MainGame {
 
     public void increaseGame_speed()
     {
-        if(game_speed < 3)
-            game_speed++;
+        if(MainGame.getCurrent_speed() < 3)
+        {
+            int speed = MainGame.getCurrent_speed()+1;
+            MainGame.setCurrent_speed(speed);
+        }
     }
 
     public void decreaseGame_speed()
     {
-        if(game_speed > 0)
-            game_speed--;
+        if(MainGame.getCurrent_speed() > 0)
+        {
+            int speed = MainGame.getCurrent_speed()-1;
+            MainGame.setCurrent_speed(speed);
+        }
     }
 
     public void pause()
@@ -88,12 +94,12 @@ public class MainGame {
 
     public int current_speedTime()
     {
-        if(game_speed <= 1 )
+        if(MainGame.getCurrent_speed() <= 1 )
             return 3000;
-        else if(game_speed == 2)
-            return 250;
+        else if(MainGame.getCurrent_speed() == 2)
+            return 2000;
         else
-            return 100;
+            return 1500;
     }
 
     public void setGame_start()
