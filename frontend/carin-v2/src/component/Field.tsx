@@ -60,16 +60,15 @@ const clickPlaceAntibody = (X:number,Y: number) => {
     let placeY = Y
     let chooseAntibody = getAntiboody
     console.log("placeAntibody x: " +placeX + " y: " + placeY + " antibody :" + getAntiboody())
-    // fetch("http://localhost:8080/input/getAntibodyXY"), {
-    //     method: "POST",
-    //        headers: {"Content-Type" : "application/json"},
-    //        body: JSON.stringify(placeX, placeY, chooseAntibody)
-    //    }).then(()=>{
-    //        console.log("send x y of antibody")
-    //    })
-    // }
+    fetch("http://localhost:8080/input/getAntibodyxy", {
+        method: "POST",
+           headers: {"Content-Type" : "application/json"},
+           body: JSON.stringify({ x: placeX, y: placeY, type: chooseAntibody })
+       }).then(()=>{
+           console.log("send x y of antibody")
+       })
+    }
 
-}
 
 const Field = ({ X, Y, posX, posY, hp, hpMax, type, money, virus, antibody }: any) => {
 
