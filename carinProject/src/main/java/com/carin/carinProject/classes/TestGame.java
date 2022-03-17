@@ -33,9 +33,10 @@ public class TestGame {
         while((v_num !=0 && a_num !=0) ||  v_num != ConfigImp.getM()*ConfigImp.getN())
 //        for(int k=0;k<10;k++)
         {
-            while (game.getGame_speed() == 0)
+            System.out.println("speed "+MainGame.getCurrent_speed());
+            while (MainGame.getCurrent_speed() == 0)
             {
-
+                System.out.println("pause");
             }
             game.VirusSpawn();
             v_num = field.getNum_virus();

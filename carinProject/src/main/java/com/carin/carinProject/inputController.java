@@ -21,10 +21,18 @@ public class inputController {
     public void add(){
 
         mainGame.setGame_start();
-        System.out.println(mainGame.getGame_start());
-//       MainGame.getInstance().setGame_startStatic();
-//       System.out.println("start");
-//       return mainGame.getInstance().getGame_start();
+        System.out.println("start");
+    }
+
+    @PostMapping("/pause")
+    public void pause(){
+        mainGame.pause();
+        System.out.println("pause");
+    }
+//
+    @PostMapping("/unpause")
+    public void Unpause(){
+        mainGame.resume();
     }
 
 }

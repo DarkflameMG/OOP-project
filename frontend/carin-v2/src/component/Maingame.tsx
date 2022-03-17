@@ -128,6 +128,14 @@ const Maingame = () => {
 
     const handleOpen = () => {
         setOpen(true);
+        const pauseGame = true
+        fetch("http://localhost:8080/input/pause", {
+           method: "POST",
+           headers: {"Content-Type" : "application/json"},
+           body: JSON.stringify(pauseGame)
+       }).then(()=>{
+        console.log("pause Game")
+    })
     }
     const handleClose = () => {
         setOpen(false);
@@ -149,6 +157,14 @@ const Maingame = () => {
     function unPause() {
         setPause(false)
         console.log("unPause")
+        const Unpause = true
+        fetch("http://localhost:8080/input/unpause", {
+           method: "POST",
+           headers: {"Content-Type" : "application/json"},
+           body: JSON.stringify(Unpause)
+       }).then(()=>{
+        console.log("Unpause")
+    })
     }
 
     var speedUp = ">>"

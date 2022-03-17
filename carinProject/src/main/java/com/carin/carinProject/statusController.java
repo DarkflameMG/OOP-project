@@ -14,5 +14,8 @@ public class statusController {
     @GetMapping
     public Status getStatus(){
         return new Status();
-    } 
+    }
+
+    public static class PauseController {
+    }
 }

@@ -5,6 +5,7 @@ import com.carin.carinProject.classes.Units.VirusFactory;
 import com.carin.carinProject.classes.parse.SyntaxError;
 import com.carin.carinProject.classes.parse.TokenizerError;
 import com.carin.carinProject.interfaces.Unit;
+import com.sun.tools.javac.Main;
 import org.springframework.stereotype.Service;
 
 import java.util.Random;
@@ -19,15 +20,26 @@ public class MainGame {
     private final Random rand;
     private int virus_count = 0;
     private static int current_state = 0;
+    private static int current_speed = 1;
 
     public static int getCurrent_state()
     {
         return current_state;
     }
 
+    public static int getCurrent_speed()
+    {
+        return current_speed;
+    }
+
     public static void setCurrent_state()
     {
         current_state = 1;
+    }
+
+    public static void setCurrent_speed(int i)
+    {
+        current_speed = i;
     }
 
     private MainGame()
@@ -54,6 +66,19 @@ public class MainGame {
     {
         if(game_speed > 0)
             game_speed--;
+    }
+
+    public void pause()
+    {
+        System.out.println("pause");
+        game_speed = 0;
+        MainGame.setCurrent_speed(0);
+    }
+
+    public void resume()
+    {
+        game_speed = 1;
+        MainGame.setCurrent_speed(1);
     }
 
     public int getGame_speed()
