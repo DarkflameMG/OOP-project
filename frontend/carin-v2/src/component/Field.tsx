@@ -63,7 +63,7 @@ const clickPlaceAntibody = (X:number,Y: number) => {
     fetch("http://localhost:8080/input/getAntibodyxy", {
         method: "POST",
            headers: {"Content-Type" : "application/json"},
-           body: JSON.stringify({ x: placeX, y: placeY, type: chooseAntibody })
+           body: JSON.stringify({ x: placeX, y: placeY, type: getAntiboody() })
        }).then(()=>{
            console.log("send x y of antibody")
        })

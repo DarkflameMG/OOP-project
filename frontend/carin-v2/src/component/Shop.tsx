@@ -12,13 +12,13 @@ export const setBuyingUnit = (unit:string) =>{
     // let numAntibody = 0
     console.log("Buy" + buyingUnit)
     if(unit=="AntibodyA"){
-        numAntibody = 4
+        numAntibody = 6
     }
     else if(unit=="AntibodyB"){
         numAntibody = 5
     }
     else if(unit=="AntibodyC"){
-        numAntibody = 6
+        numAntibody = 4
     }
     return numAntibody
 }
@@ -45,7 +45,7 @@ const Shop = ({costA,costB,costC}:any) =>{
                     </p>
 
                     <p className='antibody-text slot-shop antibody-set font-Righteous'>antibody C
-                    <button><img className='my-0.7' src={antibodyC} height={100} width={100} onClick = {()=>{setAntiA("AntibodyC"); setBuyingUnit("AntibodyB");}}/></button>
+                    <button><img className='my-0.7' src={antibodyC} height={100} width={100} onClick = {()=>{setAntiA("AntibodyC"); setBuyingUnit("AntibodyC");}}/></button>
                         <p>{costC} $</p>
                     </p>
                 </div>

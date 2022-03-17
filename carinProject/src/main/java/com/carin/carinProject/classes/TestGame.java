@@ -23,9 +23,9 @@ public class TestGame {
         UnitCollection allU = UnitCollection.getInstance();
         allU.newCollection();
 
-        shop.buy("Machina",0,0);
-        shop.buy("PongPong",1,4);
-        shop.buy("Momotaros",2,5);
+//        shop.buy(5,0,0);
+//        shop.buy(4,1,4);
+//        shop.buy(6,2,5);
 
         int v_num = field.getNum_virus();
         int a_num = field.getNum_antibody();

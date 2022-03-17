@@ -29,8 +29,15 @@ public class Shop {
         return antibody_count;
     }
 
-    public void buy(String species,int x,int y) throws SyntaxError, TokenizerError
+    public void buy(int type,int x,int y) throws SyntaxError, TokenizerError
     {
+        String species;
+        if(type == 4)
+            species = "PongPong";
+        else if(type == 5)
+            species = "Machina";
+        else
+            species = "Momotaros";
         if(field.isEmpty(x,y) > 0)
         {
             antibody_count++;

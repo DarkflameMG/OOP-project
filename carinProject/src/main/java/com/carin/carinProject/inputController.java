@@ -2,11 +2,13 @@ package com.carin.carinProject;
 
 
 import com.carin.carinProject.classes.MainGame;
+import com.carin.carinProject.classes.Shop;
+import com.carin.carinProject.classes.parse.SyntaxError;
+import com.carin.carinProject.classes.parse.TokenizerError;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 
 @RestController
@@ -46,8 +48,13 @@ public class inputController {
     }
 
     @PostMapping("/getAntibodyxy")
-    public void GetANtibodyXY(){
-        mainGame.resume();
+    public void GetANtibodyXY(@RequestBody Map<String,Integer> body) throws SyntaxError, TokenizerError {
+//        mainGame.resume();
+//        System.out.println(x+" "+y+" "+t);
+//        System.out.println(body.get("type"));
+//        System.out.println(body.get("x"));
+//        System.out.println(body.get("y"));
+        Shop.getInstance().buy(body.get("type"),body.get("x"),body.get("y"));
     }
 
 }
