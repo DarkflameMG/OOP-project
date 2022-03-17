@@ -11,7 +11,7 @@ import virusA from '../image/virusA.png';
 import virusB from '../image/virusB.png';
 import virusC from '../image/virusC.png';
 
-import { setBuyingUnit , getAntiboody} from './Shop'
+import { setBuyingUnit, getAntiboody } from './Shop'
 
 
 
@@ -54,20 +54,20 @@ export type dataType = {
     costAntibodyC: number,
 }
 
-const clickPlaceAntibody = (X:number,Y: number) => {
+const clickPlaceAntibody = (X: number, Y: number) => {
 
     let placeX = X
     let placeY = Y
     let chooseAntibody = getAntiboody
-    console.log("placeAntibody x: " +placeX + " y: " + placeY + " antibody :" + getAntiboody())
+    console.log("placeAntibody x: " + placeX + " y: " + placeY + " antibody :" + getAntiboody())
     fetch("http://localhost:8080/input/getAntibodyxy", {
         method: "POST",
-           headers: {"Content-Type" : "application/json"},
-           body: JSON.stringify({ x: placeX, y: placeY, type: getAntiboody() })
-       }).then(()=>{
-           console.log("send x y of antibody")
-       })
-    }
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ x: placeX, y: placeY, type: getAntiboody() })
+    }).then(() => {
+        console.log("send x y of antibody")
+    })
+}
 
 
 const Field = ({ X, Y, posX, posY, hp, hpMax, type, money, virus, antibody }: any) => {
@@ -145,7 +145,7 @@ const Field = ({ X, Y, posX, posY, hp, hpMax, type, money, virus, antibody }: an
         setMap[i] = new Array(m)
         indexY = positionY?.indexOf(i)
         for (let j = 0; j < m; j++) {
-            setMap[i][j] = <button onClick={()=>{clickPlaceAntibody(j,i)}}><img src={slot} alt="" style={{
+            setMap[i][j] = <button onClick={() => { clickPlaceAntibody(j, i) }}><img src={slot} alt="" style={{
                 position: "relative",
                 width: `${maxScale}px`,
                 height: `${maxScale}px`,
@@ -184,32 +184,37 @@ const Field = ({ X, Y, posX, posY, hp, hpMax, type, money, virus, antibody }: an
                         //         height: `${maxScale}px`,
                         //         margin: 0
                         //         }} />
-                
-                            <div style={{
+
+                        <div style={{
+                            position: "relative",
+                            width: `${maxScale}px`,
+                            height: `${maxScale}px`,
+                            margin: 0
+                        }}>
+
+                            <img src={slot} alt="" style={{
                                 position: "relative",
                                 width: `${maxScale}px`,
                                 height: `${maxScale}px`,
                                 margin: 0
-                            }}>
+                            }} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
 
-                                <img src={slot} alt="" style={{
-                                    position: "relative",
-                                    width: `${maxScale}px`,
-                                    height: `${maxScale}px`,
-                                    margin: 0
-                                }} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" />
+                            <img src={img} style={{
+                                position: "relative",
+                                width: `${maxScale - (maxScale / 3)}px`,
+                                height: `${maxScale - (maxScale / 3)}px`,
+                                margin: 0
+                            }} className="absolute -top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2" />
+                            {/* <p className="absolute bottom-1 left-1/2 transform  -translate-x-1/2  font-Righteous text-black font-semibold">
+                                {unitHp}</p> */}
 
-                                <img src={img} style={{
-                                    position: "relative",
-                                    width: `${maxScale - (maxScale / 3)}px`,
-                                    height: `${maxScale - (maxScale / 3)}px`,
-                                    margin: 0
-                                }} className="absolute -top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2" />
-                                <p className="absolute bottom-1 left-1/2 transform  -translate-x-1/2  font-Righteous text-black font-semibold">
-                                    {unitHp}</p>
+                            <p style={{
+                                fontSize:`${maxScale/5}px` ,
+                                margin: 0
+                            }} className="absolute bottom-0.5 left-1/2 transform  -translate-x-1/2  font-Righteous text-black font-semibold" >{unitHp}</p>
 
-                            </div>
-                        
+                        </div>
+
                 }
             }
         }
