@@ -266,10 +266,10 @@ const Maingame = () => {
 
 
                     </TransformWrapper>
-                    <div className='textEndgame'>
+                    {/* <div className='textEndgame'>
                         {virus == 0 && <h1>You're still alive!</h1>}
                         {antibody == 0 && <h1>You're LOSER</h1>}
-                    </div>
+                    </div> */}
 
 
                 </div>
@@ -295,7 +295,7 @@ const Maingame = () => {
                                     </h3>
                                     {/*body*/}
                                     <div className="flex flex-col px-9 py-2 pause">
-                                        <button className="font-Righteous px-3 my-2 " onClick={() => { handleClose(); unPause(); restart(); }} >Restart</button>
+                                        {/* <button className="font-Righteous px-3 my-2 " onClick={() => { handleClose(); unPause(); restart(); }} >Restart</button> */}
                                         <button className="font-Righteous" onClick={() => { quit(); }}>
                                             <Link to='/'>
                                                 Quit
