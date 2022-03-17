@@ -116,11 +116,11 @@ public class MainGame {
     public int current_speedTime()
     {
         if(MainGame.getCurrent_speed() <= 1 )
-            return 3000;
-        else if(MainGame.getCurrent_speed() == 2)
             return 2000;
-        else
+        else if(MainGame.getCurrent_speed() == 2)
             return 1500;
+        else
+            return 1000;
     }
 
     public void setGame_start()

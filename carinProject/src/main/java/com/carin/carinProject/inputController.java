@@ -56,6 +56,7 @@ public class inputController {
         System.out.println("quit");
         mainGame.resume();
         mainGame.end();
+        mainGame.resume();
     }
 
     @PostMapping("/restart")
